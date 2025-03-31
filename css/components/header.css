@@ -1,0 +1,71 @@
+/* Header Section */
+.header {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centrar el contenido */
+    align-items: center;
+    background-color: rgba(51, 51, 51, 0.9); /* Fondo semi-transparente */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-light);
+    padding: var(--spacing-md);
+    z-index: var(--z-header);
+}
+
+/* Shine Effects */
+.text-shine {
+    background: linear-gradient(
+        to right,
+        #868686 0%,
+        #fff 10%,
+        #868686 20%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 6s linear infinite;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-semibold);
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+/* Social Links */
+.social-links {
+    position: absolute;
+    right: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 12%;
+    gap: var(--spacing-md);
+}
+
+.social-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: all 0.3s var(--transition-bezier);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    position: relative;
+}
+
+.social-links i {
+    font-size: var(--icon-size2);
+    line-height: 1;
+}
+
+/* Ajuste del hover para mantener la proporción */
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    text-shadow: 0 0 10px var(--primary-color);
+}

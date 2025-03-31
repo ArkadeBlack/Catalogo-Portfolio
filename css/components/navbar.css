@@ -1,0 +1,87 @@
+/* Navigation - Actualizado */
+.navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 75%;
+    margin: auto;
+    border-radius: 10px 10px 0 0;
+    padding: 1rem 2rem;
+    border: 1px solid var(--glass-border);
+    border-bottom: none; 
+    box-shadow: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-medium);
+    transition: all 0.3s var(--transition-bezier);
+    position: relative;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s var(--transition-bezier);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.nav-item:hover {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar input {
+    padding: 0.8rem 1.2rem;
+    width: 250px;
+    border-radius: var(--border-radius-md);
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.search-bar input:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(210, 174, 20, 0.2);
+}

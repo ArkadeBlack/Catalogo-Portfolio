@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wuallua - Mayorista</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // Forzar scroll al inicio
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        window.onbeforeunload = function() {
+            window.scrollTo(0, 0);
+        }
+    </script>
+</head>
+<body onload="window.scrollTo(0, 0)">
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <!-- Header Section -->
+    <header id="inicio" class="header">
+        <div class="text-shine">Importadores Registrados™</div>
+        <div class="social-links">
+            <a href="#" class="social-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:tu@email.com" class="social-email"><i class="far fa-envelope"></i></a>
+        </div>
+    </header>
+
+    <!-- Logo Section -->
+    <section id="logo-section" class="logo-section">
+        <div class="logo-title-container reveal">
+            <h1 class="logo-title">
+                <span class="big-w">W</span>allua 
+                <span class="subtitle">Comercio Mayorista</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Ads Section -->
+    <section class="ads-section reveal">
+        <img src="/assets/Img/Comp-1.gif" alt="Ads" class="imgAds">
+    </section>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar reveal">
+        <div class="nav-links">
+            <a href="#logo-section" class="nav-item">Inicio</a>
+            <a href="#nuestros-productos" class="nav-item">Productos</a>
+            <a href="#nuestras-licencias" class="nav-item">Licencias</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar productos...">
+        </div>
+    </nav>
+
+    <!-- Carousel -->
+    <div class="carousel reveal">
+        <button class="carousel-arrow prev">&#10094;</button>
+        <div class="carousel-item">
+            <img src="/assets/Img/plantilla-carrousel.jpg" alt="Slide 1">
+        </div>
+        <div class="carousel-item">
+            <img src="/assets/Img/plantilla-carrousel.jpg" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img src="/assets/Img/plantilla-carrousel.jpg" alt="Slide 3">
+        </div>
+        <button class="carousel-arrow next">&#10095;</button>
+        
+        <!-- Botones de navegación dentro del carousel -->
+        <div class="carousel-buttons">
+            <button class="carousel-btn" data-index="0"></button>
+            <button class="carousel-btn" data-index="1"></button>
+            <button class="carousel-btn" data-index="2"></button>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section>
+        <div class="big-title-container reveal">
+            <h2 id="nuestros-productos" class="big-title">Nuestros Productos</h2>
+        </div>
+        <div class="products-section reveal">
+            <!-- Los productos se cargarán dinámicamente en JavaScript -->
+        </div>
+    </section>
+
+    <!-- Ver mas Section -->
+    <div class="load-more reveal">
+        <button>Ver Más</button>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-product">
+                <div class="modal-img-container">
+                    <img src="" alt="" class="modal-img">
+                </div>
+                <div class="modal-details">
+                    <h2></h2>
+                    <p class="modal-description"></p>
+                    <p class="modal-price"></p>
+                    <div class="modal-actions">
+                        <button class="modal-btn">Consultar por WhatsApp</button>
+                        <button class="modal-btn">Solicitar más información</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Licencias Section -->
+    <section>
+        <div class="big-title-container reveal">
+            <h2 id="nuestras-licencias" class="big-title">Licencias</h2>
+        </div>
+        <div class="licencias-section reveal reveal-delay-1">
+            <div class="license-card">
+                <img src="/assets/Img/licencias.webp" alt="Licencia 1">
+                <div class="license-details">
+                    <h3>Licencia 1</h3>
+                    <p>Descripción de la licencia</p>
+                </div>
+            </div>
+            <!-- Agrega más license-cards según necesites -->
+        </div>
+    </section>
+
+    <!-- Float Buttons -->
+    <div class="float-buttons">
+        <div class="float-container">
+            <button class="float-btn top" aria-label="Volver arriba">
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            <a href="https://wa.me/TUNUMERODEWHATSAPP" class="float-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Mi Catálogo Web. Todos los derechos reservados.
+            Faltan Responsive
+            Funcionalidades
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

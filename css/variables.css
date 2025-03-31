@@ -1,0 +1,71 @@
+/* Importación de fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Variables globales */
+:root {
+    /* Colores */
+    --primary-color: #d2ae14;
+    --bg-dark: #131313;
+    --bg-light: #333;
+    --bg-lighter: #444;
+    --text-light: white;
+    --modal-bg: rgba(0, 0, 0, 0.5);
+    
+    /* Espaciado */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    
+    /* Bordes */
+    --border-radius-sm: 8px;
+    --border-radius-md: 10px;
+    
+    /* Sombras */
+    --shadow-default: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    /* Capas Z-index */
+    --z-modal: 1000;
+    --z-header: 100;
+    --z-carousel-controls: 10;
+    --z-float-buttons: 90;
+
+    /* Tamaños */
+    --icon-size: 32px; /* Aumentado de 32px a 40px */
+    --icon-size2: 30px;
+    --product-img-height: 300px;
+    --carousel-height: 50vh;
+
+    /* Breakpoints */
+    --bp-mobile: 480px;
+    --bp-tablet: 768px;
+    --bp-desktop: 1024px;
+
+    /* Transiciones */
+    --transition-bezier: cubic-bezier(0.23, 1, 0.320, 1);
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+
+    /* Tipografía */
+    --font-primary: 'Montserrat', sans-serif;
+    --font-size-xs: 0.75rem;    /* 12px */
+    --font-size-sm: 0.875rem;   /* 14px */
+    --font-size-base: 1rem;     /* 16px */
+    --font-size-lg: 1.125rem;   /* 18px */
+    --font-size-xl: 1.25rem;    /* 20px */
+    --font-size-2xl: 1.5rem;    /* 24px */
+    --font-size-3xl: 2rem;      /* 32px */
+    --font-size-4xl: 2.5rem;    /* 40px */
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /* Animation Timings */
+    --title-animation-duration: 1.5s;
+    --title-animation-delay: 0.3s;
+}

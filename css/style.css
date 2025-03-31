@@ -1,0 +1,287 @@
+/* Importar variables y componentes */
+@import url('./variables.css');
+@import url('./components/header.css');
+@import url('./components/navbar.css');
+@import url('./components/carousel.css');
+@import url('./components/products.css');
+@import url('./components/modal.css');
+@import url('./components/footer.css');
+@import url('./components/ads.css');
+@import url('./components/licencias.css');
+@import url('./components/float-buttons.css');
+
+
+/* Estilos base */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 160px; /* Aumentado para compensar navbar + header */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-regular);
+    line-height: 1.6;
+    background-color: var(--bg-dark);   
+}
+
+/* Animaciones */
+@keyframes shine {
+    from { background-position: -200% center; }
+    to { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide {
+    0% { transform: translateX(-25%); }
+    100% { transform: translateX(25%); }
+}
+
+@keyframes lightBeam {
+    from {
+        transform: translateX(-100%) skewX(-15deg);
+    }
+    to {
+        transform: translateX(200%) skewX(-15deg);
+    }
+}
+
+h1 {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-bold);
+}
+
+h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-semibold);
+}
+
+h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-medium);
+}
+
+p {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-regular);
+}
+
+
+/* Logo Section */
+.logo-section {
+    text-align: center;
+    background-color: #000000;
+    padding: 2rem 0;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.logo-title-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.logo-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, 
+        rgba(255,255,255,0.8) 0%, 
+        rgba(255,255,255,0.1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.1em;
+    transform: translateX(-100%);
+    transition: all 1.5s var(--transition-bezier);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.big-w {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    text-shadow: 0 0 15px var(--primary-color);
+}
+
+.subtitle {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    margin-top: 0.5rem;
+}
+
+.logo-section .logo-title-container.reveal.active .logo-title {
+    transform: translateX(0);
+}
+
+/* Efecto de luz para el logo */
+.logo-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: skewX(-15deg);
+    animation: lightBeam 3s infinite linear;
+    filter: blur(5px);
+}
+
+
+/* Clases utilitarias */
+.blur-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.semi-transparent {
+    background-color: rgba(51, 51, 51, 0.9);
+}
+
+/* Optimizaciones de rendimiento */
+.carousel,
+.product-card {
+    will-change: transform;
+}
+
+/* Reducción de animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+
+/* Clase para elementos ocultos visualmente pero accesibles */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Animated Background */
+.bg {
+    animation: slide 4s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, var(--primary-color) 50%, var(--bg-dark) 50%);
+    bottom: 0;
+    left: -50%;
+    opacity: .5;
+    position: fixed;
+    right: -50%;
+    top: 0;
+    z-index: -1;
+}
+
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration: 5s;
+}
+
+.bg3 {
+    animation-duration: 5s;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1s var(--transition-bezier);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.4s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.6s;
+}
+
+/* Titulos grandes con animacion */
+.big-title-container {
+    width: 100%;
+    padding: 5rem 0 0.1rem 0;
+    overflow: hidden;
+}
+
+.big-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 10vw, 5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, 
+        rgba(255,255,255,0.8) 0%, 
+        rgba(0, 0, 0, 0.1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 1;
+    text-align: center;
+    letter-spacing: 0.2em;
+    transform: translateX(-100%);
+    transition: all 1.5s var(--transition-bezier);
+    margin: 0;
+}
+
+.big-title-container.reveal.active .big-title {
+    transform: translateX(0);
+}
+
+/* Efecto de luz */
+.big-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transform: skewX(-15deg);
+    animation: lightBeam 3s infinite linear;
+    filter: blur(5px);
+}
+

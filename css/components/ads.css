@@ -1,0 +1,28 @@
+/* Ads Section - Actualizado */
+.ads-section {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+    justify-content: center;
+}
+
+.imgAds {
+    width: 100%;
+    height: 15vh;
+    display: block;
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    box-shadow: none;
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.imgAds:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}

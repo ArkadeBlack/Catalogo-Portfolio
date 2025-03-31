@@ -1,0 +1,124 @@
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: var(--z-modal);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.3); /* 0.3 para hacerlo más claro */
+    opacity: 0;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: opacity 0.2s var(--transition-bezier);
+}
+
+.modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin: 5% auto;
+    padding: 3rem;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--glass-border);
+    width: 90%;
+    max-width: 900px;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.5s var(--transition-bezier);
+    will-change: transform, opacity;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.close-modal {
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    color: var(--text-light);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.close-modal:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+.modal-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    color: var(--text-light);
+}
+
+.modal-img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius-sm);
+}
+
+.modal-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s var(--transition-bezier);
+}
+
+.modal-details {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modal-details h2 {
+    font-size: var(--font-size-2xl);
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.modal-details p {
+    font-size: var(--font-size-lg);
+    line-height: 1.6;
+}
+
+.modal-price {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-semibold);
+    color: var(--primary-color);
+}
+
+.modal-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.modal-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all 0.3s var(--transition-bezier);
+    background: var(--primary-color);
+    color: var(--bg-dark);
+    font-weight: var(--font-medium);
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--primary-color);
+}
