@@ -8,7 +8,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.3); /* 0.3 para hacerlo más claro */
+    background-color: rgba(0, 0, 0, 0.3);
     opacity: 0;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -74,6 +74,7 @@
     height: 400px;
     object-fit: cover;
     transition: transform 0.5s var(--transition-bezier);
+    border-radius: var(--border-radius-sm);
 }
 
 .modal-details {
@@ -103,7 +104,8 @@
 .modal-actions {
     margin-top: auto;
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .modal-btn {
@@ -121,4 +123,75 @@
 .modal-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 15px var(--primary-color);
+}
+
+.modal-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-light);
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem;
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.modal-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-custom {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    border-radius: 4px;
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.checkbox-custom::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid var(--primary-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.modal-checkbox:hover .checkbox-custom {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(210, 174, 20, 0.2);
+}
+
+.modal-checkbox input:checked ~ .checkbox-custom {
+    background: var(--glass-bg);
+    border-color: var(--primary-color);
+}
+
+.modal-checkbox input:checked ~ .checkbox-custom::after {
+    display: block;
+}
+
+.checkbox-label {
+    font-size: var(--font-size-base);
+    opacity: 0.8;
+    transition: opacity 0.3s var(--transition-bezier);
+}
+
+.modal-checkbox:hover .checkbox-label {
+    opacity: 1;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
 }

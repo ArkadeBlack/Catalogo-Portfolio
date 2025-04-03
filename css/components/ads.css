@@ -15,14 +15,21 @@
     display: block;
     background: var(--glass-bg);
     backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-sm);
     box-shadow: none;
     transition: all 0.3s var(--transition-bezier);
+    object-fit: cover;
 }
 
 .imgAds:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1366px) {
+    .imgAds {
+        height: 120px;
+        object-fit: cover;
+    }
 }

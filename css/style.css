@@ -7,7 +7,7 @@
 @import url('./components/modal.css');
 @import url('./components/footer.css');
 @import url('./components/ads.css');
-@import url('./components/licencias.css');
+@import url('./components/informacion.css');
 @import url('./components/float-buttons.css');
 
 
@@ -86,7 +86,7 @@ p {
 /* Logo Section */
 .logo-section {
     text-align: center;
-    background-color: #000000;
+    background-color: #7a7979;
     padding: 2rem 0;
 }
 
@@ -212,6 +212,10 @@ p {
     animation-duration: 5s;
 }
 
+.bg4 {
+    animation-duration: 6s;
+}
+
 /* Scroll Reveal Animations */
 .reveal {
     opacity: 0;
@@ -245,7 +249,7 @@ p {
 
 .big-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2rem, 10vw, 5rem);
+    font-size:  clamp(1rem, 40vw, 4rem);
     font-weight: 800;
     text-transform: uppercase;
     background: linear-gradient(180deg, 
@@ -256,7 +260,6 @@ p {
     color: transparent;
     opacity: 1;
     text-align: center;
-    letter-spacing: 0.2em;
     transform: translateX(-100%);
     transition: all 1.5s var(--transition-bezier);
     margin: 0;
@@ -283,5 +286,127 @@ p {
     transform: skewX(-15deg);
     animation: lightBeam 3s infinite linear;
     filter: blur(5px);
+}
+
+/* Media Queries - Breakpoints principales */
+@media (max-width: 1366px) {
+    /* Netbooks y pantallas pequeñas */
+    html {
+        scroll-padding-top: 120px;
+    }
+
+    .logo-title {
+        font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+
+    .big-title {
+        font-size: clamp(1rem, 30vw, 3rem);
+    }
+
+    .carousel {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Tablets */
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .nav-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-bar input {
+        width: 200px;
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    .products-section {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .modal-product {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .modal-img {
+        height: 300px;
+    }
+}
+
+@media (max-width: 576px) {
+    /* Móviles */
+    html {
+        scroll-padding-top: 100px;
+    }
+
+    .header {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+    }
+
+    .search-bar input {
+        width: 100%;
+    }
+
+    .products-section {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .modal-img {
+        height: 250px;
+    }
+
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .big-title-container {
+        padding: 2rem 0;
+    }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 360px) {
+    .logo-title {
+        font-size: clamp(1rem, 5vw, 2rem);
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .modal-btn {
+        width: 100%;
+    }
 }
 

@@ -1,7 +1,219 @@
 /* Footer */
 .footer {
-    background-color: var(--bg-dark);
-    color: white;
+    background: #000000;
+    padding: 3rem 0;
+    margin-top: 5rem;
+    color: var(--text-light);
+    margin-bottom: 0; /* Asegurar que no haya margen inferior */
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     text-align: center;
-    padding: 1rem;
+}
+
+/* Common footer title style */
+.footer-title {
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Logo Section */
+.footer-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+/* Licenses Section */
+.footer-licenses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.licenses-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.footer-licenses img {
+    height: 50px;
+    width: auto;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+/* Navigation Section */
+.footer-nav {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.footer-nav li {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.footer-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: var(--font-size-base);
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 0.25rem;
+}
+
+.footer-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s var(--transition-bezier);
+}
+
+.footer-nav a:hover {
+    color: var(--primary-color);
+}
+
+.footer-nav a:hover::after {
+    width: 100%;
+}
+
+.footer-nav .phone {
+    color: var(--primary-color);
+    font-size: var(--font-size-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: default;
+}
+
+/* Contact Section */
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-contact .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-contact .social-links a {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: var(--font-size-base);
+    gap: 1rem;
+}
+
+.footer-contact .social-links i {
+    width: 24px;
+    text-align: center;
+}
+
+.footer-contact .social-links span {
+    font-size: var(--font-size-base);
+}
+
+/* Social Links Section */
+.footer-social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-social-links a {
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: var(--font-size-base);
+    gap: 1rem;
+}
+
+.footer-social-links a:hover {
+    color: var(--primary-color);
+}
+
+.footer-social-links i {
+    width: 24px;
+    text-align: center;
+}
+
+.footer-social-links span {
+    font-size: var(--font-size-base);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        margin-bottom: 0;
+        padding: var(--spacing-sm);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .social-links {
+        align-items: center;
+    }
+
+    .footer-social-links {
+        margin-top: 1.5rem;
+    }
 }

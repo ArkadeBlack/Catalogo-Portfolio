@@ -12,6 +12,7 @@
     border: 1px solid var(--glass-border);
     border-top: none; /* Eliminar borde superior */
     box-shadow: none;
+    z-index: 10;
 }
 
 /* Flechas del carrusel actualizadas */
@@ -128,10 +129,160 @@
     scroll-snap-align: start;
     transition: transform 0.5s ease-in-out;
     margin: 0;
+    z-index: 1; /* Añadido para mantener las imágenes por debajo */
 }
 
 .carousel-item img {
     width: 100%;
-    height: 50vh;
     display: block;
+    position: relative;
+    z-index: 1;
+    height: 50vh;
+}
+
+/* Media Queries */
+@media (max-width: 1366px) {
+    .carousel {
+        max-width: 85%;
+    }
+
+    .carousel-item img {
+        height: auto; /* Permitir altura natural de la imagen */
+        object-fit: cover;
+    }
+}
+
+/* Nuevo breakpoint específico para netbooks */
+@media (max-width: 1280px) {
+    .carousel {
+        max-width: 75%;
+        margin: 0 auto; /* Centrar el carousel */
+        border-top: 1px solid var(--glass-border); /* Agregar borde superior */
+    }
+
+    .carousel-item {
+        height: auto; /* Altura automática */
+    }
+
+    .carousel-item img {
+        height: 400px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 90%;
+    }
+
+    .carousel-item img {
+        height: 350px;
+    }
+
+    .carousel-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 1.1rem;
+    }
+
+    .carousel-buttons {
+        bottom: 15px;
+    }
+
+    .carousel-btn {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel {
+        max-width: 95%;
+        margin: 0.5rem auto;
+        border-radius: var(--border-radius-sm);
+        border: none;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+        background-color: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+    }
+
+    .carousel-arrow.prev {
+        left: 5px;
+    }
+
+    .carousel-arrow.next {
+        right: 5px;
+    }
+
+    .carousel-buttons {
+        bottom: 10px;
+        gap: 8px;
+    }
+
+    .carousel-btn {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .carousel {
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+    }
+
+    .carousel-item img {
+        height: 280px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .carousel-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    .carousel-arrow.prev {
+        left: 8px;
+    }
+
+    .carousel-arrow.next {
+        right: 8px;
+    }
+
+    .carousel-buttons {
+        bottom: 15px;
+        gap: 8px;
+        padding: 6px 12px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+
+    .carousel-btn {
+        width: 8px;
+        height: 8px;
+        border: 1px solid var(--primary-color);
+    }
+
+    .img {
+        height: 15vh;
+    }
 }

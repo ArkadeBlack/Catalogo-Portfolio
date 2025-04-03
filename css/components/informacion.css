@@ -1,5 +1,5 @@
-/* Licencias Section */
-.licencias-section {
+/* Información Section */
+.informacion-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -10,49 +10,56 @@
     box-shadow: none;
     color: white;
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
     max-width: 70%;
+    margin: 2rem auto;
     border-radius: var(--border-radius-md);
-    margin: 2rem auto 4rem;
 }
 
-.license-card {
-    overflow: hidden;
+.info-card {
+    padding: 2rem;
     transition: transform 0.3s var(--transition-bezier);
 }
 
-.license-card img {
+.info-card i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.info-card img {
     width: 40vh;
     height: 40vh;
     object-fit: cover;
 }
 
-.license-details {
+.info-details {
     padding: 1.5rem;
     color: var(--text-light);
 }
 
-.license-details h3 {
+.info-details h3 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     font-size: var(--font-size-xl);
 }
 
-.license-details p {
+.info-details p {
     font-size: var(--font-size-base);
     line-height: 1.6;
+    color: var(--text-light);
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-    .licencias-section {
+    .informacion-section {
         grid-template-columns: repeat(2, 1fr);
         max-width: 90%;
     }
 }
 
 @media (max-width: 768px) {
-    .licencias-section {
+    .informacion-section {
         grid-template-columns: 1fr;
     }
 }
