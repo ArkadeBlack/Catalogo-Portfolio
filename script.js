@@ -233,8 +233,8 @@ function initializeCarousel() {
             desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
             netbook: '/assets/Img/carousel/netbook/slide1.jpg',    // 1280x600
             tablet: '/assets/Img/carousel/tablet/slide1.jpg',      // 768x400
-            mobile: '/assets/Img/carousel/mobile/slide1.jpg',      // 576x350
-            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.jpg' // 360x280
+            mobile: '/assets/Img/carousel/mobile/mobile360x280.jpg',      // 576x350
+            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.jpg'  // 360x280
         },
         {
             desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',
