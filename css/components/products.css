@@ -372,3 +372,25 @@ cursor: pointer;
         font-size: var(--font-size-base);
     }
 }
+
+/* Netbook styles (1366x768) */
+@media (max-width: 1366px) and (max-height: 768px) {
+    .nuestros-productos {
+        max-width: 75%;
+    }
+
+    .products-section {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+        padding: 1.2rem;
+        max-width: 75%;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+
+    .product-details h3 {
+        font-size: var(--font-size-base);
+    }
+}

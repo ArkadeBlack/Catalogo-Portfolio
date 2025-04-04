@@ -115,12 +115,13 @@
     }
 }
 
-/* Específicamente para tu Acer Aspire */
+/* Diseño específico para 1366x768 */
 @media (max-width: 1366px) and (max-height: 768px) {
+    /* Sección de anuncios */
     .ads-section {
         padding: 1rem;
         gap: 1rem;
-        max-width: 75%; /* Ajustar ancho máximo */
+        max-width: 75%;
         margin: 1rem auto;
     }
 
@@ -128,6 +129,7 @@
         width: 100%;
         height: auto;
         min-height: 100px;
+        max-height: 120px;
         object-fit: contain;
         background: transparent;
     }
