@@ -155,11 +155,15 @@
 @media (max-width: 1366px) and (max-height: 768px) {
     .carousel {
         max-width: 75%;
+        transform: none;
+        transition: none;
     }
 
     .carousel-item img {
         height: 350px;
         object-fit: cover;
+        transition: none;
+        transform: none;
     }
 
     .carousel-arrow {
@@ -167,6 +171,19 @@
         height: 40px;
         font-size: 1.2rem;
     }
+        /* Remover animaciones de reveal */
+    .carousel.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    }
+
+    .carousel.reveal.active {
+    opacity: 1 !important;
+    transform: none !important;
+    }
+    
+
 }
 
 /* Netbooks (1280px) */
