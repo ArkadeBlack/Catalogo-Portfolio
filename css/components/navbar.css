@@ -548,3 +548,62 @@
         font-size: calc(var(--font-size-base) * 1.05);
     }
 }
+
+/* Netbook styles (1280x800) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* Layout adjustments */
+    .navbar {
+        max-width: 75%;
+    }
+
+    .carousel {
+        max-width: 85%;
+    }
+
+    .nuestros-productos {
+        max-width: 85%;
+    }
+
+    .products-section {
+        max-width: 85%;
+        gap: 1.5rem;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Product cards */
+    .product-card img {
+        height: 220px;
+    }
+
+    .product-details h3 {
+        font-size: var(--font-size-base);
+    }
+
+    /* Information section */
+    .informacion-section {
+        max-width: 85%;
+        gap: 1.5rem;
+    }
+
+    .info-card img {
+        width: 35vh;
+        height: 35vh;
+    }
+
+    /* Search bar */
+    .search-bar input {
+        width: 180px;
+    }
+
+    /* Modal adjustments */
+    .modal-content {
+        max-width: 800px;
+        margin: 5% auto;
+    }
+
+    /* Float buttons position */
+    .float-buttons {
+        bottom: 2rem;
+        right: 2rem;
+    }
+}

@@ -114,3 +114,21 @@
         font-size: 2rem;
     }
 }
+
+/* Tablet Portrait (800x1280) */
+@media (max-width: 800px) and (min-height: 1024px) {
+    .informacion-section {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 90%;
+        gap: 2rem;
+    }
+
+    .info-card img {
+        width: 35vh;
+        height: 35vh;
+    }
+
+    .info-details h3 {
+        font-size: var(--font-size-lg);
+    }
+}

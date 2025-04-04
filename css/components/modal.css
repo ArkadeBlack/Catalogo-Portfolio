@@ -362,3 +362,92 @@
         font-size: var(--font-size-sm);
     }
 }
+
+/* Netbook styles (1280x800) */
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .modal-content {
+        max-width: 85%;
+        margin: 5% auto;
+        padding: 2rem;
+    }
+
+    .modal-product {
+        gap: 1.5rem;
+    }
+
+    .modal-img {
+        height: 350px;
+    }
+
+    .modal-details {
+        padding: 0.8rem;
+        gap: 1.2rem;
+    }
+
+    .modal-details h2 {
+        font-size: var(--font-size-xl);
+        margin-bottom: 0.8rem;
+    }
+
+    .modal-details p {
+        font-size: var(--font-size-base);
+        line-height: 1.5;
+    }
+
+    .modal-price {
+        font-size: var(--font-size-lg);
+    }
+
+    .modal-actions {
+        gap: 1.2rem;
+    }
+
+    .modal-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: var(--font-size-base);
+    }
+
+    .modal-checkbox {
+        padding: 0.4rem;
+    }
+
+    .checkbox-custom {
+        height: 18px;
+        width: 18px;
+    }
+
+    .checkbox-label {
+        font-size: var(--font-size-sm);
+    }
+
+    .close-modal {
+        right: 1.2rem;
+        top: 1.2rem;
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablet Portrait (800x1280) */
+@media (max-width: 800px) and (min-height: 1024px) {
+    .modal-content {
+        width: 90%;
+        max-width: 700px;
+        margin: 10% auto;
+    }
+
+    .modal-product {
+        gap: 2rem;
+    }
+
+    .modal-img {
+        height: 400px;
+    }
+
+    .modal-buttons {
+        gap: 1rem;
+    }
+
+    .modal-btn {
+        padding: 1rem 1.5rem;
+    }
+}
