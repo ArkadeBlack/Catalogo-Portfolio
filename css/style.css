@@ -357,8 +357,8 @@ p {
     }
 
     .big-title {
-        font-size: clamp(1.5rem, 8vw, 2rem);
-        margin-bottom: 1rem;
+        font-size: clamp(1rem, 7vw, 4rem);
+        margin-bottom: 0.1rem;
     }
 
     .subtitle {

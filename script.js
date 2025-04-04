@@ -160,6 +160,13 @@ function openModal(productCard) {
 function closeModal() {
     const modal = document.getElementById('productModal');
     modal.classList.remove('active');
+    
+    // Restaurar overflow del body, pero solo si no hay un menú móvil abierto
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (!mobileMenu || !mobileMenu.classList.contains('active')) {
+        document.body.style.overflow = '';
+    }
+    
     setTimeout(() => {
         modal.style.display = 'none';
     }, 300);
@@ -553,7 +560,6 @@ function initializeLoadMoreButton() {
     }
 }
 
-// Reemplaza COMPLETAMENTE la función existente initializeNavigation con esta
 function initializeNavigation() {
     // Usar IDs para asegurarnos de que sean únicos
     const menuToggle = document.getElementById('menuToggle');
@@ -564,13 +570,18 @@ function initializeNavigation() {
         const newMenuToggle = menuToggle.cloneNode(true);
         menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
         
-        // Añadir evento limpio
-        newMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation(); // Evitar propagación
+         // Añadir evento limpio
+         newMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             console.log('Hamburger clicked');
             
             this.classList.toggle('active');
             mobileMenu.classList.toggle('active');
+            
+            // Si el menú se está abriendo, resetear la vista de productos
+            if (mobileMenu.classList.contains('active')) {
+                resetProductsView();
+            }
             
             // Controlar overflow
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
@@ -611,23 +622,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Añadir esta nueva función
 function initializeSearchBar() {
-    const searchInput = document.querySelector('.search-bar input');
+    // Selectores separados para desktop y móvil
+    const desktopSearch = document.querySelector('.search-bar input');
+    const mobileSearch = document.querySelector('.mobile-search input');
     const productsSection = document.querySelector('.products-section');
     const loadMoreBtn = document.querySelector('.load-more');
-    
-    searchInput.addEventListener('input', function(e) {
-        const searchTerm = e.target.value.toLowerCase().trim();
-        
-        // Si el término de búsqueda está vacío, restaurar vista inicial
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    // Función común de búsqueda
+    function handleSearch(searchTerm) {
         if (searchTerm === '') {
             resetProductsView();
             return;
         }
-        
-        // Cargar todos los productos si hay término de búsqueda
+
         loadAllProducts();
         
-        // Filtrar productos
         const productCards = document.querySelectorAll('.product-card');
         let hasResults = false;
         
@@ -645,35 +656,85 @@ function initializeSearchBar() {
             }
         });
         
-        // Ocultar botón "Ver más" durante la búsqueda
         loadMoreBtn.style.display = 'none';
-        
-        // Mostrar mensaje si no hay resultados
         showNoResultsMessage(hasResults, productsSection);
-    });
+    }
 
-    // Add new event listener for Enter key
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            
-            // Scroll to products section
-            const headerHeight = document.querySelector('.header').offsetHeight;
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const extraOffset = 20; // Reduced offset for better positioning
-            const offset = headerHeight + navbarHeight + extraOffset;
-            
-            const targetPosition = productsSection.getBoundingClientRect().top + window.pageYOffset - offset;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+    // Desktop search functionality
+    if (desktopSearch) {
+        // Búsqueda en tiempo real
+        desktopSearch.addEventListener('input', (e) => {
+            handleSearch(e.target.value.toLowerCase().trim());
+        });
 
-            // Optional: focus out from input
-            searchInput.blur();
-        }
-    });
+        // Búsqueda con Enter
+        desktopSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                scrollToProducts();
+                desktopSearch.blur();
+            }
+        });
+    }
+
+    // Mobile search functionality
+    if (mobileSearch) {
+        mobileSearch.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const searchTerm = mobileSearch.value.toLowerCase().trim();
+                handleSearch(searchTerm);
+                
+                // Usar getElementById para mantener consistencia
+                const mobileMenu = document.getElementById('mobileMenu');
+                const menuToggle = document.getElementById('menuToggle');
+                
+                // Cerrar menú móvil
+                if (mobileMenu && menuToggle) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    
+                    // Forzar el ícono a su estado inicial
+                    const menuIcon = menuToggle.querySelector('i');
+                    if (menuIcon) {
+                        menuIcon.className = 'fas fa-bars';
+                    }
+                    
+                    document.body.style.overflow = '';
+                }
+                
+                setTimeout(() => {
+                    scrollToProducts();
+                    mobileSearch.value = '';
+                    mobileSearch.blur();
+                }, 300);
+            }
+        });
+    }
+
+    // Función helper para scroll
+    function scrollToProducts() {
+        const headerHeight = document.querySelector('.header').offsetHeight;
+        const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
+        const offset = headerHeight + navbarHeight + 20;
+        
+        const targetPosition = productsSection.getBoundingClientRect().top + window.pageYOffset - offset;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    }
+
+    // Restablecer productos al cerrar menú móvil
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            if (!menuToggle.classList.contains('active')) {
+                resetProductsView();
+                if (mobileSearch) mobileSearch.value = '';
+            }
+        });
+    }
 }
 
 function resetProductsView() {

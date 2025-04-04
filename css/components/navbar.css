@@ -330,11 +330,12 @@
     .menu-toggle {
         position: fixed;
         top: 1rem;
-        right: 1rem;
+        left: 1rem;
         width: 45px;
         height: 45px;
-        background: transparent;
-        border: none;
+        background: rgba(0, 0, 0, 0.75); /* Fondo negro semi-transparente */
+        border: 1px solid var(--glass-border); /* Borde sutil */
+        border-radius: 8px; /* Bordes redondeados */
         color: var(--text-light);
         font-size: 1.5rem;
         cursor: pointer;
@@ -342,19 +343,39 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    
-    .menu-toggle i {
+        backdrop-filter: blur(4px); /* Efecto de vidrio */
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Sombra sutil */
         transition: all 0.3s ease;
     }
     
-    .menu-toggle.active .fa-bars:before {
-        content: '\f00d'; /* Código del ícono X en Font Awesome */
+    /* Efecto hover */
+    .menu-toggle:hover {
+        background: rgba(0, 0, 0, 0.85);
+        color: var(--primary-color);
     }
     
-    /* Panel de menú móvil */
+    /* Estado activo */
+    .menu-toggle.active {
+        background: rgba(0, 0, 0, 0.9);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    
+   /* Manejo del ícono del menú */
+.menu-toggle i {
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active .fa-bars:before {
+    content: '\f00d'; /* Código del ícono 'times' (X) */
+    color: var(--primary-color);
+}
+
+    
+    /* Panel de menú móvil con animación */
     .mobile-menu {
-        display: none;
+        display: flex; /* Cambiamos a flex por defecto */
         position: fixed;
         top: 0;
         left: 0;
@@ -365,11 +386,37 @@
         z-index: 1001;
         flex-direction: column;
         align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none; /* Previene interacciones mientras está oculto */
     }
     
     .mobile-menu.active {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto; /* Permite interacciones cuando está visible */
     }
+    
+    /* Animación para elementos internos */
+    .mobile-menu > * {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.1s;
+    }
+    
+    .mobile-menu.active > * {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Delays escalonados para cada elemento */
+    .mobile-menu.active .mobile-search { transition-delay: 0.2s; }
+    .mobile-menu.active .mobile-nav { transition-delay: 0.3s; }
+    .mobile-menu.active .mobile-social-links { transition-delay: 0.4s; }
     
     /* Buscador */
     .mobile-search {
@@ -393,12 +440,63 @@
         align-items: center;
         gap: 2rem;
         margin-top: 2rem;
+        width: 100%;
+        padding-bottom: 1rem;
     }
     
     .mobile-nav .nav-item {
         font-size: 1.5rem;
         color: var(--text-light);
         text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius-sm);
+        transition: all 0.3s ease;
+        text-align: center;
+        width: 80%;
+    }
+    
+    .mobile-nav .nav-item:hover {
+        color: var(--primary-color);
+        
+    }
+    
+    /* Estilos para los enlaces sociales en el menú móvil */
+    .mobile-social-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        margin-top: 3rem;
+        width: 100%;
+        padding: 1rem 0;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .mobile-social-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: all 0.3s var(--transition-bezier);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--glass-border);
+    }
+
+    .mobile-social-links a:hover {
+        color: var(--primary-color);
+        transform: scale(1.1);
+        text-shadow: 0 0 10px var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    /* Ocultar enlaces sociales en el header para mobile */
+    .header .social-links {
+        display: none;
     }
 }
 

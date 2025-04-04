@@ -217,3 +217,113 @@
         margin-top: 1.5rem;
     }
 }
+
+/* Responsive Mobile */
+@media (max-width: 576px) {
+    .footer {
+        margin-top: 3rem;
+        margin-bottom: 0;
+        padding: 2rem 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+        text-align: center;
+    }
+
+    /* Logo Section */
+    .footer-logo img {
+        max-width: 150px;
+    }
+
+    /* Licenses Section */
+    .licenses-container {
+        gap: 1rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-licenses img {
+        height: 40px;
+    }
+
+    /* Navigation Section */
+    .footer-nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .footer-nav li {
+        margin-bottom: 0;
+    }
+
+    .footer-nav a {
+        font-size: var(--font-size-sm);
+        padding-bottom: 0.2rem;
+    }
+
+    .footer-nav .phone {
+        font-size: var(--font-size-base);
+        margin-top: 0.5rem;
+    }
+
+    /* Contact & Social Links Section */
+    .footer-contact,
+    .footer-social-links {
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .footer-contact .social-links,
+    .footer-social-links {
+        gap: 1rem;
+    }
+
+    .footer-contact .social-links a,
+    .footer-social-links a {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: var(--border-radius-sm);
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+    }
+
+    .footer-contact .social-links span,
+    .footer-social-links span {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Common footer title style */
+    .footer-title {
+        font-size: var(--font-size-base);
+        margin-bottom: 1rem;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 360px) {
+    .footer {
+        padding: 1.5rem 0.8rem;
+    }
+
+    .footer-logo img {
+        max-width: 120px;
+    }
+
+    .footer-licenses img {
+        height: 35px;
+    }
+
+    .footer-nav a,
+    .footer-contact .social-links span,
+    .footer-social-links span {
+        font-size: calc(var(--font-size-sm) * 0.9);
+    }
+}
