@@ -27,9 +27,75 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
+/* Netbooks y pantallas pequeñas */
 @media (max-width: 1366px) {
+    .ads-section {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
     .imgAds {
         height: 120px;
         object-fit: cover;
+    }
+}
+
+/* Tablets grandes en landscape como Galaxy Tab S7 */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .ads-section {
+        padding: 1.5rem;
+        gap: 1.5rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .imgAds {
+        height: 150px;
+        object-fit: cover;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .ads-section {
+        padding: 1rem;
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .imgAds {
+        height: 100px;
+        object-fit: cover;
+    }
+}
+
+/* Móviles */
+@media (max-width: 576px) {
+    .ads-section {
+        padding: 1rem 0.5rem;
+        gap: 0.8rem;
+        grid-template-columns: 1fr;
+    }
+
+    .imgAds {
+        height: 80px;
+        border-radius: var(--border-radius-sm);
+    }
+
+    .imgAds:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 360px) {
+    .ads-section {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .imgAds {
+        height: 70px;
+        border-radius: var(--border-radius-xs);
     }
 }

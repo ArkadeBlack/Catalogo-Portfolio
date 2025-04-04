@@ -1,4 +1,9 @@
-/* Navigation - Actualizado */
+/* Agregar al principio del archivo CSS */
+.mobile-navbar {
+    display: none;
+}
+
+/* Navigation - Base */
 .navbar {
     background: var(--glass-bg);
     backdrop-filter: blur(8px);
@@ -11,21 +16,20 @@
     border-radius: 10px 10px 0 0;
     padding: 1rem 2rem;
     border: 1px solid var(--glass-border);
-    border-bottom: none; 
-    box-shadow: none;
+    border-bottom: none;
     position: relative;
     z-index: 1000;
 }
 
+/* Desktop Navigation */
 .nav-links {
     display: flex;
     gap: 2rem;
 }
 
 .nav-item {
-    color: white;
+    color: var(--text-light);
     text-decoration: none;
-    font-family: var(--font-primary);
     font-size: var(--font-size-base);
     font-weight: var(--font-medium);
     transition: all 0.3s var(--transition-bezier);
@@ -53,23 +57,19 @@
     width: 100%;
 }
 
+/* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 .search-bar input {
     padding: 0.8rem 1.2rem;
     width: 250px;
-    border-radius: var(--border-radius-md);
     background: var(--glass-bg);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-md);
     color: var(--text-light);
-    font-family: var(--font-primary);
-    font-size: var(--font-size-base);
     transition: all 0.3s var(--transition-bezier);
 }
 
@@ -115,6 +115,7 @@
     transition: all 0.3s var(--transition-bezier);
 }
 
+/* Cart Dropdown */
 .nav-actions {
     display: flex;
     align-items: center;
@@ -256,21 +257,23 @@
     color: var(--primary-color);
 }
 
-/* Menu toggle button - hidden by default */
+/* Mobile Elements - Hidden by default */
+.mobile-menu-container,
+.mobile-only,
 .menu-toggle {
-    display: none; /* Oculto por defecto */
-    background: none;
-    border: none;
-    color: var(--text-light);
-    font-size: var(--font-size-xl);
-    cursor: pointer;
-    padding: var(--spacing-xs);
+    display: none;
+}
+
+/* Mobile Navigation */
+.mobile-navbar {
+    display: none;
 }
 
 /* Media Queries */
 @media (max-width: 1366px) {
     .navbar {
-        padding: var(--spacing-sm) var(--spacing-md);
+        max-width: 90%;
+        padding: var(--spacing-md);
     }
 
     .nav-links {
@@ -311,99 +314,139 @@
     }
 }
 
+/* Elimina todas las media queries para móvil y reemplázalas con esta */
 @media (max-width: 576px) {
-    .menu-toggle {
+    /* Ocultar navbar desktop */
+    .navbar {
+        display: none;
+    }
+    
+    /* Mostrar navbar móvil */
+    .mobile-navbar {
         display: block;
     }
-
-    .navbar {
-        position: relative;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        padding: var(--spacing-sm);
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--glass-bg);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        flex-direction: column;
-        padding: var(--spacing-xs);
-        border-top: 1px solid var(--glass-border);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-item {
-        padding: var(--spacing-xs);
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-actions {
-        width: 100%;
-        justify-content: center; /* Centrar los elementos */
-        order: 2; /* Mover después del menú */
-        margin-top: var(--spacing-xs);
-    }
-
-    .search-bar {
-        margin: 0; /* Resetear margen */
-        width: 100%; /* Tomar todo el ancho disponible */
-        display: flex;
-        justify-content: center;
-    }
-
-    .search-bar input {
-        width: 90%; /* Usar porcentaje del ancho disponible */
-        max-width: 300px; /* Limitar el ancho máximo */
-    }
-
-    .dropdown-content {
-        width: 280px;
-        right: -100px;
-    }
-
-    /* Ocultar el dropdown de productos seleccionados */
-    .selected-products-dropdown {
-        display: none;
-    }
-
-    /* Hamburger menu */
+    
+    /* Botón hamburguesa */
     .menu-toggle {
-        order: 1;
-        background: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+        background: transparent;
         border: none;
         color: var(--text-light);
-        font-size: var(--font-size-xl);
+        font-size: 1.5rem;
         cursor: pointer;
-        padding: var(--spacing-xs);
+        z-index: 1002;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-
-    .menu-toggle:hover {
-        color: var(--primary-color);
+    
+    .menu-toggle i {
+        transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active .fa-bars:before {
+        content: '\f00d'; /* Código del ícono X en Font Awesome */
+    }
+    
+    /* Panel de menú móvil */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--bg-dark);
+        padding: 3rem 1.5rem 1.5rem;
+        z-index: 1001;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mobile-menu.active {
+        display: flex;
+    }
+    
+    /* Buscador */
+    .mobile-search {
+        width: 90%;
+        margin: 2rem auto;
+    }
+    
+    .mobile-search input {
+        width: 100%;
+        padding: 1rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--border-radius-sm);
+        color: var(--text-light);
+    }
+    
+    /* Enlaces de navegación */
+    .mobile-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    .mobile-nav .nav-item {
+        font-size: 1.5rem;
+        color: var(--text-light);
+        text-decoration: none;
     }
 }
 
-@media (max-width: 360px) {
-    .nav-actions {
-        flex-wrap: nowrap; /* Evitar que los elementos se envuelvan */
-        gap: var(--spacing-xs);
+/* Tablets grandes en landscape como Galaxy Tab S7 */
+@media (min-width: 769px) and (max-width: 1199px) {
+
+    .navbar {
+        max-width: 90%; /* Aumentar el ancho para tablets grandes */
+        padding: var(--spacing-md) var(--spacing-lg);
     }
 
+    .nav-links {
+        gap: var(--spacing-lg); /* Mayor espacio entre enlaces */
+    }
+
+    .nav-item {
+        font-size: calc(var(--font-size-base) * 1.1); /* Texto ligeramente más grande */
+    }
+
+    /* Ajustar barra de búsqueda para mayor usabilidad en tablets */
     .search-bar input {
-        width: 95%; /* Aumentar el ancho en pantallas muy pequeñas */
+        width: 220px;
+        padding: 0.9rem 1.3rem; /* Inputs más grandes para touch */
+        font-size: calc(var(--font-size-base) * 1.05);
+    }
+
+    /* Ajustes para dropdown */
+    .dropdown-toggle {
+        padding: 0.6rem;
+        font-size: calc(var(--font-size-lg) * 1.1);
+    }
+
+    .selected-count {
+        font-size: var(--font-size-base);
+        padding: 0.25rem 0.6rem;
     }
 
     .dropdown-content {
-        width: 250px;
-        right: -50px;
+        min-width: 300px; /* Dropdown más amplio */
+    }
+
+    .selected-item {
+        padding: 0.7rem 0.5rem; /* Más espacio vertical para los items */
+    }
+
+    .clear-all,
+    .consult-selected {
+        padding: 0.7rem 0.5rem;
+        font-size: calc(var(--font-size-base) * 1.05);
     }
 }

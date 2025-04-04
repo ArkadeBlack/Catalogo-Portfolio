@@ -25,7 +25,7 @@
     backdrop-filter: blur(8px);
     border: 1px solid var(--glass-border);
     color: var(--text-light);
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     transition: all 0.3s var(--transition-bezier);
     pointer-events: auto;
@@ -48,4 +48,27 @@
 .float-btn.top:hover {
     box-shadow: 0 0 15px var(--primary-color);
     color: var(--primary-color);
+}
+
+@media (max-width: 576px) {
+    .float-buttons {
+        bottom: 1rem;
+        right: 1rem;
+        width: auto;
+    }
+
+    .float-container {
+        justify-content: flex-end;
+    }
+
+    /* Ocultar botón de scroll top en móvil */
+    .float-btn.top {
+        display: none;
+    }
+
+    .float-btn.whatsapp {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
 }

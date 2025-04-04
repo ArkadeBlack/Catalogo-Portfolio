@@ -148,3 +148,20 @@ cursor: pointer;
   .load-more button:active {
     scale: 1;
   }
+
+  @media (max-width: 576px) {
+    .products-section {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+        max-width: 95%;
+    }
+
+    .product-card {
+        margin: 0;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+}

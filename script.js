@@ -136,11 +136,25 @@ function openModal(productCard) {
     const productTitle = productCard.querySelector('h3').textContent;
     checkbox.checked = selectedProducts.has(productTitle);
     
+    // IMPORTANTE: Ocultar explícitamente el menú móvil
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuToggle = document.getElementById('menuToggle');
+    
+    if (mobileMenu && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        if (menuToggle) {
+            menuToggle.classList.remove('active');
+        }
+    }
+    
     // Mostrar modal con efecto inmediato
     modal.style.display = 'block';
     requestAnimationFrame(() => {
         modal.classList.add('active');
     });
+    
+    // Asegurar que el documento tenga overflow hidden
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
@@ -231,24 +245,24 @@ function initializeCarousel() {
     const slides = [
         {
             desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/netbook/slide1.jpg',    // 1280x600
-            tablet: '/assets/Img/carousel/tablet/slide1.jpg',      // 768x400
-            mobile: '/assets/Img/carousel/mobile/mobile360x280.jpg',      // 576x350
-            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.jpg'  // 360x280
+            netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
+            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      
+            mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
+            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
         },
         {
-            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',
-            netbook: '/assets/Img/carousel/netbook/slide2.jpg',
-            tablet: '/assets/Img/carousel/tablet/slide2.jpg',
-            mobile: '/assets/Img/carousel/mobile/slide2.jpg',
-            mobileSm: '/assets/Img/carousel/mobile-sm/slide2.jpg'
+            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
+            netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
+            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      // 768x400
+            mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
+            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
         },
         {
-            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',
-            netbook: '/assets/Img/carousel/netbook/slide3.jpg',
-            tablet: '/assets/Img/carousel/tablet/slide3.jpg',
-            mobile: '/assets/Img/carousel/mobile/slide3.jpg',
-            mobileSm: '/assets/Img/carousel/mobile-sm/slide3.jpg'
+            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
+            netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
+            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      // 768x400
+            mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
+            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
         }
     ];
 
@@ -325,6 +339,19 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeNavigation();
     initializeLoadMoreButton();
     initializeSearchBar(); // Añadir esta línea
+    updateSelectedProductsList(); // Asegúrate de que esta función esté siendo llamada al cargar la página
+
+    // MOVER AQUÍ: La inicialización del carrito móvil
+    const mobileCart = document.querySelector('.mobile-cart');
+    const cartPanel = document.querySelector('.cart-panel');
+    
+    if (mobileCart && cartPanel) {
+        mobileCart.addEventListener('click', () => {
+            cartPanel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateSelectedProductsList();
+        });
+    }
 });
 
 // Eliminar los event listeners anteriores de beforeunload y load
@@ -526,54 +553,61 @@ function initializeLoadMoreButton() {
     }
 }
 
-// Agregar esta nueva función
+// Reemplaza COMPLETAMENTE la función existente initializeNavigation con esta
 function initializeNavigation() {
-    const navLinks = document.querySelectorAll('.nav-links a');
+    // Usar IDs para asegurarnos de que sean únicos
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+    if (menuToggle && mobileMenu) {
+        // Eliminar eventos existentes para prevenir duplicación
+        const newMenuToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+        
+        // Añadir evento limpio
+        newMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evitar propagación
+            console.log('Hamburger clicked');
             
-            if (targetElement) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const extraOffset = 150;
-                const offset = headerHeight + navbarHeight + extraOffset;
-                
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            // Controlar overflow
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Cerrar menú al hacer click en enlaces - con delegate
+        document.querySelector('.mobile-nav').addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-item')) {
+                mobileMenu.classList.remove('active');
+                newMenuToggle.classList.remove('active');
+                document.body.style.overflow = '';
             }
         });
-    });
-
-    // Menu toggle functionality
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinksContainer = document.querySelector('.nav-links');
-    
-    menuToggle?.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.navbar')) {
-            navLinksContainer.classList.remove('active');
-        }
-    });
-
-    // Close menu when clicking a link
-    navLinksContainer.querySelectorAll('.nav-item').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinksContainer.classList.remove('active');
+        
+        // Cerrar al hacer click fuera
+        document.addEventListener('click', function(e) {
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(e.target) && 
+                e.target !== newMenuToggle) {
+                mobileMenu.classList.remove('active');
+                newMenuToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
-    });
+    } else {
+        console.error('Elementos del menú móvil no encontrados'); 
+    }
+    
+    // Resto de la inicialización de navegación
 }
+
+// Eliminar las múltiples llamadas a initializeNavigation
+// Solo mantener ESTA ÚNICA llamada:
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing navigation');
+    initializeNavigation();
+});
 
 // Añadir esta nueva función
 function initializeSearchBar() {
@@ -699,57 +733,39 @@ function showNoResultsMessage(hasResults, container) {
 
 // Añadir esta nueva función
 function updateSelectedProductsList() {
-    const selectedItems = document.querySelector('.selected-items');
-    const selectedCount = document.querySelector('.selected-count');
-    const modal = document.getElementById('productModal');
+    const selectedItems = document.querySelectorAll('.selected-items');  // Seleccionar todos los contenedores
+    const selectedCounts = document.querySelectorAll('.selected-count'); // Seleccionar todos los contadores
     
-    // Actualizar contador
-    selectedCount.textContent = selectedProducts.size;
+    // Actualizar todos los contadores
+    selectedCounts.forEach(count => {
+        count.textContent = selectedProducts.size;
+    });
     
-    // Limpiar lista actual
-    selectedItems.innerHTML = '';
-    
-    // Agregar productos seleccionados
-    selectedProducts.forEach((value, productName) => {
-        const item = document.createElement('div');
-        item.className = 'selected-item';
-        item.innerHTML = `
-            <span>${productName}</span>
-            <button class="remove-item" data-product="${productName}">
-                <i class="fas fa-times"></i>
-            </button>
-        `;
-
-        // Agregar event listener para el botón de eliminar
-        const removeBtn = item.querySelector('.remove-item');
-        removeBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevenir propagación del evento
-            const productToRemove = e.currentTarget.dataset.product;
+    // Actualizar todas las listas de productos seleccionados
+    selectedItems.forEach(container => {
+        container.innerHTML = '';  // Limpiar contenedor
+        
+        selectedProducts.forEach((value, productName) => {
+            const item = document.createElement('div');
+            item.className = 'selected-item';
+            item.innerHTML = `
+                <span>${productName}</span>
+                <button class="remove-item" data-product="${productName}">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
             
-            // Eliminar producto del Map
-            selectedProducts.delete(productToRemove);
-            
-            // Actualizar checkbox en modal si está abierto y es el mismo producto
-            if (modal.style.display === 'block' && modal.dataset.currentProduct === productToRemove) {
-                const checkbox = modal.querySelector('.select-product');
-                checkbox.checked = false;
-            }
-            
-            // Actualizar visual de la product card
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach(card => {
-                if (card.querySelector('h3').textContent === productToRemove) {
-                    card.classList.remove('selected');
-                }
+            const removeBtn = item.querySelector('.remove-item');
+            removeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const productToRemove = e.currentTarget.dataset.product;
+                selectedProducts.delete(productToRemove);
+                updateSelectedProductsList();
+                updateProductCardSelection(productToRemove, false);
             });
             
-            // Actualizar lista y botones
-            updateSelectedProductsList();
-            const modalButtons = modal.querySelectorAll('.modal-btn');
-            updateButtonsText(modalButtons);
+            container.appendChild(item);
         });
-
-        selectedItems.appendChild(item);
     });
 }
 

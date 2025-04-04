@@ -86,9 +86,29 @@
         </div>
     </nav>
 
+    <!-- Navbar móvil - agregar después del navbar desktop existente -->
+    <nav class="mobile-navbar">
+        <button id="menuToggle" class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div id="mobileMenu" class="mobile-menu">
+            <div class="mobile-search">
+                <input type="text" placeholder="Buscar productos...">
+            </div>
+            
+            <div class="mobile-nav">
+                <a href="#logo-section" class="nav-item">Inicio</a>
+                <a href="#nuestros-productos" class="nav-item">Productos</a>
+                <a href="#informacion" class="nav-item">Información</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Carousel -->
     <div class="carousel reveal">
         <!-- El contenido se cargará dinámicamente desde JavaScript -->
+        <source media="(max-width: 768px)" srcset="${slide.tablet}">
     </div>
 
     <!-- Products Section -->

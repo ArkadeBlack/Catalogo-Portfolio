@@ -2,7 +2,7 @@
 .modal {
     display: none;
     position: fixed;
-    z-index: var(--z-modal);
+    z-index: 1100; /* Debe ser mayor que el z-index del menú móvil (1001-1002) */
     left: 0;
     top: 0;
     width: 100%;
@@ -19,11 +19,12 @@
     opacity: 1;
 }
 
+/* Modal base styles (desktop) */
 .modal-content {
     background: var(--glass-bg);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    margin: 5% auto;
+    margin: 8% auto;
     padding: 3rem;
     border-radius: var(--border-radius-md);
     border: 1px solid var(--glass-border);
@@ -33,6 +34,7 @@
     opacity: 0;
     transition: all 0.5s var(--transition-bezier);
     will-change: transform, opacity;
+    z-index: 1101; /* Asegurar que esté por encima */
 }
 
 .modal.active .modal-content {
@@ -194,4 +196,91 @@
 .modal-buttons {
     display: flex;
     gap: 1rem;
+}
+
+/* Modal ajustes MOBILE */
+@media (max-width: 576px) {
+    .modal-content {
+        /* Layout */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+        
+        /* Dimensions */
+        width: 100%;
+        height: 100vh;
+        padding: 3.5rem 1rem 1rem 1rem;
+        
+        /* Visual */
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid var(--glass-border);
+        border-radius: 0;
+        box-shadow: none;
+        
+        /* Colors */
+        color: var(--text-light);
+        
+        /* Behavior */
+        overflow-y: auto;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+
+    .modal-product {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        height: 100%;
+    }
+
+    .modal-img {
+        height: 300px;
+        object-fit: cover;
+        border-radius: var(--border-radius-sm);
+        object-position: center;
+    }
+
+    .modal-details {
+        padding: 0.5rem;
+        gap: 1rem;
+    }
+
+    .modal-details h2 {
+        font-size: var(--font-size-xl);
+        text-align: center;
+    }
+
+    .modal-details p {
+        font-size: var(--font-size-base);
+    }
+
+    .modal-actions {
+        margin-top: auto;
+        padding-bottom: 1rem;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .modal-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: var(--font-size-base);
+    }
+
+    .close-modal {
+        right: 1rem;
+        top: 0.2rem;
+        font-size: 2rem;
+        z-index: 1001;
+    }
+
+    .modal-checkbox {
+        padding: 1rem 0.5rem;
+    }
 }

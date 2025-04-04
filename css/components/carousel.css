@@ -143,7 +143,7 @@
 /* Media Queries */
 @media (max-width: 1366px) {
     .carousel {
-        max-width: 85%;
+        max-width: 75%;
     }
 
     .carousel-item img {
@@ -152,16 +152,16 @@
     }
 }
 
-/* Nuevo breakpoint específico para netbooks */
+/* Netbooks (1280px) */
 @media (max-width: 1280px) {
     .carousel {
         max-width: 75%;
-        margin: 0 auto; /* Centrar el carousel */
-        border-top: 1px solid var(--glass-border); /* Agregar borde superior */
+        margin: 0 auto;
+        border-top: 1px solid var(--glass-border);
     }
 
     .carousel-item {
-        height: auto; /* Altura automática */
+        height: auto;
     }
 
     .carousel-item img {
@@ -171,19 +171,36 @@
     }
 }
 
+/* Tablets (768px) - ACTUALIZADO */
 @media (max-width: 768px) {
     .carousel {
         max-width: 90%;
+        height: auto;
+        margin: 0 auto;
     }
 
-    .carousel-item img {
-        height: 350px;
+    .carousel-item {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* Mantiene ratio 16:9 */
     }
 
+    .carousel-item img,
+    .carousel-item picture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Controles ajustados para tablets */
     .carousel-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 1.1rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 
     .carousel-buttons {
@@ -196,6 +213,32 @@
     }
 }
 
+/* Tablets grandes en landscape como Galaxy Tab S7 */
+@media (min-width: 769px) and (max-width: 1199px) {
+    .carousel {
+        max-width: 90%;
+    }
+    
+    .carousel-item {
+        position: relative;
+        width: 100%;
+        padding-bottom: 40%; /* Ajustado para ratio más apropiado */
+    }
+    
+    .carousel-item img,
+    .carousel-item picture {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+
+}
+
+/* Móviles (576px) */
 @media (max-width: 576px) {
     .carousel {
         max-width: 95%;
@@ -204,8 +247,8 @@
         border: none;
     }
 
-    .carousel-item img {
-        height: 300px;
+    .carousel-item {
+        padding-bottom: 62.5%; /* Ratio 8:5 para mejor visualización en móvil */
     }
 
     .carousel-arrow {
