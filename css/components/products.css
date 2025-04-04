@@ -350,3 +350,25 @@ cursor: pointer;
         font-size: var(--font-size-base);
     }
 }
+
+/* Netbook styles (1350x800) */
+@media (min-width: 1281px) and (max-width: 1350px) {
+    .nuestros-productos {
+        max-width: 85%;
+    }
+
+    .products-section {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.8rem;
+        max-width: 85%;
+        padding: 1.8rem;
+    }
+
+    .product-card img {
+        height: 240px;
+    }
+
+    .product-details h3 {
+        font-size: var(--font-size-base);
+    }
+}

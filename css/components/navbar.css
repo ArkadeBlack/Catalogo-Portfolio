@@ -607,3 +607,23 @@
         right: 2rem;
     }
 }
+
+/* Netbook styles (1350x800) */
+@media (min-width: 1281px) and (max-width: 1350px) {
+    .navbar {
+        max-width: 75%;
+        padding: var(--spacing-md);
+    }
+
+    .search-bar input {
+        width: 200px;
+    }
+
+    .nav-links {
+        gap: 1.8rem;
+    }
+
+    .nav-item {
+        font-size: var(--font-size-base);
+    }
+}

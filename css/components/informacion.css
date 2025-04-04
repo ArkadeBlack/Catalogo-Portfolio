@@ -132,3 +132,24 @@
         font-size: var(--font-size-lg);
     }
 }
+
+/* Netbook styles (1350x800) */
+@media (min-width: 1281px) and (max-width: 1350px) {
+    .informacion-section {
+        max-width: 85%;
+        gap: 1.8rem;
+    }
+
+    .info-card img {
+        width: 38vh;
+        height: 38vh;
+    }
+
+    .info-details h3 {
+        font-size: var(--font-size-lg);
+    }
+
+    .info-details p {
+        font-size: var(--font-size-base);
+    }
+}

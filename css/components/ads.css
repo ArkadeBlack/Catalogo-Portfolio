@@ -101,3 +101,16 @@
         border-radius: var(--border-radius-xs);
     }
 }
+
+/* Netbook styles (1350x800) */
+@media (min-width: 1281px) and (max-width: 1350px) {
+    .ads-section {
+        padding: 1.8rem;
+        gap: 1.8rem;
+    }
+
+    .imgAds {
+        height: 120px;
+        object-fit: cover;
+    }
+}
