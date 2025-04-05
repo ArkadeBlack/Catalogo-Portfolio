@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center; /* Centrar el contenido */
     align-items: center;
-    background-color: rgb(20, 20, 20); /* Fondo semi-transparente */
+    background-color: #191716; /* Fondo semi-transparente */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     color: var(--text-light);

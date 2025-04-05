@@ -6,17 +6,8 @@
     <title>Wuallua - Mayorista</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>
-        // Forzar scroll al inicio
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
-        window.onbeforeunload = function() {
-            window.scrollTo(0, 0);
-        }
-    </script>
 </head>
-<body onload="window.scrollTo(0, 0)">
+<body>
     <div class="bg"></div>
     <div class="bg bg2"></div>
     <div class="bg bg3"></div>
@@ -39,17 +30,13 @@
 
     <!-- Logo Section -->
     <section id="logo-section" class="logo-section">
-        <div class="logo-title-container reveal">
+        <div class="logo-title-container">
             <h1 class="logo-title">
-                <span class="big-w">W</span>allua 
-                <span class="subtitle">Comercio Mayorista</span>
+                <video class="logo-video" autoplay muted loop playsinline>
+                    <source src="./assets/video/Opcion 03.mp4" type="video/mp4">                  
+                </video>
             </h1>
         </div>
-    </section>
-
-    <!-- Promo Section -->
-    <section class="promo-section reveal">
-        <img src="./assets/Img/Comp-1.gif" alt="Promoción" class="promo-banner">
     </section>
 
     <!-- Navigation Bar -->
@@ -124,6 +111,11 @@
         <source media="(max-width: 768px)" srcset="${slide.tablet}">
     </div>
 
+     <!-- Promo Section -->
+     <section class="promo-section reveal">
+        <img src="./assets/Img/Comp-1.gif" alt="Promoción" class="promo-banner">
+    </section>
+
     <!-- Products Section -->
     <section>
         <div class="big-title-container reveal">
@@ -197,7 +189,7 @@
                 <i class="fas fa-headset"></i>
                 <div class="info-details">
                     <h3>Atención Personalizada</h3>
-                    <p>Asesoramiento experto para tu mejor compra</p>
+                    <p>Asesoramiento experto para tu mejor compra y experiencia personal</p>
                 </div>
             </div>
         </div>
@@ -220,7 +212,7 @@
         <div class="footer-content">
             <!-- Logo Section -->
             <div class="footer-logo">
-                <img src="/assets/Img/w_img.avif" alt="Wallua Logo">
+                <img src="/assets/Img/footer-img.png" alt="Wallua Logo">
             </div>
 
             <!-- Licenses Section -->

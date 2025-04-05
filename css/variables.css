@@ -1,15 +1,45 @@
-/* Importación de fuentes */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* Importación de fuentes locales */
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cabinet Grotesk';
+    src: url('../fonts/CabinetGrotesk-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Variables globales */
 :root {
     /* Colores */
-    --primary-color: #d2ae14;
-    --secundary-color: #147dd2;
+    --primary-color: #C0C1EF;
+    --secundary-color: #26408B;
     --bg-dark: #131313;
     --bg-light: #333;
     --bg-lighter: #444;
-    --text-light: white;
+    --text-light: #f8f7f9;
     --modal-bg: rgba(0, 0, 0, 0.5);
     
     /* Espaciado */
@@ -92,7 +122,7 @@
     --glass-border: rgba(255, 255, 255, 0.2);
 
     /* Tipografía */
-    --font-primary: 'Montserrat', sans-serif;
+    --font-primary: 'Cabinet Grotesk', sans-serif;
     --font-size-xs: 0.75rem;    /* 12px */
     --font-size-sm: 0.875rem;   /* 14px */
     --font-size-base: 1rem;     /* 16px */

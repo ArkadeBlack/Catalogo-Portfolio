@@ -1,3 +1,44 @@
+// Al inicio del archivo
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Remover hash y forzar scroll al inicio
+if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Forzar scroll al inicio
+    window.scrollTo(0, 0);
+    
+    // Inicializaciones
+    loadInitialProducts();
+    initializeRevealEffects();
+    initializeModalListeners();
+    initializeCarousel();
+    initializeFloatButtons();
+    initializeNavigation();
+    initializeLoadMoreButton();
+    initializeSearchBar();
+    updateSelectedProductsList();
+});
+
+// Prevenir scroll al recargar
+window.onbeforeunload = function() {
+    window.scrollTo(0, 0);
+};
+
+// Al inicio de script.js
+if (window.location.hash) {
+    console.log('Hash detectado:', window.location.hash);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOMContentLoaded ejecutado');
+    console.log('Scroll actual:', window.scrollY);
+});
+
 // ================ CONFIGURACIÓN GLOBAL ================
 const WHATSAPP_NUMBER = '5491112345678'; // Reemplaza con tu número de WhatsApp
 const WHATSAPP_CONFIG = {
@@ -253,7 +294,7 @@ function initializeCarousel() {
         {
             desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
             netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
-            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      
+            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      // 768x400
             mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
             mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
         },
@@ -333,33 +374,7 @@ function initializeCarousel() {
 }
 
 // ================ EVENT LISTENERS ================
-document.addEventListener('DOMContentLoaded', () => {
-    // Forzar scroll al inicio inmediatamente
-    window.scrollTo(0, 0);
-    
-    // Inicialización de productos y efectos
-    loadInitialProducts();
-    initializeRevealEffects();
-    initializeModalListeners();
-    initializeCarousel();
-    initializeFloatButtons();
-    initializeNavigation();
-    initializeLoadMoreButton();
-    initializeSearchBar(); // Añadir esta línea
-    updateSelectedProductsList(); // Asegúrate de que esta función esté siendo llamada al cargar la página
 
-    // MOVER AQUÍ: La inicialización del carrito móvil
-    const mobileCart = document.querySelector('.mobile-cart');
-    const cartPanel = document.querySelector('.cart-panel');
-    
-    if (mobileCart && cartPanel) {
-        mobileCart.addEventListener('click', () => {
-            cartPanel.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            updateSelectedProductsList();
-        });
-    }
-});
 
 // Eliminar los event listeners anteriores de beforeunload y load
 // y reemplazarlos con este:
@@ -474,8 +489,8 @@ function handleWhatsAppButton() {
     const currentProduct = modal.dataset.currentProduct;
     const tempMap = new Map(selectedProducts);
 
-    // Si no hay productos seleccionados, usar el producto actual
-    if (selectedProducts.size === 0) {
+    // Siempre incluir el producto actual si no está ya en la lista
+    if (!tempMap.has(currentProduct)) {
         tempMap.set(currentProduct, true);
     }
     
@@ -613,12 +628,7 @@ function initializeNavigation() {
     // Resto de la inicialización de navegación
 }
 
-// Eliminar las múltiples llamadas a initializeNavigation
-// Solo mantener ESTA ÚNICA llamada:
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing navigation');
-    initializeNavigation();
-});
+
 
 // Añadir esta nueva función
 function initializeSearchBar() {

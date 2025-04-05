@@ -23,7 +23,7 @@
 
 .info-card i {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--text-light);
     margin-bottom: 1rem;
 }
 
@@ -39,9 +39,10 @@
 }
 
 .info-details h3 {
-    color: var(--primary-color);
+    color: var(--text-light);
     margin: 1rem 0;
     font-size: var(--font-size-xl);
+    font-weight: var(--font-semibold);
 }
 
 .info-details p {
