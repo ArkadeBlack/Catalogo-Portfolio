@@ -362,12 +362,6 @@ p {
         height: 2rem;
     }
 
-    .products-section {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-        padding: 1rem;
-    }
-
     .modal-product {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -391,10 +385,6 @@ p {
     .header {
         flex-direction: column;
         padding: 0.5rem;
-    }
-
-    .products-section {
-        grid-template-columns: 1fr;
     }
 
     .carousel-arrow {

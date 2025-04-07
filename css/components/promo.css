@@ -71,12 +71,13 @@
 /* Móviles */
 @media (max-width: 576px) {
     .promo-section {
-        padding: 1rem;
+        width: 100%;
         grid-template-columns: 1fr;
         object-fit: cover;
     }
 
     .promo-banner {
+        width: 50vh;
         border-radius: var(--border-radius-sm);
         object-fit: cover;
         transform: none;
@@ -126,13 +127,12 @@
 /* Diseño específico para 1366x768 */
 @media (max-width: 1366px) and (max-height: 768px) {
     .promo-section {
-        padding: 1rem;
         object-fit: cover;
         max-width: 100%;
     }
 
     .promo-banner {
-        width: 100%;
+        width: 100vh;
         height: auto;
         min-height: 100px;
         max-height: 120px;

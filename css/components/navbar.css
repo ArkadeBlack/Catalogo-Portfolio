@@ -313,9 +313,8 @@
         width: 250px;
         right: -70px;
     }
-}
+ }
 
-/* Elimina todas las media queries para móvil y reemplázalas con esta */
 @media (max-width: 576px) {
     /* Ocultar navbar desktop */
     .navbar {
@@ -330,8 +329,8 @@
     /* Botón hamburguesa */
     .menu-toggle {
         position: fixed;
-        top: 1rem;
-        left: 1rem;
+        top: 0.5rem;
+        left: 0.1vh;
         width: 45px;
         height: 45px;
         background: rgba(0, 0, 0, 0.75); /* Fondo negro semi-transparente */
@@ -360,18 +359,20 @@
     .menu-toggle.active {
         background: rgba(0, 0, 0, 0.9);
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        top: 0.5rem;
+        left: 43vh;
     }
     
     
    /* Manejo del ícono del menú */
-.menu-toggle i {
+    .menu-toggle i {
     transition: all 0.3s ease;
-}
+    }
 
-.menu-toggle.active .fa-bars:before {
+    .menu-toggle.active .fa-bars:before {
     content: '\f00d'; /* Código del ícono 'times' (X) */
     color: var(--primary-color);
-}
+    }
 
     
     /* Panel de menú móvil con animación */
@@ -421,7 +422,7 @@
     
     /* Buscador */
     .mobile-search {
-        width: 90%;
+        width: 100%;
         margin: 2rem auto;
     }
     
