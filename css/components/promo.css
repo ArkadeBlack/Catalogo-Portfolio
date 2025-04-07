@@ -1,32 +1,74 @@
 /* Renombrar archivo a promo.css o banner.css */
 
-/* Banner Section - Actualizado */
+/* Promo Section */
 .promo-section {
-    display: grid;
-    gap: 2rem;
-    padding: 2rem;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 75%;
+    margin: 2rem auto;
+    overflow: hidden;
     position: relative;
-    justify-content: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-md);
+}
+
+.promo-section picture {
+    width: 100%;
+    display: block;
 }
 
 .promo-banner {
     width: 100%;
-    height: 15vh;
+    height: auto;
     display: block;
-    background: var(--glass-bg);
-    backdrop-filter: blur(4px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--border-radius-sm);
-    box-shadow: none;
-    transition: all 0.3s var(--transition-bezier);
     object-fit: cover;
 }
 
-.promo-banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+/* Media Queries */
+@media (max-width: 1366px) {
+    .promo-section {
+        max-width: 75%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .promo-section {
+        max-width: 85%;
+        margin: 1.5rem auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .promo-section {
+        max-width: 90%;
+        margin: 1rem auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .promo-section {
+        max-width: 95%;
+        margin: 1rem auto;
+        border-radius: var(--border-radius-sm);
+    }
+
+    .promo-banner {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .promo-section {
+        max-width: 100%;
+        margin: 0.5rem auto;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
 }
 
 /* Netbooks y pantallas pequeñas */
