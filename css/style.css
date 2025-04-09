@@ -124,6 +124,15 @@ p {
     padding: 0;
     position: relative;
     background-color: #f7f6f9;
+    /* Agregar el gradiente de difuminado */
+    mask-image: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 85%, 
+        rgba(0,0,0,0)
+    );
+    -webkit-mask-image: linear-gradient(to bottom, 
+        rgba(0,0,0,1) 85%, 
+        rgba(0,0,0,0)
+    );
 }
 
 .logo-title {
@@ -132,7 +141,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin: 15px;
     padding: 0;
 }
 
@@ -411,6 +420,17 @@ p {
         height: auto;
         display: block;
         object-fit: contain;
+    }
+
+    .logo-title-container {
+        mask-image: linear-gradient(to bottom, 
+            rgba(0,0,0,1) 85%, 
+            rgba(0,0,0,0)
+        );
+        -webkit-mask-image: linear-gradient(to bottom, 
+            rgba(0,0,0,1) 85%, 
+            rgba(0,0,0,0)
+        );
     }
 }
 
