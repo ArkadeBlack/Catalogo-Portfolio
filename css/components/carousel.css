@@ -288,10 +288,7 @@
         width: 35px;
         height: 35px;
         font-size: 1rem;
-        background-color: rgba(0, 0, 0, 0.4);
-        backdrop-filter: blur(4px);
     }
-
     .carousel-arrow.prev {
         left: 5px;
     }

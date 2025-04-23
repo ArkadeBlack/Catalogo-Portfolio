@@ -292,29 +292,32 @@ function initializeCarousel() {
     // Definir las imágenes para cada slide y sus versiones responsivas
     const slides = [
         {
-            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
-            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      // 768x400
-            mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
-            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
+            desktop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1920x800
+            netbook: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1280x600
+            laptop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',     // 1024x832
+            tablet: '/assets/Img/carousel/tablet/Tablet.jpg',          // 768x400
+            mobile: '/assets/Img/carousel/mobile/Mobile.jpg',                // 576x350
+            mobileSm: '/assets/Img/carousel/mobile/Mobile.jpg'               // 360x280
         },
         {
-            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
-            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      // 768x400
-            mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
-            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
+            desktop: '/assets/Img/carousel/desktop/Desktop_PC_1.jpg',    // 1920x800
+            netbook: '/assets/Img/carousel/desktop/Desktop_PC_1.jpg',    // 1280x600
+            laptop: '/assets/Img/carousel/desktop/Desktop_PC_1.jpg',     // 1024x832
+            tablet: '/assets/Img/carousel/tablet/Tablet_1.jpg',          // 768x400
+            mobile: '/assets/Img/carousel/mobile/Mobile_1.jpg',                // 576x350
+            mobileSm: '/assets/Img/carousel/mobile/Mobile_1.jpg'               // 360x280
         },
         {
-            desktop: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/desktop/plantilla-carrousel.jpg',    // 1280x600
-            tablet: '/assets/Img/carousel/tablet/carousel768x400.jpg',      // 768x400
-            mobile: '/assets/Img/carousel/mobile-sm/mobile360x280.webp' ,   // 576x350
-            mobileSm: '/assets/Img/carousel/mobile-sm/mobile360x280.webp'  // 360x280
+            desktop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1920x800
+            netbook: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1280x600
+            laptop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',     // 1024x832
+            tablet: '/assets/Img/carousel/tablet/Tablet.jpg',          // 768x400
+            mobile: '/assets/Img/carousel/mobile/Mobile.jpg',                // 576x350
+            mobileSm: '/assets/Img/carousel/mobile/Mobile.jpg'               // 360x280
         }
     ];
 
-    // Crear elementos del carousel
+    // Actualizar la estructura HTML con el nuevo breakpoint
     carousel.innerHTML = `
         <button class="carousel-arrow prev">&#10094;</button>
         ${slides.map(slide => `
@@ -323,6 +326,7 @@ function initializeCarousel() {
                     <source media="(max-width: 360px)" srcset="${slide.mobileSm}">
                     <source media="(max-width: 576px)" srcset="${slide.mobile}">
                     <source media="(max-width: 768px)" srcset="${slide.tablet}">
+                    <source media="(max-width: 1024px)" srcset="${slide.laptop}">
                     <source media="(max-width: 1280px)" srcset="${slide.netbook}">
                     <img src="${slide.desktop}" alt="Slide">
                 </picture>
