@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ================ CONFIGURACIÓN GLOBAL ================
-const WHATSAPP_NUMBER = '5491112345678'; // Reemplaza con tu número de WhatsApp
+const WHATSAPP_NUMBER = '5493812408224'; // Update WhatsApp number
 const WHATSAPP_CONFIG = {
     template: (products) => {
         if (products.size === 1) {
@@ -53,7 +53,7 @@ const WHATSAPP_CONFIG = {
 };
 
 const EMAIL_CONFIG = {
-    address: 'tu@email.com', // Reemplaza con tu dirección de correo electrónico
+    address: 'wallua.argentina@gmail.com', // Actualizar dirección de email
     subject: (count) => `Consulta sobre ${count > 1 ? count + ' productos' : 'producto'}`,
     template: (products) => {
         if (products.size === 1) {

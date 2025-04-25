@@ -136,7 +136,7 @@
     display: block;
     position: relative;
     z-index: 1;
-    height: 50vh;
+    height: 60vh;
 }
 
 /* Media Queries */
@@ -311,13 +311,12 @@
 @media (max-width: 360px) {
     .carousel {
         max-width: 100%;
-        margin: 0;
+        margin: 2rem auto;
         border-radius: 0;
         border: none;
     }
 
     .carousel-item img {
-        height: 280px;
         object-fit: cover;
         object-position: center;
     }
