@@ -3,7 +3,7 @@
 /* Promo Section */
 .promo-section {
     width: 100%;
-    max-width: 75%;
+    max-width: 85%;
     margin: 2rem auto;
     overflow: hidden;
     position: relative;
@@ -82,10 +82,12 @@
         margin: 1.5rem auto;
         padding: 1rem;
         gap: 1rem;
+        height: auto;
     }
 
     .promo-banner {
-        height: 120px;
+        width: 100%;
+        height: auto;
         object-fit: cover;
     }
 }
@@ -93,13 +95,14 @@
 /* Laptop - 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
     .promo-section {
-        max-width: 80%;
+        max-width: 90%;
         margin: 2rem auto;
         gap: 1.5rem;
     }
 
     .promo-banner {
-        height: 150px;
+        width: 100%;
+        height: auto;
         object-fit: cover;
     }
 }
@@ -107,13 +110,15 @@
 /* Laptop L - 1440px */
 @media (min-width: 1025px) and (max-width: 1440px) {
     .promo-section {
-        max-width: 75%;
+        max-width: 85%;
         margin: 2.5rem auto;
         gap: 1.8rem;
+        max-height: 95vh;
     }
 
     .promo-banner {
-        height: 180px;
+        width: 100%;
+        height: auto;
         object-fit: cover;
     }
 }

@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 75%;
+    max-width: 85%;
     margin: auto;
     margin-top: 5rem;
     border-radius: 10px 10px 0 0;
@@ -164,7 +164,7 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius-md);
-    min-width: 250px;
+    min-width: 300px;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -174,7 +174,7 @@
 }
 
 .selected-products-dropdown:hover .dropdown-content {
-    max-height: 400px;
+    max-height: 80vh;
     opacity: 1;
     padding: 1rem;
 }
@@ -508,7 +508,7 @@
 
     .navbar {
         max-width: 90%; /* Aumentar el ancho para tablets grandes */
-        padding: var(--spacing-md) var(--spacing-lg);
+        padding: 0.5rem 1rem;
     }
 
     .nav-links {
@@ -521,9 +521,8 @@
 
     /* Ajustar barra de búsqueda para mayor usabilidad en tablets */
     .search-bar input {
-        width: 220px;
-        padding: 0.9rem 1.3rem; /* Inputs más grandes para touch */
-        font-size: calc(var(--font-size-base) * 1.05);
+        width: 200px;
+        font-size: 1rem;
     }
 
     /* Ajustes para dropdown */

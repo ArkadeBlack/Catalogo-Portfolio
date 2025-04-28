@@ -86,24 +86,31 @@
     gap: 1.5rem;
 }
 
-.modal-details h2 {
-    font-size: var(--font-size-2xl);
+/* Modificar el orden de los elementos en modal-details */
+.modal-details {
+    /* ...existing code... */
+    gap: 1.5rem;
+}
+
+/* Mover el precio arriba de las opciones */
+.modal-price {
+    order: 1; /* Asegura que el precio aparezca después del título */
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-semibold);
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.modal-details p {
-    font-size: var(--font-size-lg);
-    line-height: 1.6;
-}
-
-.modal-price {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-semibold);
-    color: var(--primary-color);
+.modal-options {
+    order: 2;
+    margin: 0; /* Eliminar el margin anterior */
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
 .modal-actions {
+    order: 3;
     margin-top: auto;
     display: flex;
     flex-direction: column;
@@ -212,6 +219,195 @@
 .modal-buttons button:hover {
     transform: translateY(-2px);
     box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Product Options */
+.modal-options {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Model Selector */
+.modal-model-select select {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-light);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.modal-model-select select:hover {
+    border-color: var(--primary-color);
+}
+
+.modal-model-select select option,
+.modal-model-select select optgroup {
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+/* Color Selector */
+.modal-color-select {
+    position: relative;
+}
+
+.modal-color-preview {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.modal-color-preview:hover {
+    border-color: var(--primary-color);
+}
+
+.modal-color-selected {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--glass-border);
+}
+
+.modal-color-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1a1a1a; /* Color sólido más oscuro */
+    border: 1px solid var(--glass-border);
+    border-radius: 12px; /* Border radius más pronunciado */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); /* Sombra más suave y expandida */
+    padding: 1.2rem;
+    margin-top: 0.8rem;
+    z-index: 1102;
+    max-height: 250px; /* Un poco más de altura */
+    overflow-y: auto;
+}
+
+/* Mejorar el grid de colores */
+.modal-colors-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.8rem; /* Más espacio entre colores */
+    padding: 0.5rem;
+}
+
+/* Mejorar las opciones de color */
+.color-option {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--glass-border);
+    transition: all 0.3s var(--transition-bezier);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.color-option:hover {
+    transform: scale(1.15);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--primary-color); /* Brillo al hover */
+}
+
+.color-option.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Mejorar el scrollbar */
+.modal-color-panel::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-color-panel::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 10px;
+}
+
+.modal-color-panel::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 10px;
+    border: 2px solid #2a2a2a;
+}
+
+.modal-color-panel::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.modal-color-panel.active {
+    display: block;
+}
+
+.modal-colors-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.5rem;
+    padding: 0.5rem;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--glass-border);
+    transition: all 0.3s var(--transition-bezier);
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+}
+
+.color-option.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .modal-colors-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-colors-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .modal-options {
+        gap: 1rem;
+    }
+    
+    .modal-model-select select,
+    .modal-color-preview {
+        padding: 0.6rem;
+        font-size: var(--font-size-sm);
+    }
+    
+    .modal-color-selected {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .color-option {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 /* Mobile S - 320px */
@@ -482,4 +678,3 @@
     font-weight: var(--font-medium);
     }
 }
-
