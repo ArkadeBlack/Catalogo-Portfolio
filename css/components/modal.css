@@ -414,46 +414,49 @@
 @media (max-width: 320px) {
     .modal-content {
         width: 95%;
-        height: 95%;
+        height: 95vh;
         padding: 3rem 0.8rem 1rem;
         margin: 2.5vh auto;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-product {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
     .modal-img {
         height: 200px;
     }
 
-    .modal-details h2 {
-        font-size: var(--font-size-lg);
-        text-align: center;
+    .modal-details {
+        padding: 0.5rem;
+        gap: 1rem;
     }
 
-    .modal-details p {
-        font-size: var(--font-size-sm);
+    .modal-options {
+        gap: 0.8rem;
     }
 
-    .modal-btn {
-        padding: 0.7rem;
-        font-size: var(--font-size-sm);
-        width: 100%;
-    }
-
-    .close-modal {
-        right: 1rem;
-        top: -0.9rem;
-        font-size: 3rem;
+    .modal-actions {
+        padding-bottom: 1rem;
     }
 
     .modal-buttons {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0.8rem;
+        padding-bottom: 0.5rem;
     }
 
-    .modal-buttons button {
-        width: 100%;
-        padding: 0.6rem;
-        font-size: var(--font-size-sm);
+    .close-modal {
+        right: 0rem;
+        top: 0rem;
+        width: 35px;
+        height: 35px;
+        font-size: 2.5rem;
     }
 }
 
@@ -461,39 +464,40 @@
 @media (min-width: 321px) and (max-width: 375px) {
     .modal-content {
         width: 95%;
-        height: 95%;
+        height: 95vh;
         padding: 3.5rem 1rem 1.5rem;
+        margin: 2.5vh auto;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 
-    .modal-img {
-        height: 250px;
+    .modal-product {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
 
-    .modal-details h2 {
-        font-size: var(--font-size-xl);
+    .modal-details {
+        padding: 0.5rem;
     }
 
-    .modal-btn {
-        padding: 0.8rem;
-        font-size: var(--font-size-base);
-    }
-
-    .close-modal {
-        right: 1rem;
-        top: 0rem;
-        font-size: 3rem;
+    .modal-actions {
+        padding-bottom: 1rem;
     }
 
     .modal-buttons {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
+        padding-bottom: 0.5rem;
     }
 
-    .modal-buttons button {
-        width: 100%;
-        padding: 0.7rem;
-        font-size: var(--font-size-base);
+    .close-modal {
+        right: 0rem;
+        top: 0rem;
+        width: 35px;
+        height: 35px;
+        font-size: 2.5rem;
     }
 }
 
@@ -501,180 +505,39 @@
 @media (min-width: 376px) and (max-width: 425px) {
     .modal-content {
         width: 90%;
-        height: 90%;
+        height: 95vh;
         padding: 4rem 1rem 2rem;
-    }
-
-    .modal-img {
-        height: 280px;
-    }
-
-    .modal-details h2 {
-        font-size: calc(var(--font-size-xl) * 1.2);
-    }
-
-    .close-modal {
-        right: 1rem;
-        top: 0rem;
-        font-size: 3rem;
-    }
-
-    .modal-buttons {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .modal-buttons button {
-        width: 100%;
-        padding: 0.8rem;
-        font-size: var(--font-size-base);
-    }
-}
-
-/* Tablet - 768px */
-@media (min-width: 426px) and (max-width: 768px) {
-    .modal-content {
-        width: 85%;
-        max-width: 600px;
-        margin: 5% auto;
-        padding: 2rem;
+        margin: 2.5vh auto;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     .modal-product {
         grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .modal-img {
-        height: 350px;
-    }
-
-    .modal-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-    }
-
-    .modal-btn {
-        width: 100%;
-        padding: 1rem;
-    }
-
-    .close-modal {
-        right: 8px;
-        top: -1rem;
-        font-size: 3rem;
-    }
-
-    .modal-buttons {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.2rem;
-    }
-
-    .modal-buttons button {
-        width: 100%;
-        padding: 0.9rem;
-        font-size: var(--font-size-base);
-    }
-}
-
-/* Laptop - 1024px */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .modal-content {
-        width: 80%;
-        max-width: 800px;
-        margin: 4% auto;
-        padding: 2.5rem;
-    }
-
-    .modal-product {
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem;
-    }
-
-    .modal-img {
-        height: 380px;
-    }
-
-    .modal-buttons {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .modal-btn {
-        padding: 1rem 2rem;
-    }
-
-    .close-modal {
-        right: 1.5rem;
-        top: 0rem;
-        font-size: 3rem;
-    }
-
-    .modal-buttons {
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .modal-buttons button {
-        padding: 0.8rem 1.2rem;
-        font-size: calc(var(--font-size-base) * 0.9);
-        min-width: 120px;
-        max-width: 180px;
-    }
-
-}
-
-/* Laptop L - 1440px */
-@media (min-width: 1025px) and (max-width: 1440px) {
-    .modal-content {
-        width: 75%;
-        max-width: 1000px;
-        margin: 3% auto;
-        padding: 3rem;
-    }
-
-    .modal-product {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-    }
-
-    .modal-img {
-        height: 400px;
-    }
-
-    .modal-buttons {
-        display: flex;
         gap: 1.5rem;
     }
 
-    .modal-btn {
-        padding: 1rem 2.5rem;
+    .modal-details {
+        padding: 0.8rem;
     }
 
-    .close-modal {
-        right: 1.5rem;
-        top: 0rem;
-        font-size: 3rem;
+    .modal-actions {
+        padding-bottom: 1.2rem;
     }
 
     .modal-buttons {
-        display: flex;
-        justify-content: flex-end;
-        gap: 1.8rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding-bottom: 0.8rem;
     }
 
-    .modal-buttons button {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-base);
-    cursor: pointer;
-    transition: all 0.3s var(--transition-bezier);
-    background: var(--glass-bg);
-    color: var(--text-light);
-    font-weight: var(--font-medium);
+    .close-modal {
+        right: 0rem;
+        top: 0rem;
+        width: 35px;
+        height: 35px;
+        font-size: 2.5rem;
     }
 }
