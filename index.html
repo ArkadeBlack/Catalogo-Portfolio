@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wuallua - Mayorista</title>
+    <title>Wuallua</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -30,12 +30,12 @@
 
     <!-- Logo Section -->
     <section id="logo-section" class="logo-section">
-        <div class="logo-title-container">
-            <h1 class="logo-title">
-                <video class="logo-video" autoplay muted loop playsinline>
-                    <source src="./assets/video/Opcion 03.mp4" type="video/mp4">                  
-                </video>
-            </h1>
+        <div class="header-logo-container">
+            <video class="logo-video" autoplay loop muted playsinline>
+                <source src="./assets/video/WalluaLogo.webm" type="video/webm">
+                <!-- Fallback a imagen -->
+                <img src="./assets/Img/logo.png" alt="Wallua Logo">
+            </video>
         </div>
     </section>
 
@@ -47,7 +47,8 @@
         <div class="nav-links">
             <a href="#logo-section" class="nav-item">Inicio</a>
             <a href="#nuestros-productos" class="nav-item">Productos</a>
-            <a href="#informacion" class="nav-item">Informacion</a>
+            <a href="#catalogo-mayorista" class="nav-item">Catálogo Mayorista</a>
+            <a href="#informacion" class="nav-item">Información</a>
         </div>
         <div class="nav-actions">
             <div class="selected-products-dropdown">
@@ -79,28 +80,57 @@
             <i class="fas fa-bars"></i>
         </button>
         
+        <!-- Código para insertar dentro del menú hamburguesa -->
         <div id="mobileMenu" class="mobile-menu">
-            <div class="mobile-search">
-                <input type="text" placeholder="Buscar productos...">
-            </div>
-            
-            <div class="mobile-nav">
-                <a href="#logo-section" class="nav-item">Inicio</a>
-                <a href="#nuestros-productos" class="nav-item">Productos</a>
-                <a href="#informacion" class="nav-item">Información</a>
-            </div>
-            
-            <!-- Social links dentro del menú hamburguesa -->
-            <div class="mobile-social-links">
-                <a href="https://www.instagram.com/walluarg?igsh=b2YzOWsyazJ0bHB1" target="_blank" rel="noopener">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100090394587153" target="_blank" rel="noopener">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://api.whatsapp.com/send?phone=5493812408224" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
+            <div class="mobile-menu-content">
+                <!-- Menú de navegación móvil -->
+                <div class="mobile-nav">
+                    <a href="#logo-section" class="nav-item">Inicio</a>
+                    <a href="#nuestros-productos" class="nav-item">Productos</a>
+                    <a href="#catalogo-mayorista" class="nav-item">Catálogo Mayorista</a>
+                    <a href="#informacion" class="nav-item">Información</a>
+                </div>
+                
+                <!-- Carrito en menú móvil (dentro del menú) -->
+                <div class="mobile-cart">
+                    <div class="mobile-cart-toggle">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="selected-count">0</span>
+                        <span class="cart-label">Ver carrito</span>
+                    </div>
+                    <div class="mobile-dropdown-content">
+                        <div class="dropdown-header">
+                            Productos seleccionados
+                        </div>
+                        <div class="selected-items">
+                            <!-- Los items se insertarán aquí dinámicamente -->
+                        </div>
+                        <div class="dropdown-footer">
+                            <button class="clear-all">
+                                <i class="fas fa-trash-alt"></i>
+                                Limpiar selección
+                            </button>
+                            <button class="consult-selected">
+                                <i class="fab fa-whatsapp"></i>
+                                Consultar por WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>              
+
+                
+                <!-- Redes sociales al final -->
+                <div class="mobile-social-links">
+                    <a href="https://www.instagram.com/walluarg?igsh=b2YzOWsyazJ0bHB1" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100090394587153" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=5493812408224" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -142,21 +172,20 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-product">
-                <div class="modal-img-container">
-                    <img src="" alt="" class="modal-img">
-                </div>
-                <div class="modal-details">
-                    <h2></h2>
-                    <p class="modal-description"></p>
+                <!-- Columna izquierda: Imagen y opciones -->
+                <div class="modal-left-column">
+                    <div class="modal-img-container">
+                        <img src="" alt="" class="modal-img">
+                    </div>
                     
-                    <!-- Product Options -->
+                    <!-- Product Options (ahora debajo de la imagen) -->
                     <div class="modal-options">
                         <!-- Phone Model Selector -->
                         <div class="modal-model-select">
                             <select id="modalPhoneModel">
                                 <option value="">Seleccionar modelo</option>
                                 <optgroup label="iPhone">
-                                    <option value="iphone15promax">iPhone 15 Pro Max</option>
+                                    <option value="Iphone 15 pro max">iPhone 15 Pro Max</option>
                                     <option value="iphone15pro">iPhone 15 Pro</option>
                                     <option value="iphone15plus">iPhone 15 Plus</option>
                                     <option value="iphone15">iPhone 15</option>
@@ -175,29 +204,68 @@
                             </div>
                         </div>
                     </div>
-
-                    <p class="modal-price"></p>
-                    <div class="modal-actions">
-                        <div class="modal-buttons">
-                            <button class="modal-btn whatsapp">
-                                <i class="fab fa-whatsapp"></i>
-                                Consultar por WhatsApp
-                            </button>
-                            <button class="modal-btn email">
-                                <i class="far fa-envelope"></i>
-                                Consultar por Email
-                            </button>
+                </div>
+                
+                <!-- Columna derecha: Información del producto -->
+                <div class="modal-right-column">
+                    <div class="modal-details">
+                        <h2></h2>
+                        <p class="modal-description"></p>
+                        <p class="modal-price"></p>
+                        
+                        <!-- Información de envío -->
+                        <div class="modal-shipping-info">
+                            <div class="shipping-option">
+                                <i class="fas fa-truck"></i>
+                                <span>Envíos a todo el país</span>
+                            </div>
+                            <div class="shipping-option">
+                                <i class="fas fa-store"></i>
+                                <span>Retiro en punto de venta</span>
+                            </div>
                         </div>
-                        <label class="modal-checkbox">
-                            <input type="checkbox" class="select-product">
-                            <span class="checkbox-custom"></span>
-                            <span class="checkbox-label">Agregar a consulta múltiple</span>
-                        </label>
+                        
+                        <!-- Botones y checkbox -->
+                        <div class="modal-actions">
+                            <div class="modal-buttons">
+                                <button class="modal-btn whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                    Consultar por WhatsApp
+                                </button>
+                                <button class="modal-btn email">
+                                    <i class="far fa-envelope"></i>
+                                    Consultar por Email
+                                </button>
+                            </div>
+                            <label class="modal-checkbox">
+                                <input type="checkbox" class="select-product">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-label">Agregar al carrito</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Catálogo Mayorista Section -->
+    <section>
+        <div class="big-title-container reveal">
+            <h2 id="catalogo-mayorista" class="big-title">Catálogo Mayorista</h2>
+        </div>
+        <div class="catalog-section reveal reveal-delay-1">
+            <div class="catalog-container">
+                <div class="catalog-content">
+                    <p class="catalog-description">Descarga nuestro catálogo completo con precios especiales para revendedores</p>
+                    <a href="./assets/docs/catalogo-mayorista.pdf" download class="catalog-button">
+                        <i class="fas fa-file-pdf"></i>
+                        Descargar Catálogo Completo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Information Section -->
     <section>
@@ -247,16 +315,6 @@
             <!-- Logo Section -->
             <div class="footer-logo">
                 <img src="/assets/Img/footer-img.png" alt="Wallua Logo">
-            </div>
-
-            <!-- Licenses Section -->
-            <div class="footer-licenses">
-                <h3 class="footer-title">Licencias</h3>
-                <div class="licenses-container">
-                    <img src="/assets/Img/licencias.webp" alt="Licencia 1">
-                    <img src="/assets/Img/licencias.webp" alt="Licencia 2">
-                    <img src="/assets/Img/licencias.webp" alt="Licencia 3">
-                </div>
             </div>
 
             <!-- Navigation Section -->

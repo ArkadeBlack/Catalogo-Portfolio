@@ -14,6 +14,7 @@
     max-width: 70%;
     margin: 2rem auto;
     border-radius: var(--border-radius-md);
+    box-shadow: var(--glass-shadow);
 }
 
 .info-card {

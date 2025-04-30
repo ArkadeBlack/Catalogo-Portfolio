@@ -75,7 +75,7 @@
 }
 
 .search-bar input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 .search-bar input:focus {
@@ -86,7 +86,7 @@
 
 .search-bar input:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 0 15px rgba(210, 174, 20, 0.2);
+    box-shadow: 0 0 15px rgba(45, 166, 223, 0.2);
 }
 
 .products-section {
@@ -270,6 +270,147 @@
     display: none;
 }
 
+/* Carrito en menú móvil */
+.mobile-cart {
+    width: 100%;
+    margin: 1.5rem 0;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.mobile-cart-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin: 0 auto;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mobile-cart-toggle i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.mobile-cart-toggle .selected-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: var(--font-medium);
+}
+
+/* Ocultar texto */
+.mobile-cart-toggle .cart-label {
+    display: none;
+}
+
+/* Cambiar estilo cuando está activo */
+.mobile-cart-toggle.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(210, 174, 20, 0.3);
+}
+
+.mobile-dropdown-content {
+    display: none;
+    background: rgba(15, 15, 15, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-dropdown-content.active {
+    display: block;
+}
+
+.mobile-dropdown-content .dropdown-header {
+    font-size: var(--font-size-base);
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-dropdown-content .selected-items {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.mobile-dropdown-content .dropdown-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.mobile-dropdown-content button {
+    padding: 0.6rem;
+    border-radius: var(--border-radius-sm);
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.mobile-dropdown-content .clear-all {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+}
+
+.mobile-dropdown-content .consult-selected {
+    background: var(--primary-color);
+    color: var(--bg-dark);
+}
+
+/* Estilo para los items del carrito móvil */
+.mobile-dropdown-content .selected-item {
+    padding: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.mobile-dropdown-content .selected-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-dropdown-content .remove-item {
+    color: #ff6b6b;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.2rem;
+    font-size: 1rem;
+}
+
 /* Media Queries */
 @media (max-width: 1366px) {
     .navbar {
@@ -312,6 +453,16 @@
     .dropdown-content {
         width: 250px;
         right: -70px;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: space-between; /* Distribuir elementos equitativamente */
+        flex-wrap: wrap; /* Permitir que se envuelvan si es necesario */
+    }
+    
+    .nav-item {
+        font-size: 0.9rem; /* Reducir ligeramente el tamaño de fuente */
     }
  }
 
@@ -647,5 +798,12 @@
     .search-bar input {
         width: 180px;
         padding: 0.6rem 1rem;
+    }
+}
+
+/* Ajuste de espaciado en desktop para acomodar el nuevo elemento */
+@media (min-width: 1025px) {
+    .nav-links {
+        gap: 1.5rem; /* Reducir ligeramente el espacio entre elementos */
     }
 }

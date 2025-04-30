@@ -41,6 +41,7 @@
     --bg-lighter: #444;
     --text-light: #f8f7f9;
     --modal-bg: rgba(0, 0, 0, 0.5);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     
     /* Espaciado */
     --spacing-sm: 0.5rem;
@@ -120,6 +121,8 @@
     /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.1);
     --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-bg-light: rgba(255, 255, 255, 0.15);
+    --glass-blur-light: 8px;
 
     /* Tipografía */
     --font-primary: 'Cabinet Grotesk', sans-serif;

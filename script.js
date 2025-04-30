@@ -446,53 +446,57 @@ function initializeCarousel() {
     // Definir las imágenes para cada slide y sus versiones responsivas
     const slides = [
         {
-            desktop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1280x600
-            laptop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',     // 1024x832
-            tablet: '/assets/Img/carousel/tablet/Tablet.jpg',          // 768x400
-            mobile: '/assets/Img/carousel/mobile/Mobile.jpg',                // 576x350
-            mobileSm: '/assets/Img/carousel/mobile/Mobile.jpg'               // 360x280
+            desktop: './assets/Img/carousel/desktop/Desktop (1).webp',    // 1920x800
+            netbook: '/assets/Img/carousel/netbook/Netbook (1).webp',    // 1280x600
+            laptop: '/assets/Img/carousel/laptop/Laptop (1).webp',     // 1024x500
+            tablet: '/assets/Img/carousel/tablet/Tablet (1).webp',     // 768x400
+            mobileL: '/assets/Img/carousel/mobileL/Mobile L.webp',      // 425x350
+            mobileM: '/assets/Img/carousel/mobileM/Mobile M.webp',      // 375x300
+            mobileS: '/assets/Img/carousel/mobileS/Mobile S.webp'       // 320x250
         },
         {
-            desktop: '/assets/Img/carousel/desktop/Desktop_PC_1.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/desktop/Desktop_PC_1.jpg',    // 1280x600
-            laptop: '/assets/Img/carousel/desktop/Desktop_PC_1.jpg',     // 1024x832
-            tablet: '/assets/Img/carousel/tablet/Tablet_1.jpg',          // 768x400
-            mobile: '/assets/Img/carousel/mobile/Mobile_1.jpg',                // 576x350
-            mobileSm: '/assets/Img/carousel/mobile/Mobile_1.jpg'               // 360x280
+            desktop: './assets/Img/carousel/desktop/Desktop.webp',    // 1920x800
+            netbook: '/assets/Img/carousel/netbook/Netbook.webp',    // 1280x600
+            laptop: '/assets/Img/carousel/laptop/Laptop.webp',     // 1024x500
+            tablet: '/assets/Img/carousel/tablet/Tablet.webp',     // 768x400
+            mobileL: '/assets/Img/carousel/mobileL/Mobile-L.webp',      // 425x350
+            mobileM: '/assets/Img/carousel/mobileM/Mobile-M.webp',      // 375x300
+            mobileS: '/assets/Img/carousel/mobileS/Mobile-S.webp'       // 320x250
         },
         {
-            desktop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1920x800
-            netbook: '/assets/Img/carousel/desktop/Desktop_PC.jpg',    // 1280x600
-            laptop: '/assets/Img/carousel/desktop/Desktop_PC.jpg',     // 1024x832
-            tablet: '/assets/Img/carousel/tablet/Tablet.jpg',          // 768x400
-            mobile: '/assets/Img/carousel/mobile/Mobile.jpg',                // 576x350
-            mobileSm: '/assets/Img/carousel/mobile/Mobile.jpg'               // 360x280
-        }
+            desktop: './assets/Img/carousel/desktop/Desktop (1).webp',    // 1920x800
+            netbook: '/assets/Img/carousel/netbook/Netbook (1).webp',    // 1280x600
+            laptop: '/assets/Img/carousel/laptop/Laptop (1).webp',     // 1024x500
+            tablet: '/assets/Img/carousel/tablet/Tablet (1).webp',     // 768x400
+            mobileL: '/assets/Img/carousel/mobileL/Mobile L.webp',      // 425x350
+            mobileM: '/assets/Img/carousel/mobileM/Mobile M.webp',      // 375x300
+            mobileS: '/assets/Img/carousel/mobileS/Mobile S.webp'       // 320x250
+        },
     ];
 
     // Actualizar la estructura HTML con el nuevo breakpoint
     carousel.innerHTML = `
-        <button class="carousel-arrow prev">&#10094;</button>
-        ${slides.map(slide => `
-            <div class="carousel-item">
-                <picture>
-                    <source media="(max-width: 360px)" srcset="${slide.mobileSm}">
-                    <source media="(max-width: 576px)" srcset="${slide.mobile}">
-                    <source media="(max-width: 768px)" srcset="${slide.tablet}">
-                    <source media="(max-width: 1024px)" srcset="${slide.laptop}">
-                    <source media="(max-width: 1280px)" srcset="${slide.netbook}">
-                    <img src="${slide.desktop}" alt="Slide">
-                </picture>
-            </div>
-        `).join('')}
-        <button class="carousel-arrow next">&#10095;</button>
-        <div class="carousel-buttons">
-            ${slides.map((_, index) => `
-                <button class="carousel-btn" data-index="${index}"></button>
-            `).join('')}
+    <button class="carousel-arrow prev">&#10094;</button>
+    ${slides.map(slide => `
+        <div class="carousel-item">
+            <picture>
+                <source media="(max-width: 320px)" srcset="${slide.mobileS}">
+                <source media="(max-width: 375px)" srcset="${slide.mobileM}">
+                <source media="(max-width: 425px)" srcset="${slide.mobileL}">
+                <source media="(max-width: 768px)" srcset="${slide.tablet}">
+                <source media="(max-width: 1024px)" srcset="${slide.laptop}">
+                <source media="(max-width: 1280px)" srcset="${slide.netbook}">
+                <img src="${slide.desktop}" alt="Slide">
+            </picture>
         </div>
-    `;
+    `).join('')}
+    <button class="carousel-arrow next">&#10095;</button>
+    <div class="carousel-buttons">
+        ${slides.map((_, index) => `
+            <button class="carousel-btn" data-index="${index}"></button>
+        `).join('')}
+    </div>
+`;
 
     const carouselButtons = document.querySelectorAll('.carousel-btn');
     const carouselItems = document.querySelectorAll('.carousel-item');
@@ -585,18 +589,21 @@ function initializeModalListeners() {
         
         // Actualizar checkbox en modal si está abierto
         const modal = document.getElementById('productModal');
-        if (modal.style.display === 'block') {
+        if (modal && window.getComputedStyle(modal).display !== 'none') {
             const checkbox = modal.querySelector('.select-product');
-            checkbox.checked = false;
+            if (checkbox) checkbox.checked = false;
+            
+            // Limpiar selecciones visuales del modal
+            resetModalSelections(modal);
         }
         
         // Limpiar selección visual en todas las product cards
         document.querySelectorAll('.product-card').forEach(card => {
             card.classList.remove('selected');
         });
-
+    
         // Actualizar texto de los botones en el modal
-        const modalButtons = modal.querySelectorAll('.modal-btn');
+        const modalButtons = document.querySelectorAll('.modal-btn');
         updateButtonsText(modalButtons);
     });
 
@@ -1074,6 +1081,9 @@ function updateSelectedProductsList() {
             container.appendChild(item);
         });
     });
+
+    updateMobileCart();
+    updateButtonsText(document.querySelectorAll('.modal-btn'));
 }
 
 // Al inicio del archivo, después de las configuraciones globales
@@ -1133,3 +1143,126 @@ const phoneColors = [
     ,{ name: 'Negro Grafito', hex: '#1C1C1C' }
 ];
 
+// Manejo del carrito móvil
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileCartToggle = document.querySelector('.mobile-menu .mobile-cart-toggle');
+    const mobileDropdownContent = document.querySelector('.mobile-menu .mobile-dropdown-content');
+    
+    if (mobileCartToggle && mobileDropdownContent) {
+        mobileCartToggle.addEventListener('click', function(e) {
+            e.stopPropagation(); // Evitar que se cierre el menú hamburguesa
+            mobileDropdownContent.classList.toggle('active');
+            mobileCartToggle.classList.toggle('active');
+            
+            // Actualizar los items del carrito móvil
+            updateMobileCart();
+        });
+        
+        // Manejar clics dentro del dropdown para evitar propagación
+        mobileDropdownContent.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+        
+        // Configurar el botón para limpiar selección
+        const mobileClear = mobileDropdownContent.querySelector('.clear-all');
+        if (mobileClear) {
+        mobileClear.addEventListener('click', function(e) {
+        e.stopPropagation();
+        // Llamar a la función existente de limpieza
+        selectedProducts.clear();
+        updateSelectedProductsList();
+        
+        // Actualizar checkbox en modal si está abierto
+        const modal = document.getElementById('productModal');
+        if (modal && window.getComputedStyle(modal).display !== 'none') {
+            const checkbox = modal.querySelector('.select-product');
+            if (checkbox) checkbox.checked = false;
+            
+            // Limpiar selecciones visuales del modal
+            resetModalSelections(modal);
+        }
+        
+        // Limpiar selección visual en product cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.classList.remove('selected');
+        });
+        
+        // Cerrar el dropdown
+        mobileDropdownContent.classList.remove('active');
+        mobileCartToggle.classList.remove('active');
+
+        updateButtonsText(document.querySelectorAll('.modal-btn'));
+    });
+}
+        
+        // Configurar el botón para consultar por WhatsApp
+        const mobileConsult = mobileDropdownContent.querySelector('.consult-selected');
+        if (mobileConsult) {
+            mobileConsult.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // Llamar a la función existente para enviar WhatsApp
+                if (selectedProducts.size > 0) {
+                    const message = WHATSAPP_CONFIG.template(selectedProducts);
+                    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`);
+                }
+                mobileDropdownContent.classList.remove('active');
+                mobileCartToggle.classList.remove('active');
+            });
+        }
+    }
+});
+
+function updateMobileCart() {
+    const mobileSelectedItems = document.querySelector('.mobile-menu .selected-items');
+    const desktopSelectedItems = document.querySelector('.dropdown-content .selected-items');
+    
+    if (mobileSelectedItems && desktopSelectedItems) {
+        // Sincronizar contenido
+        mobileSelectedItems.innerHTML = desktopSelectedItems.innerHTML;
+        
+        // Volver a añadir listeners a los botones de eliminar
+        mobileSelectedItems.querySelectorAll('.remove-item').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const productName = this.dataset.product;
+                
+                // Eliminar producto
+                selectedProducts.delete(productName);
+                
+                // Actualizar ambos carritos
+                updateSelectedProductsList();
+                
+                // Actualizar checkbox en modal si está abierto
+                const modal = document.getElementById('productModal');
+                if (modal && window.getComputedStyle(modal).display !== 'none' && 
+                    modal.dataset.currentProduct === productName) {
+                    const checkbox = modal.querySelector('.select-product');
+                    if (checkbox) checkbox.checked = false;
+                    
+                    // Limpiar selecciones visuales del modal
+                    resetModalSelections(modal);
+                }
+                
+                // Actualizar product cards
+                document.querySelectorAll('.product-card').forEach(card => {
+                    const cardTitle = card.querySelector('h3')?.textContent;
+                    if (cardTitle === productName) {
+                        card.classList.remove('selected');
+                    }
+                });
+            });
+        });
+    }
+    
+    // Sincronizar contadores
+    const mobileCounts = document.querySelectorAll('.mobile-cart .selected-count');
+    const desktopCount = document.querySelector('.nav-actions .selected-count');
+    
+    if (desktopCount && mobileCounts.length) {
+        const count = desktopCount.textContent;
+        mobileCounts.forEach(counter => {
+            counter.textContent = count;
+        });
+    }
+}

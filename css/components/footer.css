@@ -12,7 +12,8 @@
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* Cambiado de 4 a 3 columnas ahora que no hay licencias */
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -38,28 +39,6 @@
 .footer-logo img {
     max-width: 200px;
     height: auto;
-}
-
-/* Licenses Section */
-.footer-licenses {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.licenses-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.footer-licenses img {
-    height: 50px;
-    width: auto;
-    filter: brightness(0.9);
-    transition: filter 0.3s ease;
 }
 
 /* Navigation Section */
@@ -190,23 +169,33 @@
     .footer-content {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    /* Hacer que el logo ocupe todo el ancho */
+    .footer-logo {
+        grid-column: span 2;
+    }
 }
 
 @media (max-width: 576px) {
     .footer {
         margin-bottom: 0;
-        padding: var(--spacing-sm);
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: var(--spacing-sm);
-        text-align: center;
+        padding: 2rem 1rem;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
         text-align: center;
+    }
+    
+    /* Logo Section vuelve a ocupar 1 columna */
+    .footer-logo {
+        grid-column: span 1;
+    }
+
+    .footer-logo img {
+        max-width: 150px;
     }
 
     .social-links {

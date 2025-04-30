@@ -70,6 +70,51 @@
     text-shadow: 0 0 10px var(--primary-color);
 }
 
+.header-logo-container {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    height: 150px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.473); /* Fondo blanquecino transparente */
+    backdrop-filter: blur(8px); /* Efecto glassmorphism */
+    -webkit-backdrop-filter: blur(8px); /* Para Safari */
+    border: 1px solid rgba(255, 255, 255, 0.212); /* Borde más visible */
+    border-radius: 0; /* Sin bordes redondeados */
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Sombra sutil */
+    padding: 120px 0;
+}
+
+.logo-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: none;
+    width: 100%; /* Usar porcentaje para responsividad */
+    height: auto; /* Mantener proporción */
+    object-fit: contain; /* 'contain' es mejor para logo */
+    z-index: 3;
+}
+
+/* Añadir un ligero brillo al contenedor */
+.header-logo-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    z-index: 2;
+}
+
 /* Media Queries */
 @media (max-width: 1366px) {
     .text-shine {
@@ -113,8 +158,23 @@
     .social-links i {
         font-size: calc(var(--icon-size2) * 0.9);
     }
+
+    /* Mantener el mismo estilo del contenedor del logo que en desktop */
+    .header-logo-container {
+        height: 100px;
+        background: rgba(255, 255, 255, 0.473); /* Mismo fondo blanquecino transparente que en desktop */
+        backdrop-filter: blur(8px); /* Mismo blur que en desktop */
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.212);
+        box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    }
+    
+    .logo-video {
+        height: auto; /* Mantener proporción */
+    }
 }
 
+/* Mobile L */
 @media (max-width: 576px) {
     .header {
         padding: var(--spacing-xs);
@@ -138,6 +198,46 @@
     /* Ocultar social links en móvil ya que están en el menú hamburguesa */
     .social-links {
         display: none;
+    }
+    
+    /* Ajuste del logo para móviles */
+    .header-logo-container {
+        height: 100px;
+        padding: 0; /* Eliminar padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .logo-video {
+        width: 180%; /* Aumentado significativamente desde 90% */
+        max-width: none; /* Eliminar el límite máximo */
+    }
+}
+
+/* Mobile M (375px - 424px) */
+@media (max-width: 425px) {
+    .header-logo-container {
+        height: 90px;
+    }
+    
+    .logo-video {
+        width: 200%; /* Aumentado desde 85% */
+    }
+}
+
+/* Mobile S (320px - 374px) */
+@media (max-width: 375px) {
+    .text-shine {
+        font-size: 1rem;
+    }
+    
+    .header-logo-container {
+        height: 80px;
+    }
+    
+    .logo-video {
+        width: 220%; /* Aumentado desde 80% */
     }
 }
 
