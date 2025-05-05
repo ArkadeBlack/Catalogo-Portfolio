@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 85%;
+    max-width: 80%;
     margin: auto;
     margin-top: 5rem;
     border-radius: 10px 10px 0 0;
@@ -273,10 +273,9 @@
 /* Carrito en menú móvil */
 .mobile-cart {
     width: 100%;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     position: relative;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1.5rem;
+    padding-top: 1rem;
 }
 
 .mobile-cart-toggle {
@@ -327,7 +326,7 @@
 .mobile-cart-toggle.active {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--primary-color);
-    box-shadow: 0 0 15px rgba(210, 174, 20, 0.3);
+    box-shadow: 0 0 15px rgba(20, 182, 210, 0.3);
 }
 
 .mobile-dropdown-content {
@@ -339,6 +338,8 @@
     width: 100%;
     margin-top: 0.5rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-height: 60vh; /* Altura máxima para no ocupar toda la pantalla */
+    overflow-y: auto; /* Permitir scroll dentro del dropdown */
 }
 
 .mobile-dropdown-content.active {
@@ -354,9 +355,9 @@
 }
 
 .mobile-dropdown-content .selected-items {
-    max-height: 300px;
-    overflow-y: auto;
-    margin-bottom: 1rem;
+    max-height: 40vh; /* Altura máxima más baja */
+    overflow-y: auto; 
+    margin-bottom: 0.5rem;
 }
 
 .mobile-dropdown-content .dropdown-footer {
@@ -545,6 +546,8 @@
         transform: translateY(-20px);
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         pointer-events: none; /* Previene interacciones mientras está oculto */
+        overflow-y: auto; /* Permitir scroll vertical */
+        -webkit-overflow-scrolling: touch; /* Mejor experiencia de scroll en iOS */
     }
     
     .mobile-menu.active {
@@ -596,6 +599,8 @@
         margin-top: 2rem;
         width: 100%;
         padding-bottom: 1rem;
+        width: 100%;
+        margin-bottom: 1rem; /* Espacio debajo de la navegación */
     }
     
     .mobile-nav .nav-item {
@@ -806,4 +811,60 @@
     .nav-links {
         gap: 1.5rem; /* Reducir ligeramente el espacio entre elementos */
     }
+}
+
+/* Mejora para scroll en menú móvil */
+.mobile-menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-dark);
+    padding: 3rem 1.5rem 1.5rem;
+    z-index: 1001;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Permitir scroll vertical */
+    -webkit-overflow-scrolling: touch; /* Mejor experiencia de scroll en iOS */
+}
+
+/* Contenedor de elementos del menú móvil */
+.mobile-menu-content {
+    width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: auto; /* Permitir scroll */
+    padding-bottom: 2rem; /* Espacio para evitar que el último elemento esté demasiado abajo */
+}
+
+/* Ajustar el dropdown del carrito móvil */
+.mobile-dropdown-content {
+    max-height: 60vh; /* Altura máxima para no ocupar toda la pantalla */
+    overflow-y: auto; /* Permitir scroll dentro del dropdown */
+}
+
+/* Asegurar que la lista de productos tenga altura adecuada */
+.mobile-dropdown-content .selected-items {
+    max-height: 40vh; /* Altura máxima más baja */
+    overflow-y: auto; 
+    margin-bottom: 0.5rem;
+}
+
+/* Evitar problemas de superposición */
+.mobile-nav {
+    width: 100%;
+    margin-bottom: 1rem; /* Espacio debajo de la navegación */
+}
+
+/* Arreglar la posición del botón de carrito */
+.mobile-cart {
+    width: 100%;
+    margin: 1rem 0;
+    position: relative;
+    padding-top: 1rem;
 }

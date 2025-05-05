@@ -6,7 +6,7 @@
     background: var(--glass-bg);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    max-width: 85%;
+    max-width: 80%;
     margin: auto;
     border-radius: 0 0 10px 10px; /* Solo bordes inferiores redondeados */
     border: 1px solid var(--glass-border);
