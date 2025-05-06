@@ -117,29 +117,59 @@ const products = [
     {
         id: 1,
         image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Funda Biodegradable',
-        description: 'Para todos los modelos de iPhone 15',
-        price: '$10.00'
+        title: 'Funda Biodegradable Iphone',
+        description: 'Para todos los modelos de iPhone',
+        price: '$10.00',
+        availableColors: [
+            'Vermillion','Rosa Pastel','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+        ],
+        availableModels: [
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
+        ]
     },
     {
         id: 2,
         image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Funda Silicon Case',
-        description: 'Para todos los modelos de iPhone 15',
-        price: '$89.99'
-    }, {
+        title: 'Funda Biodegradable Samsung',
+        description: 'Para todos los modelos de Samsung',
+        price: '$89.99',
+        availableColors: [
+            'Vermillion','Rosa Pastel','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+        ],
+        availableModels: [
+            'Galaxy S24 Ultra', 'Galaxy S24+', 'Galaxy S24',
+            'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23',
+            'Galaxy A54', 'Galaxy A34'
+        ]
+    }, 
+    {
         id: 3,
         image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 3',
-        description: 'Descripción del producto 1',
-        price: '$99.99'
+        title: 'Funda Silicon Case Iphone',
+        description: 'Para todos los modelos de iPhone',
+        price: '$99.99',
+        availableColors: [
+            'Vermillion','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+        ],
+        availableModels: [
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
+        ]
     },
     {
         id: 4,
         image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 4',
-        description: 'Descripción del producto 2',
-        price: '$89.99'
+        title: 'Funda Silicon Case Samsung',
+        description: 'Para todos los modelos de Samsung',
+        price: '$89.99',
+        availableColors: [
+        ],
+        availableModels: [
+            'Galaxy S24 Ultra', 'Galaxy S24+', 'Galaxy S24',
+            'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23',
+            'Galaxy A54', 'Galaxy A34'
+        ]
     }, {
         id: 5,
         image: '/assets/Img/product/desktop/product_1.jpg',
@@ -166,20 +196,8 @@ const products = [
         title: 'Producto 8',
         description: 'Descripción del producto 2',
         price: '$89.99'
-    }, {
-        id: 9,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 9',
-        description: 'Descripción del producto 1',
-        price: '$99.99'
-    },
-    {
-        id: 10,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 10',
-        description: 'Descripción del producto 2',
-        price: '$89.99'
     }
+  
 ];
 
 // ================ FUNCIONES DEL MODAL ================
@@ -190,6 +208,9 @@ function openModal(productCard) {
     const modalDescription = modal.querySelector('.modal-description');
     const modalPrice = modal.querySelector('.modal-price');
     const checkbox = modal.querySelector('.select-product');
+    
+    // Resetear todas las selecciones primero
+    resetModalSelections(modal);
     
     // Obtener datos del producto desde la card
     const img = productCard.querySelector('img');
@@ -246,13 +267,23 @@ function resetModalSelections(modal) {
     // Resetear selector de modelo
     const modelSelect = modal.querySelector('#modalPhoneModel');
     if (modelSelect) {
-        modelSelect.selectedIndex = 0;
+        // Si hay options, seleccionar el primero
+        if (modelSelect.options.length > 0) {
+            modelSelect.selectedIndex = 0;
+        }
     }
 
     // Resetear selector de color
     const colorSelected = modal.querySelector('.modal-color-selected');
     if (colorSelected) {
         colorSelected.style.backgroundColor = '';
+        colorSelected.dataset.color = '';
+    }
+    
+    // Resetear texto del color seleccionado
+    const colorPreviewText = modal.querySelector('.modal-color-preview span');
+    if (colorPreviewText) {
+        colorPreviewText.textContent = 'Seleccionar color';
     }
 
     // Cerrar panel de colores si está abierto
@@ -274,79 +305,175 @@ function initializeProductOptions(modal) {
     // Primero resetear las selecciones
     resetModalSelections(modal);
 
-    // Generar grid de colores si está vacío
-    if (colorsGrid && !colorsGrid.children.length) {
-        colorsGrid.innerHTML = phoneColors.map(color => `
-            <div class="color-option" 
-                 style="background-color: ${color.hex}" 
-                 data-color="${color.name}"
-                 title="${color.name}">
-            </div>
-        `).join('');
+    // Buscar el producto actual para obtener sus opciones disponibles
+    const currentProduct = products.find(p => p.title === productTitle);
+    
+    // Cargar modelos específicos para este producto
+    if (currentProduct && currentProduct.availableModels && modelSelect) {
+        // Limpiar opciones existentes
+        modelSelect.innerHTML = '';
+        
+        // Agrupar modelos por marca (opcionalmente)
+        const groupedModels = {};
+        
+        currentProduct.availableModels.forEach(model => {
+            const brand = model.split(' ')[0]; // Obtener la marca
+            if (!groupedModels[brand]) {
+                groupedModels[brand] = [];
+            }
+            groupedModels[brand].push(model);
+        });
+        
+        // Crear optgroups y options
+        Object.entries(groupedModels).forEach(([brand, models]) => {
+            const optgroup = document.createElement('optgroup');
+            optgroup.label = brand;
+            
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model.toLowerCase().replace(/\s+/g, '-');
+                option.textContent = model;
+                optgroup.appendChild(option);
+            });
+            
+            modelSelect.appendChild(optgroup);
+        });
+    }
+    
+    // El código existente para colores
+
+    // Obtén una referencia al span antes de reemplazar el elemento
+    const colorPreviewSpan = colorPreview.querySelector('span');
+
+    // Primero resetear las selecciones
+    resetModalSelections(modal);
+
+    // 1. Eliminar listeners existentes para prevenir duplicación
+    const newColorPreview = colorPreview.cloneNode(true);
+    colorPreview.parentNode.replaceChild(newColorPreview, colorPreview);
+
+    // 2. Agregar el evento de clic al nuevo elemento
+    newColorPreview.addEventListener('click', function(e) {
+        e.stopPropagation();
+        colorPanel.classList.toggle('active');
+    });
+    
+    // 3. Obtener los colores disponibles del producto actual
+    let availableColors = phoneColors; // Por defecto, todos los colores
+    
+    // Si el producto tiene colores específicos, filtrarlos
+    if (currentProduct && currentProduct.availableColors) {
+        availableColors = phoneColors.filter(color => 
+            currentProduct.availableColors.includes(color.name)
+        );
+    }
+    
+    // Vaciar el grid de colores
+    if (colorsGrid) {
+        colorsGrid.innerHTML = '';
+        
+        // Agrupar colores por categorías
+        const colorCategories = {
+            "Neón": [],
+            "Pasteles": [],
+            "Básicos": []
+        };
+        
+        // Clasificar colores disponibles en categorías
+        availableColors.forEach(color => {
+            if (color.name.includes('Neón')) {
+                colorCategories["Neón"].push(color);
+            } else if (color.name.includes('Pastel')) {
+                colorCategories["Pasteles"].push(color);
+            } else {
+                colorCategories["Básicos"].push(color);
+            }
+        });
+        
+        // Generar HTML para cada categoría que tenga colores
+        for (const [category, colors] of Object.entries(colorCategories)) {
+            if (colors.length > 0) {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'color-category';
+                
+                categoryDiv.innerHTML = `
+                    <h4>${category}</h4>
+                    <div class="color-options-row">
+                        ${colors.map(color => `
+                            <div class="color-option" 
+                                style="background-color: ${color.hex}" 
+                                data-color="${color.name}"
+                                title="${color.name}">
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                colorsGrid.appendChild(categoryDiv);
+            }
+        }
+        
+        // Agregar listeners para los colores
+        colorsGrid.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const colorName = this.dataset.color;
+                const colorObject = phoneColors.find(c => c.name === colorName);
+                
+                if (colorObject) {
+                    // Obtener referencia actualizada al elemento de color seleccionado
+                    const updatedColorSelected = modal.querySelector('.modal-color-selected');
+                    
+                    // Actualizar color seleccionado con estilo importante
+                    updatedColorSelected.style.cssText = `background-color: ${colorObject.hex} !important`;
+                    updatedColorSelected.dataset.color = colorName;
+                    
+                    // Usar el nuevo objeto DOM
+                    const newSpan = newColorPreview.querySelector('span');
+                    if (newSpan) newSpan.textContent = colorName;
+                    
+                    // Cerrar el panel
+                    colorPanel.classList.remove('active');
+                }
+            });
+        });
     }
 
-    // Si el producto está en el carrito, restaurar sus valores
+    // Remover listeners globales anteriores
+    document.removeEventListener('click', window.colorClickOutsideHandler);
+    
+   // 3. Configurar un único listener global para cerrar al hacer clic fuera
+   window.colorClickOutsideHandler = function(e) {
+    if (!colorSelector.contains(e.target)) {
+        colorPanel.classList.remove('active');
+    }
+};
+
+document.addEventListener('click', window.colorClickOutsideHandler);
+
+    // Restaurar valores si el producto está seleccionado
     if (selectedProducts.has(productTitle)) {
-        const savedProduct = selectedProducts.get(productTitle);
-        if (modelSelect) {
-            modelSelect.value = savedProduct.model || '';
+    const savedProduct = selectedProducts.get(productTitle);
+    
+    if (modelSelect && savedProduct.model) {
+        // Buscar la opción que coincide con el modelo guardado
+        for (let i = 0; i < modelSelect.options.length; i++) {
+            if (modelSelect.options[i].textContent === savedProduct.model) {
+                modelSelect.selectedIndex = i;
+                break;
+            }
         }
+    }
+    
         if (colorSelected && savedProduct.color) {
             const savedColor = phoneColors.find(c => c.name === savedProduct.color);
             if (savedColor) {
-                colorSelected.style.backgroundColor = savedColor.hex;
+            colorSelected.style.backgroundColor = savedColor.hex;
+            colorSelected.dataset.color = savedProduct.color;
+            const newSpan = newColorPreview.querySelector('span');
+            if (newSpan) newSpan.textContent = savedProduct.color;
             }
         }
     }
-
-    // Event listeners
-    if (modelSelect) {
-        modelSelect.onchange = () => {
-            if (selectedProducts.has(productTitle)) {
-                const details = selectedProducts.get(productTitle);
-                details.model = modelSelect.value;
-                selectedProducts.set(productTitle, details);
-                updateSelectedProductsList();
-            }
-        };
-    }
-
-    if (colorPreview) {
-        colorPreview.onclick = (e) => {
-            e.stopPropagation();
-            colorPanel.classList.toggle('active');
-        };
-    }
-
-    if (colorsGrid) {
-        colorsGrid.onclick = (e) => {
-            const colorOption = e.target.closest('.color-option');
-            if (!colorOption) return;
-
-            const selectedColor = colorOption.dataset.color;
-            const colorHex = colorOption.style.backgroundColor;
-
-            if (colorSelected) {
-                colorSelected.style.backgroundColor = colorHex;
-            }
-
-            if (selectedProducts.has(productTitle)) {
-                const details = selectedProducts.get(productTitle);
-                details.color = selectedColor;
-                selectedProducts.set(productTitle, details);
-                updateSelectedProductsList();
-            }
-
-            colorPanel.classList.remove('active');
-        };
-    }
-
-    // Cerrar panel de colores al hacer clic fuera
-    document.onclick = (e) => {
-        if (!colorSelector?.contains(e.target)) {
-            colorPanel?.classList.remove('active');
-        }
-    };
 }
 
 // Agregar esta nueva función para actualizar los mensajes
@@ -997,7 +1124,7 @@ function updateSelectedProduct(modal) {
     if (checkbox.checked) {
         // Crear un nuevo objeto para cada producto
         selectedProducts.set(productTitle, {
-            model: modelSelect?.value || '',
+            model: modelSelect?.options[modelSelect.selectedIndex]?.textContent || '',
             color: getSelectedColorName(colorSelected) || ''
         });
     } else {
@@ -1045,7 +1172,8 @@ function updateSelectedProductsList() {
             if (details.model || details.color) {
                 itemHTML += '<div class="selected-item-details">';
                 if (details.model) itemHTML += `<small>Modelo: ${details.model}</small>`;
-                if (details.color) itemHTML += `<small>Color: ${details.color}</small>`;
+                // Agregar un salto de línea antes del color
+                if (details.color) itemHTML += `<small style="display: block;">Color: ${details.color}</small>`;
                 itemHTML += '</div>';
             }
             
@@ -1089,22 +1217,30 @@ function updateSelectedProductsList() {
 // Al inicio del archivo, después de las configuraciones globales
 const phoneColors = [
     // Azules
-    { name: 'Azul Marino', hex: '#000080' }
+    { name: 'Azul Espacial', hex: '#1E3956' }
     ,{ name: 'Azul Cobalto', hex: '#0047AB' }
     ,{ name: 'Azul Zafiro', hex: '#0F52BA' }
     ,{ name: 'Azul Celeste', hex: '#87CEEB' }
 
     // Rojos
-    ,{ name: 'Rojo Rubí', hex: '#E0115F' }
+    ,{ name: 'Vermillion', hex:'#d53f4b' }
     ,{ name: 'Rojo Carmesí', hex: '#DC143C' }
     ,{ name: 'Rojo Borgoña', hex: '#800020' }
     ,{ name: 'Rojo Coral', hex: '#FF7F50' }
 
+
+    // Amarillos
+    ,{ name: 'Amarillo Mostaza', hex: '#FFDB58' }
+    ,{ name: 'Amarillo Limón', hex: '#FFF700' }
+    ,{ name: 'Amarillo Oro', hex: '#FFD700' }
+    ,{ name: 'Amarillo Citrino', hex: '#dac70c' }
+
+
     // Verdes
     ,{ name: 'Verde Esmeralda', hex: '#50C878' }
     ,{ name: 'Verde Jade', hex: '#00A86B' }
-    ,{ name: 'Verde Oliva', hex: '#808000' }
-    ,{ name: 'Verde Menta', hex: '#98FF98' }
+    ,{ name: 'Verde Oliva', hex: '#565944' }
+    ,{ name: 'Verde Menta', hex: '#48b08b' }
 
     // Morados/Violetas
     ,{ name: 'Púrpura Real', hex: '#7851A9' }
@@ -1127,7 +1263,7 @@ const phoneColors = [
     ,{ name: 'Rojo Neón', hex: '#FF073A' }
 
     // Pasteles
-    ,{ name: 'Rosa Pastel', hex: '#FFB6C1' }
+    ,{ name: 'Rosa Pastel', hex: '#d9b39c' }
     ,{ name: 'Azul Pastel', hex: '#AEC6CF' }
     ,{ name: 'Verde Pastel', hex: '#77DD77' }
     ,{ name: 'Amarillo Pastel', hex: '#FDFD96' }
@@ -1137,10 +1273,11 @@ const phoneColors = [
     ,{ name: 'Lima Pastel', hex: '#B2D300' }
     ,{ name: 'Lila Pastel', hex: '#D8BFD8' }
 
-    // Negros
+    // Negros y Blancos
     ,{ name: 'Negro Medianoche', hex: '#141414' }
     ,{ name: 'Negro Espacial', hex: '#000000' }
-    ,{ name: 'Negro Grafito', hex: '#1C1C1C' }
+    ,{ name: 'Negro Onix', hex: '#32353a' }
+    ,{ name: 'Blanco Dirty', hex: '#e0e2cd' }
 ];
 
 // Manejo del carrito móvil

@@ -116,6 +116,11 @@
     transition: all 0.3s var(--transition-bezier);
 }
 
+.selected-item-details small {
+    display: block;
+    margin-bottom: 3px;
+}
+
 /* Cart Dropdown */
 .nav-actions {
     display: flex;
