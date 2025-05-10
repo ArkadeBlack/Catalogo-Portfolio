@@ -116,10 +116,104 @@ const selectedProducts = new Map(); // Usar Map para almacenar productos selecci
 const products = [
     {
         id: 1,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Funda Biodegradable Iphone',
-        description: 'Para todos los modelos de iPhone',
+        defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/18 BLACK.jpg',
+        title: 'Funda Silicone Case Apple',
+        description: 'Para Diferentes modelos de Apple 13, 14 y 15',
         price: '$10.00',
+        colorImages: {
+        'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/49 PAPAYA.jpg',
+        'Verde Menta': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/1 MINT.jpg',
+        'Apricot': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/2 APRICOT.jpg',
+        'Royal Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/3 ROYAL BLUE.jpg',
+        'Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/4 YELLOW.jpg',
+        'Lila': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/5 LILA.jpg',
+        'Light Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/6 LIGHT PINK.jpg',
+        'Lavander': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/7 LAVANDER.jpg',
+        'Dark Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/8 DARK BLUE.jpg',
+        'White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/9 WHITE.jpg',
+        'Antique White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/10 antique white.jpg',
+        'Stone': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/11 STONE.jpg',
+        'Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/12 PINK.jpg',
+        'Orange': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/13 ORANGE.jpg',
+        'Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/14 RED.jpg',
+        'Dark Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/15 DARK GRAY.jpg',
+        'Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/16 BLUE.jpg',
+        'Turquesa': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/17 TURQUOISE.jpg',
+        'Negro': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/18 BLACK.jpg',
+        'Pink Sand': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/19 PINK SAND.jpg',
+        'Navy Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/20 NAVY BLUE.jpg',
+    'Sea Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/21 SEA BLUE.jpg',
+    'Offe': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/22 OFFE.jpg',
+    'Pebble': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/23 PEBBLE.jpg',
+    'Azure': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/24 AZURE.jpg',
+    'Carmellia': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/25 CARMELLIA.jpg',
+    'Mist Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/26 MIST BLUE.jpg',
+    'Flamingo': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/27 FLAMINGO.jpg',
+    'Lavander Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/28 LAVANDER GRAY.jpg',
+    'Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/29 GOLD.jpg',
+    'Peach': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/30 PEACH.jpg',
+    'China Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/31 CHINA RED.jpg',
+    'Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/32 GREEN.jpg',
+    'Brown': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/33 BROWN.jpg',
+    'Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/34 PURPLE.jpg',
+    'Dark Olive': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/35 DARK OLIVE.jpg',
+    'Cobalto Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/36 BLUE COBALT.jpg',
+    'Rose Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/37 ROSE GOLD.jpg',
+    'Shiny Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/38 SHINY PINK.jpg',
+    'Elegant Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/39 ELEGANT PURPLE.jpg',
+    'Shiny Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/40 SHINY GREEN.jpg',
+    'Flash': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/41 FLASH.jpg',
+    'Maroon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/42 MAROON.jpg',
+    'Grape': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/43 GRAPE.jpg',
+    'Shiny Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/44 SHINY BLUE.jpg',
+    'Army Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/45 ARMY GREEN.jpg',
+    'Cosmos Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/46 COSMOS BLUE.jpg',
+    'Spearmint': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/47 SPEARMINT.jpg',
+    'Dragon Fruit': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/48 DRAGON FRUIT.jpg',
+    'Mellow Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/51 MELLOW YELLOW.jpg',
+    'Watermelon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/52 WATERMELON.jpg',
+    'Corn Flower': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/53 CORN FLOWER.jpg',
+    'Atrovirens': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/54 ATROVIRENS.jpg',
+    'Pino Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/55 PINE GREEN.jpg',
+    'Bluebery': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/56 BLUEBERRY.jpg',
+    'Plum': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/57 PLUM.jpg',
+        },
+        availableColors: [
+        'Apricot', 'Royal Blue', 'Yellow', 'Lila', 'Light Pink',
+        'Lavander', 'Dark Blue', 'White', 'Antique White', 'Stone',
+        'Pink', 'Orange', 'Red', 'Dark Gray', 'Blue', 'Turquesa',
+        'Negro', 'Pink Sand', 'Navy Blue', 'Sea Blue', 'Offe',
+        'Pebble', 'Azure', 'Carmellia', 'Mist Blue', 'Flamingo',
+        'Lavander Gray', 'Gold', 'Peach', 'China Red', 'Green',
+        'Brown', 'Purple', 'Dark Olive', 'Cobalto Blue', 'Rose Gold',
+        'Shiny Pink', 'Elegant Purple', 'Shiny Green', 'Flash', 
+        'Maroon', 'Grape', 'Shiny Blue', 'Army Green', 'Cosmos Blue',
+        'Spearmint', 'Dragon Fruit', 'Mellow Yellow', 'Watermelon',
+        'Corn Flower', 'Atrovirens', 'Pino Green', 'Bluebery', 'Plum', 'Papaya', 'Verde Menta'
+
+        ],
+        availableModels: [
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14',
+            'iPhone 13 Pro Max', 'iPhone 13 Pro', 'iPhone 13', 'iPhone 13 Mini',
+        ]
+    },{
+        id: 2,
+        defaultImage: '/assets/Img/product/BIODEGRADABLE/7.jpg',
+        title: 'Funda Biodegradable',
+        description: 'Para los modelos de iPhone',
+        price: '$10.00',
+        colorImages: {
+            'Vermillion': '/assets/Img/product/BIODEGRADABLE/5.jpg',
+            'Rosa Pastel': '/assets/Img/product/BIODEGRADABLE/1.jpg',
+            'Amarillo Citrino': '/assets/Img/product/BIODEGRADABLE/8.jpg',
+            'Verde Oliva': '/assets/Img/product/BIODEGRADABLE/3.jpg',
+            'Verde Menta': '/assets/Img/product/BIODEGRADABLE/2.jpg',
+            'Azul Espacial': '/assets/Img/product/BIODEGRADABLE/4.jpg',
+            'Negro Onix': '/assets/Img/product/BIODEGRADABLE/6.jpg',
+            'Blanco Dirty': '/assets/Img/product/BIODEGRADABLE/7.jpg',
+
+        },
         availableColors: [
             'Vermillion','Rosa Pastel','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
         ],
@@ -129,28 +223,21 @@ const products = [
         ]
     },
     {
-        id: 2,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Funda Biodegradable Samsung',
-        description: 'Para todos los modelos de Samsung',
-        price: '$89.99',
-        availableColors: [
-            'Vermillion','Rosa Pastel','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
-        ],
-        availableModels: [
-            'Galaxy S24 Ultra', 'Galaxy S24+', 'Galaxy S24',
-            'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23',
-            'Galaxy A54', 'Galaxy A34'
-        ]
-    }, 
-    {
         id: 3,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Funda Silicon Case Iphone',
-        description: 'Para todos los modelos de iPhone',
+        image: '/assets/Img/product/POOF/1.jpg',
+        title: 'Funda Poof',
+        description: 'Para los modelos de iPhone',
         price: '$99.99',
+        colorImages: {
+            'Blanco Dirty': '/assets/Img/product/POOF/1.jpg',
+            'Papaya': '/assets/Img/product/POOF/3.jpg',
+            'Vermillion': '/assets/Img/product/POOF/2.jpg',
+            'Verde Menta': '/assets/Img/product/POOF/4.jpg',
+            'Diseño Unico': '/assets/Img/product/POOF/E1.jpg'
+
+        },
         availableColors: [
-            'Vermillion','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+            'Blanco Dirty','Papaya', 'Vermillion','Verde Menta', 'Diseño Unico'
         ],
         availableModels: [
             'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
@@ -159,45 +246,383 @@ const products = [
     },
     {
         id: 4,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Funda Silicon Case Samsung',
-        description: 'Para todos los modelos de Samsung',
-        price: '$89.99',
+        defaultImage: '/assets/Img/product/WAVE/3.jpg',
+        title: 'Funda Wave',
+        description: 'Para los modelos de iPhone',
+        price: '$10.00',
+        colorImages: {
+            'Blanco Dirty': '/assets/Img/product/WAVE/1.jpg',
+            'Blanco Perla': '/assets/Img/product/WAVE/6.jpg',
+            'Negro Espacial': '/assets/Img/product/WAVE/3.jpg',
+            'Beige Profundo': '/assets/Img/product/WAVE/2.jpg',
+            'Bronze Yellow': '/assets/Img/product/WAVE/4.jpg',
+            'Dark Sienna': '/assets/Img/product/WAVE/5.jpg',
+            'Medio Purple': '/assets/Img/product/WAVE/7.jpg',
+        },
         availableColors: [
+            'Blanco Dirty','Blanco Perla','Negro Espacial', 'Beige Profundo','Bronze Yellow', 'Dark Sienna', 'Medio Purple'
         ],
         availableModels: [
-            'Galaxy S24 Ultra', 'Galaxy S24+', 'Galaxy S24',
-            'Galaxy S23 Ultra', 'Galaxy S23+', 'Galaxy S23',
-            'Galaxy A54', 'Galaxy A34'
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
         ]
-    }, {
+    },
+    {
         id: 5,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 5',
-        description: 'Descripción del producto 1',
-        price: '$99.99'
+        defaultImage: '/assets/Img/product/3en1/3en1.jpg',
+        title: 'Funda 3 en 1',
+        description: 'Para los modelos variados',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Diseño Unico'
+        ],
+        availableModels: [
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15'
+        ]
     },
     {
         id: 6,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 6',
-        description: 'Descripción del producto 2',
-        price: '$89.99'
-    }, {
+        defaultImage: '/assets/Img/product/TRANSPARENTE/SAMSUNG/samsung.jpg',
+        title: 'Funda Transparente Samsung',
+        description: 'Para Diferentes modelos de Samsung',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Samsung Galaxy S23 Ultra', 'Samsung Galaxy S23+', 'Samsung Galaxy S23',
+        ]
+    }, 
+    {
         id: 7,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 7',
-        description: 'Descripción del producto 1',
-        price: '$99.99'
+        defaultImage: '/assets/Img/product/TRANSPARENTE/XIAOMI/xiaomi.jpg',
+        title: 'Funda Transparente Xiaomi',
+        description: 'Para Diferentes modelos de Xiaomi',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Xiaomi 13 Pro', 'Xiaomi 13', 'Xiaomi 13 Lite', 'Xiaomi 12 Pro', 'Xiaomi 12', 'Xiaomi 12 Lite'
+        ]
     },
     {
         id: 8,
-        image: '/assets/Img/product/desktop/product_1.jpg',
-        title: 'Producto 8',
-        description: 'Descripción del producto 2',
-        price: '$89.99'
+        defaultImage: '/assets/Img/product/TRANSPARENTE/MOTOROLA/motorola.jpg',
+        title: 'Funda Transparente Motorola',
+        description: 'Para Diferentes modelos de Motorola',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Motorola Edge 40 Pro', 'Motorola Edge 40', 'Motorola Edge 40 Neo', 'Motorola Edge 30 Ultra', 'Motorola Edge 30 Fusion', 'Motorola Edge 30 Lite', 'Motorola Edge 20 Pro', 'Motorola Edge 20', 'Motorola Edge 20 Lite'
+        ]
+    },
+    {
+        id: 9,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/HUAWEI/huawei.jpg',
+        title: 'Funda Transparente Huawei',
+        description: 'Para Diferentes modelos de Huawei',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Huawei P60 Pro', 'Huawei P60', 'Huawei P60 Lite', 'Huawei Mate 50 Pro', 'Huawei Mate 50', 'Huawei Mate 50 Lite'
+        ]
+    },
+    {
+        id: 10,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/MAGSAFE/TM.jpg',
+        title: 'Funda Transparente Apple MagSafe',
+        description: 'Para Diferentes modelos de Apple MagSafe',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+        ]
+    },
+    {
+        id: 11,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/13-14-15-16/apple.jpg',
+        title: 'Funda Transparente Apple',
+        description: 'Para Diferentes modelos de Apple 13, 14, 15 y 16',
+        price: '$10.00',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16',
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14',
+            'iPhone 13 Pro Max', 'iPhone 13 Pro', 'iPhone 13', 'iPhone 13 Mini',
+        ]
+    },
+    {
+        id: 12,
+        defaultImage: '/assets/Img/product/ACS/1.jpg',
+        title: 'Funda Anti golpes con soporte',
+        description: 'Para los modelos de iPhone',
+        price: '$10.00',
+        colorImages: {
+            'Negro Onix': '/assets/Img/product/ACS/1.jpg',
+        },
+        availableColors: [
+            'Negro Onix'
+        ],
+        availableModels: [
+            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
+            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
+        ]
+    },
+   {
+        id: 13,
+        defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
+        title: 'Funda Silicone Case Apple 16',
+        description: 'Para Diferentes modelos de Apple 16',
+        price: '$10.00',
+        colorImages: {
+        'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/49.jpg',
+        'Verde Menta': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/1.jpg',
+        'Apricot': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/2.jpg',
+        'Royal Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
+        'Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/4.jpg',
+        'Lila': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/5.jpg',
+        'Light Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/6.jpg',
+        'Lavander': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/7.jpg',
+        'Dark Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/8.jpg',
+        'White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/9.jpg',
+        'Antique White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/10.jpg',
+        'Stone': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/11.jpg',
+        'Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/12.jpg',
+        'Orange': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/13.jpg',
+        'Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/14.jpg',
+        'Dark Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/15.jpg',
+        'Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/16.jpg',
+        'Turquesa': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/17.jpg',
+        'Negro': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/18.jpg',
+        'Pink Sand': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/19.jpg',
+        'Navy Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/20.jpg',
+        'Sea Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/21.jpg',
+        'Offe': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/22.jpg',
+        'Pebble': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/23.jpg',
+        'Azure': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/24.jpg',
+        'Carmellia': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/25.jpg',
+        'Mist Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/26.jpg',
+        'Flamingo': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/27.jpg',
+        'Lavander Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/28.jpg',
+        'Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/29.jpg',
+        'Peach': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/30.jpg',
+        'China Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/31.jpg',
+        'Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/32.jpg',
+        'Brown': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/33.jpg',
+        'Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/34.jpg',
+        'Dark Olive': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/35.jpg',
+        'Cobalto Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/36.jpg',
+        'Rose Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/37.jpg',
+        'Shiny Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/38.jpg',
+        'Elegant Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/39.jpg',
+        'Shiny Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/40.jpg',
+        'Flash': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/41.jpg',
+        'Maroon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/42.jpg',
+        'Grape': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/43.jpg',
+        'Shiny Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/44.jpg',
+        'Army Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/45.jpg',
+        'Cosmos Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/46.jpg',
+        'Spearmint': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/47.jpg',
+        'Dragon Fruit': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/48.jpg',
+        'Mellow Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/51.jpg',
+        'Watermelon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/52.jpg',
+        'Corn Flower': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/53.jpg',
+        'Atrovirens': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/54.jpg',
+        'Pino Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/55.jpg',
+        'Bluebery': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/56.jpg',
+        'Plum': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/57.jpg'
+        },
+        availableColors: [
+        'Apricot', 'Royal Blue', 'Yellow', 'Lila', 'Light Pink',
+        'Lavander', 'Dark Blue', 'White', 'Antique White', 'Stone',
+        'Pink', 'Orange', 'Red', 'Dark Gray', 'Blue', 'Turquesa',
+        'Negro', 'Pink Sand', 'Navy Blue', 'Sea Blue', 'Offe',
+        'Pebble', 'Azure', 'Carmellia', 'Mist Blue', 'Flamingo',
+        'Lavander Gray', 'Gold', 'Peach', 'China Red', 'Green',
+        'Brown', 'Purple', 'Dark Olive', 'Cobalto Blue', 'Rose Gold',
+        'Shiny Pink', 'Elegant Purple', 'Shiny Green', 'Flash', 
+        'Maroon', 'Grape', 'Shiny Blue', 'Army Green', 'Cosmos Blue',
+        'Spearmint', 'Dragon Fruit', 'Mellow Yellow', 'Watermelon',
+        'Corn Flower', 'Atrovirens', 'Pino Green', 'Bluebery', 'Plum', 'Papaya', 'Verde Menta'
+
+        ],
+        availableModels: [
+             'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16',
+        ]
+    },
+    {
+        id: 14,
+        defaultImage: '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/4.jpg',
+        title: 'Funda Silicone Case Samsung 23, 24 y 25',
+        description: 'Para Diferentes modelos de Samsung',
+        price: '$10.00',
+        colorImages: {
+            'Red': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/1.jpg',
+            'Grape': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/2.jpg',
+            'Pink': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/10.jpg',
+            'Blanco Perla': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/4.jpg',
+            'Black': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/5.jpg',
+            'Verde Menta': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/6.jpg',
+            'Mellow Yellow': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/7.jpg',
+            'Drak Blue': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/8.jpg',
+            'Dark Gray': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/9.jpg',
+            'Flamingo': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/11.jpg',
+            'Rosa Pastel': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/3.jpg',
+            'Corn Flower': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/12.jpg',
+            'Cosmos Blue': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/13.jpg',
+            'Green': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/14.jpg',
+            'Yellow': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/15.jpg',
+        },
+        availableColors: [
+            'Red', 'Grape', 'Pink', 'Blanco Perla', 'Black', 'Verde Menta',
+            'Mellow Yellow', 'Drak Blue', 'Dark Gray', 'Flamingo', 'Rosa Pastel', 'Corn Flower',
+            'Cosmos Blue', 'Green', 'Yellow'
+        ],
+        availableModels: [
+            'Samsung Galaxy S23+', 'Samsung Galaxy S23','Samsung Galaxy S24+',
+            'Samsung Galaxy S24','Samsung Galaxy S25+', 'Samsung Galaxy S25',
+            'Samsung Galaxy S23 FE', 'Samsung Galaxy S24 FE', 'Samsung Galaxy S25 FE',
+        ]
+    },
+    {
+        id: 15,
+        defaultImage: '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/1.jpg',
+        title: 'Funda Silicone Case Samsung Ultra',
+        description: 'Para Diferentes modelos de Samsung Ultra',
+        price: '$10.00',
+        colorImages: {
+            'Red': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/1.jpg',
+            'Grape': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/2.jpg',
+            'Pink': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/10.jpg',
+            'Blanco Perla': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/5.jpg',
+            'Black': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/4.jpg',
+            'Verde Menta': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/6.jpg',
+            'Mellow Yellow': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/7.jpg',
+            'Drak Blue': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/8.jpg',
+            'Dark Gray': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/9.jpg',
+            'Flamingo': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/11.jpg',
+            'Rosa Pastel': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/3.jpg',
+            'Corn Flower': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/12.jpg',
+            'Cosmos Blue': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/13.jpg',
+            'Green': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/14.jpg',
+            'Yellow': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/15.jpg',
+            'Lavander Gray': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/16.jpg',
+        },
+        availableColors: [
+            'Red', 'Grape', 'Pink', 'Blanco Perla', 'Black', 'Verde Menta',
+            'Mellow Yellow', 'Drak Blue', 'Dark Gray', 'Flamingo', 'Rosa Pastel', 'Corn Flower',
+            'Cosmos Blue', 'Green', 'Yellow', 'Lavander Gray'
+        ],
+        availableModels: [
+            'Samsung Galaxy S23 Ultra', 'Samsung Galaxy S24 Ultra', 'Samsung Galaxy S25 Ultra',
+            'Samsung Galaxy S23 FE Ultra', 'Samsung Galaxy S24 FE Ultra', 'Samsung Galaxy S25 FE Ultra'
+        ]
     }
   
+];
+
+// Al inicio del archivo, después de las configuraciones globales
+const phoneColors = [
+    // Colores que sí están siendo utilizados
+    { name: 'Azul Espacial', hex: '#1E3956' },
+    { name: 'Vermillion', hex:'#d53f4b' },
+    { name: 'Beige Profundo', hex: '#8d7f6f'},
+    { name: 'Dark Sienna', hex: '#3f0e12' },
+    { name: 'Amarillo Citrino', hex: '#dac70c' },
+    { name: 'Papaya', hex: '#FF8000' },
+    { name: 'Bronze Yellow', hex: '#7c740a' },
+    { name: 'Verde Oliva', hex: '#565944' },
+    { name: 'Verde Menta', hex: '#48b08b' },
+    { name: 'Medio Purple', hex: '#db81b7' },
+    { name: 'Rosa Pastel', hex: '#d9b39c' },
+    { name: 'Negro Espacial', hex: '#000000' },
+    { name: 'Negro Onix', hex: '#32353a' },
+    { name: 'Blanco Dirty', hex: '#e0e2cd' },
+    { name: 'Blanco Perla', hex: '#f5f5dc' },
+    
+    // Colores especiales
+    { name: 'Transparente', hex: '' },
+    { name: 'Diseño Unico', hex: '' },
+
+    // Nuevos colores solicitados
+    { name: 'Apricot', hex: '#FBCEB1' },
+    { name: 'Royal Blue', hex: '#4169E1' },
+    { name: 'Yellow', hex: '#ffe889' },
+    { name: 'Lila', hex: '#C8A2C8' },
+    { name: 'Light Pink', hex: '#FFB6C1' },
+    { name: 'Lavander', hex: '#e6c2bb' },
+    { name: 'Dark Blue', hex: '#00008B' },
+    { name: 'White', hex: '#FFFFFF' },
+    { name: 'Antique White', hex: '#FAEBD7' },
+    { name: 'Stone', hex: '#928E85' },
+    { name: 'Pink', hex: '#FFC0CB' },
+    { name: 'Orange', hex: '#FFA500' },
+    { name: 'Red', hex: '#FF0000' },
+    { name: 'Dark Gray', hex: '#312f30' },
+    { name: 'Blue', hex: '#04b4ee' },
+    { name: 'Turquesa', hex: '#40E0D0' },
+    { name: 'Negro', hex: '#000000' },
+    { name: 'Pink Sand', hex: '#F8C8B6' },
+    { name: 'Navy Blue', hex: '#000080' },
+    { name: 'Sea Blue', hex: '#04d6e1' },
+    { name: 'Offe', hex: '#342e30' },
+    { name: 'Pebble', hex: '#988d82' },
+    { name: 'Azure', hex: '#007FFF' },
+    { name: 'Carmellia', hex: '#FF6B81' },
+    { name: 'Mist Blue', hex: '#B2FFFF' },
+    { name: 'Flamingo', hex: '#fba887' },
+    { name: 'Lavander Gray', hex: '#9284a5' },
+    { name: 'Gold', hex: '#FFD700' },
+    { name: 'Peach', hex: '#fb878a' },
+    { name: 'China Red', hex: '#A8201A' },
+    { name: 'Green', hex: '#88c88a' },
+    { name: 'Brown', hex: '#844828' },
+    { name: 'Purple', hex: '#1f1d6e' },
+    { name: 'Dark Olive', hex: '#3b4b47' },
+    { name: 'Cobalto Blue', hex: '#132866' },
+    { name: 'Rose Gold', hex: '#B76E79' },
+    { name: 'Shiny Pink', hex: '#FF69B4' },
+    { name: 'Elegant Purple', hex: '#6A0DAD' },
+    { name: 'Shiny Green', hex: '#00FF7F' },
+    { name: 'Flash', hex: '#cae352' },
+    { name: 'Maroon', hex: '#803740' },
+    { name: 'Grape', hex: '#6F2DA8' },
+    { name: 'Shiny Blue', hex: '#053ea4' },
+    { name: 'Army Green', hex: '#4B5320' },
+    { name: 'Cosmos Blue', hex: '#26619C' },
+    { name: 'Spearmint', hex: '#3EB489' },
+    { name: 'Dragon Fruit', hex: '#FD5DA8' },
+    { name: 'Mellow Yellow', hex: '#F8DE7E' },
+    { name: 'Watermelon', hex: '#FC6C85' },
+    { name: 'Corn Flower', hex: '#6495ED' },
+    { name: 'Atrovirens', hex: '#2F4F4F' },
+    { name: 'Pino Green', hex: '#01796F' },
+    { name: 'Bluebery', hex: '#fbbffb' },
+    { name: 'Plum', hex: '#8E4585' }
 ];
 
 // ================ FUNCIONES DEL MODAL ================
@@ -214,12 +639,14 @@ function openModal(productCard) {
     
     // Obtener datos del producto desde la card
     const img = productCard.querySelector('img');
+    const productId = productCard.dataset.productId;
+    const product = products.find(p => p.id == productId);
     const title = productCard.querySelector('h3');
     const description = productCard.querySelector('.product-details p:not(.price)');
     const price = productCard.querySelector('.price');
     
     // Actualizar contenido del modal
-    modalImg.src = img.src;
+    modalImg.src = product ? (product.defaultImage || product.image) : img.src;
     modalImg.alt = img.alt;
     modalTitle.textContent = title.textContent;
     modalDescription.textContent = description.textContent;
@@ -262,7 +689,7 @@ function closeModal() {
     }, 300);
 }
 
-// Agregar esta nueva función
+
 function resetModalSelections(modal) {
     // Resetear selector de modelo
     const modelSelect = modal.querySelector('#modalPhoneModel');
@@ -290,6 +717,13 @@ function resetModalSelections(modal) {
     const colorPanel = modal.querySelector('.modal-color-panel');
     if (colorPanel) {
         colorPanel.classList.remove('active');
+    }
+
+    // Resetear la imagen a la original si existe
+    const modalImg = modal.querySelector('.modal-img');
+    if (modalImg && modalImg.dataset.originalSrc) {
+        modalImg.src = modalImg.dataset.originalSrc;
+        delete modalImg.dataset.originalSrc;
     }
 }
 
@@ -375,7 +809,6 @@ function initializeProductOptions(modal) {
         // Agrupar colores por categorías
         const colorCategories = {
             "Neón": [],
-            "Pasteles": [],
             "Básicos": []
         };
         
@@ -383,8 +816,6 @@ function initializeProductOptions(modal) {
         availableColors.forEach(color => {
             if (color.name.includes('Neón')) {
                 colorCategories["Neón"].push(color);
-            } else if (color.name.includes('Pastel')) {
-                colorCategories["Pasteles"].push(color);
             } else {
                 colorCategories["Básicos"].push(color);
             }
@@ -430,6 +861,9 @@ function initializeProductOptions(modal) {
                     // Usar el nuevo objeto DOM
                     const newSpan = newColorPreview.querySelector('span');
                     if (newSpan) newSpan.textContent = colorName;
+
+                    // NUEVO: Actualizar la imagen del producto según el color
+                    updateProductImage(modal, colorName);
                     
                     // Cerrar el panel
                     colorPanel.classList.remove('active');
@@ -476,6 +910,28 @@ document.addEventListener('click', window.colorClickOutsideHandler);
     }
 }
 
+function updateProductImage(modal, colorName) {
+    const productTitle = modal.dataset.currentProduct;
+    const modalImg = modal.querySelector('.modal-img');
+    const currentProduct = products.find(p => p.title === productTitle);
+    
+    // Si el producto no existe, salir
+    if (!currentProduct) return;
+    
+    // Guardar la imagen original solo la primera vez
+    if (!modalImg.dataset.originalSrc) {
+        modalImg.dataset.originalSrc = currentProduct.defaultImage || currentProduct.image || modalImg.src;
+    }
+    
+    if (currentProduct.colorImages && currentProduct.colorImages[colorName]) {
+        // Cambiar a la imagen del color
+        modalImg.src = currentProduct.colorImages[colorName];
+    } else if (modalImg.dataset.originalSrc) {
+        // Si no hay imagen para este color, volver a la original
+        modalImg.src = modalImg.dataset.originalSrc;
+    }
+}
+
 // Agregar esta nueva función para actualizar los mensajes
 function updateModalMessage(modal, selectedOptions) {
     const productTitle = modal.dataset.currentProduct;
@@ -500,9 +956,12 @@ function createProductCard(product) {
     card.className = 'product-card loading';
     card.dataset.productId = product.id;
     card.onclick = () => openModal(card);
+
+    // Usar siempre defaultImage y tener una imagen de respaldo
+    const imagePath = product.defaultImage || product.image || '/assets/Img/placeholder.jpg';
     
-    card.innerHTML = `
-        <img src="${product.image}" alt="${product.title}">
+   card.innerHTML = `
+        <img src="${imagePath}" alt="${product.title}">
         <div class="product-details">
             <h3>${product.title}</h3>
             <p>${product.description}</p>
@@ -1213,72 +1672,6 @@ function updateSelectedProductsList() {
     updateMobileCart();
     updateButtonsText(document.querySelectorAll('.modal-btn'));
 }
-
-// Al inicio del archivo, después de las configuraciones globales
-const phoneColors = [
-    // Azules
-    { name: 'Azul Espacial', hex: '#1E3956' }
-    ,{ name: 'Azul Cobalto', hex: '#0047AB' }
-    ,{ name: 'Azul Zafiro', hex: '#0F52BA' }
-    ,{ name: 'Azul Celeste', hex: '#87CEEB' }
-
-    // Rojos
-    ,{ name: 'Vermillion', hex:'#d53f4b' }
-    ,{ name: 'Rojo Carmesí', hex: '#DC143C' }
-    ,{ name: 'Rojo Borgoña', hex: '#800020' }
-    ,{ name: 'Rojo Coral', hex: '#FF7F50' }
-
-
-    // Amarillos
-    ,{ name: 'Amarillo Mostaza', hex: '#FFDB58' }
-    ,{ name: 'Amarillo Limón', hex: '#FFF700' }
-    ,{ name: 'Amarillo Oro', hex: '#FFD700' }
-    ,{ name: 'Amarillo Citrino', hex: '#dac70c' }
-
-
-    // Verdes
-    ,{ name: 'Verde Esmeralda', hex: '#50C878' }
-    ,{ name: 'Verde Jade', hex: '#00A86B' }
-    ,{ name: 'Verde Oliva', hex: '#565944' }
-    ,{ name: 'Verde Menta', hex: '#48b08b' }
-
-    // Morados/Violetas
-    ,{ name: 'Púrpura Real', hex: '#7851A9' }
-    ,{ name: 'Violeta', hex: '#8F00FF' }
-    ,{ name: 'Lavanda', hex: '#E6E6FA' }
-    ,{ name: 'Amatista', hex: '#9966CC' }
-
-    // Metálicos
-    ,{ name: 'Plata', hex: '#C0C0C0' }
-    ,{ name: 'Titanio', hex: '#808080' }
-    ,{ name: 'Bronce', hex: '#CD7F32' }
-    ,{ name: 'Cobre', hex: '#B87333' }
-
-    // Neóns
-    ,{ name: 'Verde Neón', hex: '#39FF14' }
-    ,{ name: 'Rosa Neón', hex: '#FF6EC7' }
-    ,{ name: 'Naranja Neón', hex: '#FF5F1F' }
-    ,{ name: 'Amarillo Neón', hex: '#FFFF00' }
-    ,{ name: 'Azul Neón', hex: '#1B03A3' }
-    ,{ name: 'Rojo Neón', hex: '#FF073A' }
-
-    // Pasteles
-    ,{ name: 'Rosa Pastel', hex: '#d9b39c' }
-    ,{ name: 'Azul Pastel', hex: '#AEC6CF' }
-    ,{ name: 'Verde Pastel', hex: '#77DD77' }
-    ,{ name: 'Amarillo Pastel', hex: '#FDFD96' }
-    ,{ name: 'Lavanda Pastel', hex: '#E3E4FA' }
-    ,{ name: 'Melocotón Pastel', hex: '#FFD1DC' }
-    ,{ name: 'Menta Pastel', hex: '#98FF98' }
-    ,{ name: 'Lima Pastel', hex: '#B2D300' }
-    ,{ name: 'Lila Pastel', hex: '#D8BFD8' }
-
-    // Negros y Blancos
-    ,{ name: 'Negro Medianoche', hex: '#141414' }
-    ,{ name: 'Negro Espacial', hex: '#000000' }
-    ,{ name: 'Negro Onix', hex: '#32353a' }
-    ,{ name: 'Blanco Dirty', hex: '#e0e2cd' }
-];
 
 // Manejo del carrito móvil
 document.addEventListener('DOMContentLoaded', function() {
