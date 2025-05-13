@@ -1047,16 +1047,16 @@ function initializeCarousel() {
             tablet: '/assets/Img/carousel/tablet/Tablet.webp',     // 768x400
             mobileL: '/assets/Img/carousel/mobileL/Mobile-L.webp',      // 425x350
             mobileM: '/assets/Img/carousel/mobileM/Mobile-M.webp',      // 375x300
-            mobileS: '/assets/Img/carousel/mobileS/Mobile-S.webp'       // 320x250
+            mobileS: '/assets/Img/carousel/mobileS/Mobile-S_1.webp'       // 320x250
         },
         {
-            desktop: './assets/Img/carousel/desktop/Desktop (1).webp',    // 1920x800
-            netbook: '/assets/Img/carousel/netbook/Netbook (1).webp',    // 1280x600
-            laptop: '/assets/Img/carousel/laptop/Laptop (1).webp',     // 1024x500
-            tablet: '/assets/Img/carousel/tablet/Tablet (1).webp',     // 768x400
-            mobileL: '/assets/Img/carousel/mobileL/Mobile L.webp',      // 425x350
-            mobileM: '/assets/Img/carousel/mobileM/Mobile M.webp',      // 375x300
-            mobileS: '/assets/Img/carousel/mobileS/Mobile S.webp'       // 320x250
+            desktop: './assets/Img/carousel/desktop/Desktop2.webp',    // 1920x800
+            netbook: '/assets/Img/carousel/netbook/Netbook2.webp',    // 1280x600
+            laptop: '/assets/Img/carousel/laptop/Laptop2.webp',     // 1024x500
+            tablet: '/assets/Img/carousel/tablet/Tablet2.webp',     // 768x400
+            mobileL: '/assets/Img/carousel/mobileL/Mobilel2.webp',      // 425x350
+            mobileM: '/assets/Img/carousel/mobileM/Mobilem2.webp',      // 375x300
+            mobileS: '/assets/Img/carousel/mobileS/Mobiles2.webp'       // 320x250
         },
     ];
 

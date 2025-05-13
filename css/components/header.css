@@ -83,7 +83,7 @@
     border-radius: 0; /* Sin bordes redondeados */
     overflow: hidden;
     box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1); /* Sombra sutil */
-    padding: 120px 0;
+    padding: 100px 0; /* Espaciado superior e inferior */
 }
 
 .logo-video {
@@ -167,12 +167,70 @@
         -webkit-backdrop-filter: blur(8px);
         border: 1px solid rgba(255, 255, 255, 0.212);
         box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+        padding: 40px;
     }
     
     .logo-video {
         height: auto; /* Mantener proporción */
     }
 }
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .header {
+        padding: var(--spacing-sm);
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        height: auto;
+    }
+
+    .text-shine {
+        font-size: var(--font-size-xl);
+    }
+
+    .social-links {
+        padding-right: 8%;
+    }
+
+    .header-logo-container {
+        height: 120px; /* Ajustar altura para tablet */
+        padding: 20px;
+    }
+    
+    .logo-video {
+        width: 100%; /* Ajustar ancho para tablet */
+        height: auto; /* Mantener proporción */
+    }
+}
+
+/* laptop */
+@media (max-width: 1440px) {
+    .header {
+        padding: var(--spacing-sm);
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        height: auto;
+    }
+
+    .text-shine {
+        font-size: var(--font-size-xl);
+    }
+
+    .social-links {
+        padding-right: 8%;
+    }
+
+    .header-logo-container {
+        height: 100px; /* Ajustar altura para laptop */
+        padding: 70px;
+    }
+    
+    .logo-video {
+        width: 100%; /* Ajustar ancho para laptop */
+        height: auto; /* Mantener proporción */
+    }
+}
+
 
 /* Mobile L */
 @media (max-width: 576px) {
@@ -203,15 +261,18 @@
     /* Ajuste del logo para móviles */
     .header-logo-container {
         height: 100px;
-        padding: 0; /* Eliminar padding */
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0px;
     }
     
     .logo-video {
-        width: 180%; /* Aumentado significativamente desde 90% */
-        max-width: none; /* Eliminar el límite máximo */
+        object-position: center 20%;
+        width: 300%; /* Mismo ancho que tenía la imagen */
+        height: auto;
+        display: block;
+        object-fit: contain;
     }
 }
 
@@ -219,6 +280,7 @@
 @media (max-width: 425px) {
     .header-logo-container {
         height: 90px;
+        padding: 0px;
     }
     
     .logo-video {
@@ -234,6 +296,7 @@
     
     .header-logo-container {
         height: 80px;
+        padding: 0px;
     }
     
     .logo-video {

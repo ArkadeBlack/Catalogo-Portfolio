@@ -165,7 +165,6 @@ p {
 
 /* Estilos específicos para el video */
 .logo-video {
-    width: 80%; 
     height: auto;
     display: block;
     object-fit: contain;
