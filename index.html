@@ -143,15 +143,17 @@
 
      <!-- Promo Section -->
     <section class="promo-section reveal">
-        <video autoplay loop muted playsinline class="promo-banner">
-            <source src="./assets/video/BPW2.mp4" type="video/mp4">
-            <!-- Fallback para dispositivos móviles o navegadores que no soporten video -->
-        <picture>
-            <source media="(max-width: 360px)" srcset="./assets/Img/promo/mobile-sm/promo360x100.webp">
-            <source media="(max-width: 576px)" srcset="./assets/Img/promo/mobile/promo576x120.webp">
-            <img src="./assets/Img/promo/mobile/promo576x120.webp" alt="Promoción">
-        </picture>
-        </video>
+    <!-- Dos videos separados para mejor control -->
+    <video autoplay loop muted playsinline class="promo-banner desktop-tablet-video">
+        <source src="./assets/video/BPW2.mp4" type="video/mp4">
+    </video>
+    
+    <video autoplay loop muted playsinline class="promo-banner mobile-video">
+        <source src="./assets/video/BPW.mp4" type="video/mp4">
+    </video>
+    
+    <!-- Fallback imagen (opcional) -->
+    <img src="./assets/Img/footer-img.png" alt="Promoción" class="promo-banner fallback-img">
     </section>
 
     <!-- Products Section -->

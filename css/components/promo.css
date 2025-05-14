@@ -1,9 +1,8 @@
 /* Renombrar archivo a promo.css o banner.css */
 
-/* Promo Section */
+/* Base styles */
 .promo-section {
     width: 100%;
-    max-height: 50%;
     max-width: 80%;
     margin: 2rem auto;
     overflow: hidden;
@@ -20,67 +19,39 @@
     width: 100%;
     height: auto;
     display: block;
-    object-fit: contain;
+    object-fit: cover;
 }
 
-/* Mobile S - 320px */
-@media (max-width: 320px) {
+/* Moviles L, M y S */
+@media (max-width: 425px) {
     .promo-section {
         max-width: 100%;
-        margin: 0.5rem auto;
+        margin: 0.8rem auto;
         border-radius: 0;
         border-left: none;
         border-right: none;
     }
 
     .promo-banner {
-        min-height: 100%; /* Altura mínima en lugar de height fijo */
         width: 100%;
-        object-fit: contain;
+        height: auto;
+        max-height: 300px; /* Aumentar altura máxima */
+        object-fit: contain; /* Mantener todo el contenido visible */
     }
 }
 
-/* Mobile M - 375px */
-@media (min-width: 321px) and (max-width: 375px) {
-    .promo-section {
-        max-width: 100%;
-        margin: 0.8rem auto;
-    }
-
-    .promo-banner {
-        min-height: 100%;
-        width: 100%;
-        object-fit: contain;
-    }
-}
-
-/* Mobile L - 425px */
-@media (min-width: 376px) and (max-width: 425px) {
-    .promo-section {
-        max-width: 100%;
-        margin: 1rem auto;
-    }
-
-    .promo-banner {
-        min-height: 100%;
-        width: 100%;
-        object-fit: contain;
-    }
-}
-
-/* Tablet - 768px */
+/* Tablets */
 @media (min-width: 426px) and (max-width: 768px) {
     .promo-section {
         max-width: 90%;
         margin: 1.5rem auto;
-        gap: 1rem;
-        height: auto;
     }
 
     .promo-banner {
         width: 100%;
         height: auto;
-        object-fit: cover;
+        max-height: 250px; /* Ajusta según necesites */
+        object-fit: contain;
     }
 }
 
@@ -113,11 +84,23 @@
     }
 }
 
-/* Disable hover effects on mobile devices */
-@media (max-width: 768px) {
+/* Control de visibilidad para diferentes videos */
+.desktop-tablet-video {
+    display: block;
+}
 
-    .promo-banner {
-        width: 100%;
-        object-fit: cover;
+.mobile-video, 
+.fallback-img {
+    display: none;
+}
+
+/* En móviles, mostrar solo el video móvil */
+@media (max-width: 425px) {
+    .desktop-tablet-video {
+        display: none;
+    }
+    
+    .mobile-video {
+        display: block;
     }
 }

@@ -628,11 +628,23 @@ const phoneColors = [
 // ================ FUNCIONES DEL MODAL ================
 function openModal(productCard) {
     const modal = document.getElementById('productModal');
+    // Reset scroll position ANTES de mostrar el modal
+    const modalContent = modal.querySelector('.modal-content');
+    if (modalContent) {
+        modalContent.scrollTop = 0;
+    }
+    
     const modalImg = modal.querySelector('.modal-img');
     const modalTitle = modal.querySelector('.modal-details h2');
     const modalDescription = modal.querySelector('.modal-description');
     const modalPrice = modal.querySelector('.modal-price');
     const checkbox = modal.querySelector('.select-product');
+    
+    
+    // Reset scroll position antes de mostrar el modal
+    if (modalContent) {
+        modalContent.scrollTop = 0;
+    }
     
     // Resetear todas las selecciones primero
     resetModalSelections(modal);
@@ -685,6 +697,12 @@ function closeModal() {
     }
     
     setTimeout(() => {
+        // Reset scroll position del contenido del modal ANTES de ocultarlo
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.scrollTop = 0;
+        }
+        
         modal.style.display = 'none';
     }, 300);
 }
@@ -908,8 +926,22 @@ document.addEventListener('click', window.colorClickOutsideHandler);
             }
         }
     }
+
+    // Precargar imágenes para mejorar velocidad de cambio
+    if (currentProduct && currentProduct.colorImages) {
+        preloadProductImages(currentProduct.colorImages);
+    }
 }
 
+// Función para precargar imágenes
+function preloadProductImages(colorImages) {
+    for (const color in colorImages) {
+        const img = new Image();
+        img.src = colorImages[color];
+    }
+}
+
+// Modificar función updateProductImage para mostrar indicador de carga
 function updateProductImage(modal, colorName) {
     const productTitle = modal.dataset.currentProduct;
     const modalImg = modal.querySelector('.modal-img');
@@ -924,12 +956,52 @@ function updateProductImage(modal, colorName) {
     }
     
     if (currentProduct.colorImages && currentProduct.colorImages[colorName]) {
-        // Cambiar a la imagen del color
-        modalImg.src = currentProduct.colorImages[colorName];
+        // Mostrar indicador de carga
+        showLoadingIndicator(modalImg);
+        
+        // Cargar la nueva imagen
+        const newImg = new Image();
+        newImg.onload = function() {
+            // Una vez cargada, actualizar la imagen y quitar el indicador
+            modalImg.src = currentProduct.colorImages[colorName];
+            hideLoadingIndicator(modalImg);
+        };
+        newImg.onerror = function() {
+            // En caso de error, volver a la imagen original
+            if (modalImg.dataset.originalSrc) {
+                modalImg.src = modalImg.dataset.originalSrc;
+            }
+            hideLoadingIndicator(modalImg);
+        };
+        newImg.src = currentProduct.colorImages[colorName];
     } else if (modalImg.dataset.originalSrc) {
         // Si no hay imagen para este color, volver a la original
         modalImg.src = modalImg.dataset.originalSrc;
     }
+}
+
+// Funciones para mostrar/ocultar indicador de carga
+function showLoadingIndicator(imgElement) {
+    // Crear contenedor del spinner si no existe
+    let spinner = imgElement.parentElement.querySelector('.loading-spinner');
+    if (!spinner) {
+        spinner = document.createElement('div');
+        spinner.className = 'loading-spinner';
+        spinner.innerHTML = '<div class="spinner"></div>';
+        
+        // Insertar después de la imagen
+        imgElement.parentElement.insertBefore(spinner, imgElement.nextSibling);
+    }
+    spinner.style.display = 'flex';
+    imgElement.style.opacity = '0.3'; // Hacer la imagen semi-transparente
+}
+
+function hideLoadingIndicator(imgElement) {
+    const spinner = imgElement.parentElement.querySelector('.loading-spinner');
+    if (spinner) {
+        spinner.style.display = 'none';
+    }
+    imgElement.style.opacity = '1'; // Restaurar opacidad
 }
 
 // Agregar esta nueva función para actualizar los mensajes
