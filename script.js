@@ -11,7 +11,7 @@ if (window.location.hash) {
 document.addEventListener('DOMContentLoaded', () => {
     // Forzar scroll al inicio
     window.scrollTo(0, 0);
-    
+
     // Inicializaciones
     loadInitialProducts();
     initializeRevealEffects();
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Prevenir scroll al recargar
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
 
@@ -46,16 +46,16 @@ const WHATSAPP_CONFIG = {
         if (products.size === 1) {
             const [[productName, details]] = products.entries();
             let message = `Hola! 👋\n\nMe interesa el producto ${productName}`;
-            
+
             if (details.model || details.color) {
                 message += '\nDetalles seleccionados:';
                 if (details.model) message += `\n- Modelo: ${details.model}`;
                 if (details.color) message += `\n- Color: ${details.color}`;
             }
-            
+
             return `${message}\n\n¿Podrías darme más información sobre precio y disponibilidad?\n\nGracias!`;
         }
-        
+
         let message = `Hola! 👋\n\nMe interesan los siguientes productos:\n`;
         products.forEach((details, productName) => {
             message += `\n• ${productName}`;
@@ -64,7 +64,7 @@ const WHATSAPP_CONFIG = {
                 if (details.color) message += `\n  - Color: ${details.color}`;
             }
         });
-        
+
         return `${message}\n\n¿Podrías darme más información sobre precios y disponibilidad?\n\nGracias!`;
     }
 };
@@ -76,16 +76,16 @@ const EMAIL_CONFIG = {
         if (products.size === 1) {
             const [[productName, details]] = products.entries();
             let message = `Hola,\n\nMe interesa el producto ${productName}`;
-            
+
             if (details.model || details.color) {
                 message += '\nDetalles seleccionados:';
                 if (details.model) message += `\n- Modelo: ${details.model}`;
                 if (details.color) message += `\n- Color: ${details.color}`;
             }
-            
+
             return `${message}\n\nQuedo atento a su respuesta.\nSaludos cordiales.`;
         }
-        
+
         let message = `Hola,\n\nMe interesan los siguientes productos:\n`;
         products.forEach((details, productName) => {
             message += `\n• ${productName}`;
@@ -94,7 +94,7 @@ const EMAIL_CONFIG = {
                 if (details.color) message += `\n  - Color: ${details.color}`;
             }
         });
-        
+
         return `${message}\n\nQuedo atento a su respuesta.\nSaludos cordiales.`;
     }
 };
@@ -117,369 +117,172 @@ const products = [
     {
         id: 1,
         defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/18 BLACK.jpg',
-        title: 'Funda Silicone Case Apple',
-        description: 'Para Diferentes modelos de Apple 13, 14 y 15',
-        price: '$10.00',
+        title: 'Funda Silicone Case Iphone',
+        description: 'Para modelos de Iphone 11/13/14/15',
+        price: '$7.000',
         colorImages: {
-        'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/49 PAPAYA.jpg',
-        'Verde Menta': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/1 MINT.jpg',
-        'Apricot': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/2 APRICOT.jpg',
-        'Royal Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/3 ROYAL BLUE.jpg',
-        'Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/4 YELLOW.jpg',
-        'Lila': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/5 LILA.jpg',
-        'Light Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/6 LIGHT PINK.jpg',
-        'Lavander': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/7 LAVANDER.jpg',
-        'Dark Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/8 DARK BLUE.jpg',
-        'White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/9 WHITE.jpg',
-        'Antique White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/10 antique white.jpg',
-        'Stone': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/11 STONE.jpg',
-        'Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/12 PINK.jpg',
-        'Orange': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/13 ORANGE.jpg',
-        'Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/14 RED.jpg',
-        'Dark Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/15 DARK GRAY.jpg',
-        'Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/16 BLUE.jpg',
-        'Turquesa': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/17 TURQUOISE.jpg',
-        'Negro': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/18 BLACK.jpg',
-        'Pink Sand': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/19 PINK SAND.jpg',
-        'Navy Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/20 NAVY BLUE.jpg',
-    'Sea Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/21 SEA BLUE.jpg',
-    'Offe': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/22 OFFE.jpg',
-    'Pebble': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/23 PEBBLE.jpg',
-    'Azure': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/24 AZURE.jpg',
-    'Carmellia': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/25 CARMELLIA.jpg',
-    'Mist Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/26 MIST BLUE.jpg',
-    'Flamingo': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/27 FLAMINGO.jpg',
-    'Lavander Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/28 LAVANDER GRAY.jpg',
-    'Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/29 GOLD.jpg',
-    'Peach': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/30 PEACH.jpg',
-    'China Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/31 CHINA RED.jpg',
-    'Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/32 GREEN.jpg',
-    'Brown': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/33 BROWN.jpg',
-    'Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/34 PURPLE.jpg',
-    'Dark Olive': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/35 DARK OLIVE.jpg',
-    'Cobalto Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/36 BLUE COBALT.jpg',
-    'Rose Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/37 ROSE GOLD.jpg',
-    'Shiny Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/38 SHINY PINK.jpg',
-    'Elegant Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/39 ELEGANT PURPLE.jpg',
-    'Shiny Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/40 SHINY GREEN.jpg',
-    'Flash': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/41 FLASH.jpg',
-    'Maroon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/42 MAROON.jpg',
-    'Grape': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/43 GRAPE.jpg',
-    'Shiny Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/44 SHINY BLUE.jpg',
-    'Army Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/45 ARMY GREEN.jpg',
-    'Cosmos Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/46 COSMOS BLUE.jpg',
-    'Spearmint': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/47 SPEARMINT.jpg',
-    'Dragon Fruit': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/48 DRAGON FRUIT.jpg',
-    'Mellow Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/51 MELLOW YELLOW.jpg',
-    'Watermelon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/52 WATERMELON.jpg',
-    'Corn Flower': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/53 CORN FLOWER.jpg',
-    'Atrovirens': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/54 ATROVIRENS.jpg',
-    'Pino Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/55 PINE GREEN.jpg',
-    'Bluebery': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/56 BLUEBERRY.jpg',
-    'Plum': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/57 PLUM.jpg',
+            'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/49 PAPAYA.jpg',
+            'Verde Menta': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/1 MINT.jpg',
+            'Apricot': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/2 APRICOT.jpg',
+            'Royal Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/3 ROYAL BLUE.jpg',
+            'Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/4 YELLOW.jpg',
+            'Lila': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/5 LILA.jpg',
+            'Light Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/6 LIGHT PINK.jpg',
+            'Lavander': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/7 LAVANDER.jpg',
+            'Dark Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/8 DARK BLUE.jpg',
+            'White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/9 WHITE.jpg',
+            'Antique White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/10 antique white.jpg',
+            'Stone': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/11 STONE.jpg',
+            'Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/12 PINK.jpg',
+            'Orange': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/13 ORANGE.jpg',
+            'Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/14 RED.jpg',
+            'Dark Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/15 DARK GRAY.jpg',
+            'Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/16 BLUE.jpg',
+            'Turquesa': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/17 TURQUOISE.jpg',
+            'Negro': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/18 BLACK.jpg',
+            'Pink Sand': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/19 PINK SAND.jpg',
+            'Navy Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/20 NAVY BLUE.jpg',
+            'Sea Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/21 SEA BLUE.jpg',
+            'Offe': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/22 OFFE.jpg',
+            'Pebble': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/23 PEBBLE.jpg',
+            'Azure': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/24 AZURE.jpg',
+            'Carmellia': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/25 CARMELLIA.jpg',
+            'Mist Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/26 MIST BLUE.jpg',
+            'Flamingo': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/27 FLAMINGO.jpg',
+            'Lavander Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/28 LAVANDER GRAY.jpg',
+            'Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/29 GOLD.jpg',
+            'Peach': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/30 PEACH.jpg',
+            'China Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/31 CHINA RED.jpg',
+            'Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/32 GREEN.jpg',
+            'Brown': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/33 BROWN.jpg',
+            'Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/34 PURPLE.jpg',
+            'Dark Olive': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/35 DARK OLIVE.jpg',
+            'Cobalto Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/36 BLUE COBALT.jpg',
+            'Rose Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/37 ROSE GOLD.jpg',
+            'Shiny Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/38 SHINY PINK.jpg',
+            'Elegant Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/39 ELEGANT PURPLE.jpg',
+            'Shiny Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/40 SHINY GREEN.jpg',
+            'Flash': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/41 FLASH.jpg',
+            'Maroon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/42 MAROON.jpg',
+            'Grape': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/43 GRAPE.jpg',
+            'Shiny Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/44 SHINY BLUE.jpg',
+            'Army Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/45 ARMY GREEN.jpg',
+            'Cosmos Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/46 COSMOS BLUE.jpg',
+            'Spearmint': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/47 SPEARMINT.jpg',
+            'Dragon Fruit': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/48 DRAGON FRUIT.jpg',
+            'Mellow Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/51 MELLOW YELLOW.jpg',
+            'Watermelon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/52 WATERMELON.jpg',
+            'Corn Flower': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/53 CORN FLOWER.jpg',
+            'Atrovirens': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/54 ATROVIRENS.jpg',
+            'Pino Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/55 PINE GREEN.jpg',
+            'Bluebery': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/56 BLUEBERRY.jpg',
+            'Plum': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/57 PLUM.jpg',
         },
         availableColors: [
-        'Apricot', 'Royal Blue', 'Yellow', 'Lila', 'Light Pink',
-        'Lavander', 'Dark Blue', 'White', 'Antique White', 'Stone',
-        'Pink', 'Orange', 'Red', 'Dark Gray', 'Blue', 'Turquesa',
-        'Negro', 'Pink Sand', 'Navy Blue', 'Sea Blue', 'Offe',
-        'Pebble', 'Azure', 'Carmellia', 'Mist Blue', 'Flamingo',
-        'Lavander Gray', 'Gold', 'Peach', 'China Red', 'Green',
-        'Brown', 'Purple', 'Dark Olive', 'Cobalto Blue', 'Rose Gold',
-        'Shiny Pink', 'Elegant Purple', 'Shiny Green', 'Flash', 
-        'Maroon', 'Grape', 'Shiny Blue', 'Army Green', 'Cosmos Blue',
-        'Spearmint', 'Dragon Fruit', 'Mellow Yellow', 'Watermelon',
-        'Corn Flower', 'Atrovirens', 'Pino Green', 'Bluebery', 'Plum', 'Papaya', 'Verde Menta'
+            'Apricot', 'Royal Blue', 'Yellow', 'Lila', 'Light Pink',
+            'Lavander', 'Dark Blue', 'White', 'Antique White', 'Stone',
+            'Pink', 'Orange', 'Red', 'Dark Gray', 'Blue', 'Turquesa',
+            'Negro', 'Pink Sand', 'Navy Blue', 'Sea Blue', 'Offe',
+            'Pebble', 'Azure', 'Carmellia', 'Mist Blue', 'Flamingo',
+            'Lavander Gray', 'Gold', 'Peach', 'China Red', 'Green',
+            'Brown', 'Purple', 'Dark Olive', 'Cobalto Blue', 'Rose Gold',
+            'Shiny Pink', 'Elegant Purple', 'Shiny Green', 'Flash',
+            'Maroon', 'Grape', 'Shiny Blue', 'Army Green', 'Cosmos Blue',
+            'Spearmint', 'Dragon Fruit', 'Mellow Yellow', 'Watermelon',
+            'Corn Flower', 'Atrovirens', 'Pino Green', 'Bluebery', 'Plum', 'Papaya', 'Verde Menta'
 
         ],
         availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14',
-            'iPhone 13 Pro Max', 'iPhone 13 Pro', 'iPhone 13', 'iPhone 13 Mini',
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
         ]
-    },{
+    }, {
         id: 2,
-        defaultImage: '/assets/Img/product/BIODEGRADABLE/7.jpg',
-        title: 'Funda Biodegradable',
-        description: 'Para los modelos de iPhone',
-        price: '$10.00',
+        defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
+        title: 'Funda Silicone Case Iphone 16',
+        description: 'Para modelos de Iphone 16',
+        price: '$8.500',
         colorImages: {
-            'Vermillion': '/assets/Img/product/BIODEGRADABLE/5.jpg',
-            'Rosa Pastel': '/assets/Img/product/BIODEGRADABLE/1.jpg',
-            'Amarillo Citrino': '/assets/Img/product/BIODEGRADABLE/8.jpg',
-            'Verde Oliva': '/assets/Img/product/BIODEGRADABLE/3.jpg',
-            'Verde Menta': '/assets/Img/product/BIODEGRADABLE/2.jpg',
-            'Azul Espacial': '/assets/Img/product/BIODEGRADABLE/4.jpg',
-            'Negro Onix': '/assets/Img/product/BIODEGRADABLE/6.jpg',
-            'Blanco Dirty': '/assets/Img/product/BIODEGRADABLE/7.jpg',
-
+            'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/49.jpg',
+            'Verde Menta': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/1.jpg',
+            'Apricot': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/2.jpg',
+            'Royal Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
+            'Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/4.jpg',
+            'Lila': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/5.jpg',
+            'Light Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/6.jpg',
+            'Lavander': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/7.jpg',
+            'Dark Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/8.jpg',
+            'White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/9.jpg',
+            'Antique White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/10.jpg',
+            'Stone': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/11.jpg',
+            'Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/12.jpg',
+            'Orange': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/13.jpg',
+            'Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/14.jpg',
+            'Dark Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/15.jpg',
+            'Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/16.jpg',
+            'Turquesa': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/17.jpg',
+            'Negro': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/18.jpg',
+            'Pink Sand': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/19.jpg',
+            'Navy Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/20.jpg',
+            'Sea Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/21.jpg',
+            'Offe': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/22.jpg',
+            'Pebble': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/23.jpg',
+            'Azure': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/24.jpg',
+            'Carmellia': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/25.jpg',
+            'Mist Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/26.jpg',
+            'Flamingo': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/27.jpg',
+            'Lavander Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/28.jpg',
+            'Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/29.jpg',
+            'Peach': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/30.jpg',
+            'China Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/31.jpg',
+            'Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/32.jpg',
+            'Brown': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/33.jpg',
+            'Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/34.jpg',
+            'Dark Olive': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/35.jpg',
+            'Cobalto Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/36.jpg',
+            'Rose Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/37.jpg',
+            'Shiny Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/38.jpg',
+            'Elegant Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/39.jpg',
+            'Shiny Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/40.jpg',
+            'Flash': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/41.jpg',
+            'Maroon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/42.jpg',
+            'Grape': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/43.jpg',
+            'Shiny Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/44.jpg',
+            'Army Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/45.jpg',
+            'Cosmos Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/46.jpg',
+            'Spearmint': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/47.jpg',
+            'Dragon Fruit': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/48.jpg',
+            'Mellow Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/51.jpg',
+            'Watermelon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/52.jpg',
+            'Corn Flower': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/53.jpg',
+            'Atrovirens': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/54.jpg',
+            'Pino Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/55.jpg',
+            'Bluebery': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/56.jpg',
+            'Plum': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/57.jpg'
         },
         availableColors: [
-            'Vermillion','Rosa Pastel','Amarillo Citrino', 'Verde Oliva','Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+            'Apricot', 'Royal Blue', 'Yellow', 'Lila', 'Light Pink',
+            'Lavander', 'Dark Blue', 'White', 'Antique White', 'Stone',
+            'Pink', 'Orange', 'Red', 'Dark Gray', 'Blue', 'Turquesa',
+            'Negro', 'Pink Sand', 'Navy Blue', 'Sea Blue', 'Offe',
+            'Pebble', 'Azure', 'Carmellia', 'Mist Blue', 'Flamingo',
+            'Lavander Gray', 'Gold', 'Peach', 'China Red', 'Green',
+            'Brown', 'Purple', 'Dark Olive', 'Cobalto Blue', 'Rose Gold',
+            'Shiny Pink', 'Elegant Purple', 'Shiny Green', 'Flash',
+            'Maroon', 'Grape', 'Shiny Blue', 'Army Green', 'Cosmos Blue',
+            'Spearmint', 'Dragon Fruit', 'Mellow Yellow', 'Watermelon',
+            'Corn Flower', 'Atrovirens', 'Pino Green', 'Bluebery', 'Plum', 'Papaya', 'Verde Menta'
+
         ],
         availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
+            'iPhone 16 Pro', 'iPhone 16'
         ]
     },
     {
         id: 3,
-        image: '/assets/Img/product/POOF/1.jpg',
-        title: 'Funda Poof',
-        description: 'Para los modelos de iPhone',
-        price: '$99.99',
-        colorImages: {
-            'Blanco Dirty': '/assets/Img/product/POOF/1.jpg',
-            'Papaya': '/assets/Img/product/POOF/3.jpg',
-            'Vermillion': '/assets/Img/product/POOF/2.jpg',
-            'Verde Menta': '/assets/Img/product/POOF/4.jpg',
-            'Diseño Unico': '/assets/Img/product/POOF/E1.jpg'
-
-        },
-        availableColors: [
-            'Blanco Dirty','Papaya', 'Vermillion','Verde Menta', 'Diseño Unico'
-        ],
-        availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
-        ]
-    },
-    {
-        id: 4,
-        defaultImage: '/assets/Img/product/WAVE/3.jpg',
-        title: 'Funda Wave',
-        description: 'Para los modelos de iPhone',
-        price: '$10.00',
-        colorImages: {
-            'Blanco Dirty': '/assets/Img/product/WAVE/1.jpg',
-            'Blanco Perla': '/assets/Img/product/WAVE/6.jpg',
-            'Negro Espacial': '/assets/Img/product/WAVE/3.jpg',
-            'Beige Profundo': '/assets/Img/product/WAVE/2.jpg',
-            'Bronze Yellow': '/assets/Img/product/WAVE/4.jpg',
-            'Dark Sienna': '/assets/Img/product/WAVE/5.jpg',
-            'Medio Purple': '/assets/Img/product/WAVE/7.jpg',
-        },
-        availableColors: [
-            'Blanco Dirty','Blanco Perla','Negro Espacial', 'Beige Profundo','Bronze Yellow', 'Dark Sienna', 'Medio Purple'
-        ],
-        availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
-        ]
-    },
-    {
-        id: 5,
-        defaultImage: '/assets/Img/product/3en1/3en1.jpg',
-        title: 'Funda 3 en 1',
-        description: 'Para los modelos variados',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Diseño Unico'
-        ],
-        availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15'
-        ]
-    },
-    {
-        id: 6,
-        defaultImage: '/assets/Img/product/TRANSPARENTE/SAMSUNG/samsung.jpg',
-        title: 'Funda Transparente Samsung',
-        description: 'Para Diferentes modelos de Samsung',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Transparente'
-        ],
-        availableModels: [
-            'Samsung Galaxy S23 Ultra', 'Samsung Galaxy S23+', 'Samsung Galaxy S23',
-        ]
-    }, 
-    {
-        id: 7,
-        defaultImage: '/assets/Img/product/TRANSPARENTE/XIAOMI/xiaomi.jpg',
-        title: 'Funda Transparente Xiaomi',
-        description: 'Para Diferentes modelos de Xiaomi',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Transparente'
-        ],
-        availableModels: [
-            'Xiaomi 13 Pro', 'Xiaomi 13', 'Xiaomi 13 Lite', 'Xiaomi 12 Pro', 'Xiaomi 12', 'Xiaomi 12 Lite'
-        ]
-    },
-    {
-        id: 8,
-        defaultImage: '/assets/Img/product/TRANSPARENTE/MOTOROLA/motorola.jpg',
-        title: 'Funda Transparente Motorola',
-        description: 'Para Diferentes modelos de Motorola',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Transparente'
-        ],
-        availableModels: [
-            'Motorola Edge 40 Pro', 'Motorola Edge 40', 'Motorola Edge 40 Neo', 'Motorola Edge 30 Ultra', 'Motorola Edge 30 Fusion', 'Motorola Edge 30 Lite', 'Motorola Edge 20 Pro', 'Motorola Edge 20', 'Motorola Edge 20 Lite'
-        ]
-    },
-    {
-        id: 9,
-        defaultImage: '/assets/Img/product/TRANSPARENTE/HUAWEI/huawei.jpg',
-        title: 'Funda Transparente Huawei',
-        description: 'Para Diferentes modelos de Huawei',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Transparente'
-        ],
-        availableModels: [
-            'Huawei P60 Pro', 'Huawei P60', 'Huawei P60 Lite', 'Huawei Mate 50 Pro', 'Huawei Mate 50', 'Huawei Mate 50 Lite'
-        ]
-    },
-    {
-        id: 10,
-        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/MAGSAFE/TM.jpg',
-        title: 'Funda Transparente Apple MagSafe',
-        description: 'Para Diferentes modelos de Apple MagSafe',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Transparente'
-        ],
-        availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-        ]
-    },
-    {
-        id: 11,
-        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/13-14-15-16/apple.jpg',
-        title: 'Funda Transparente Apple',
-        description: 'Para Diferentes modelos de Apple 13, 14, 15 y 16',
-        price: '$10.00',
-        colorImages: {
-        },
-        availableColors: [
-            'Transparente'
-        ],
-        availableModels: [
-            'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16',
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14',
-            'iPhone 13 Pro Max', 'iPhone 13 Pro', 'iPhone 13', 'iPhone 13 Mini',
-        ]
-    },
-    {
-        id: 12,
-        defaultImage: '/assets/Img/product/ACS/1.jpg',
-        title: 'Funda Anti golpes con soporte',
-        description: 'Para los modelos de iPhone',
-        price: '$10.00',
-        colorImages: {
-            'Negro Onix': '/assets/Img/product/ACS/1.jpg',
-        },
-        availableColors: [
-            'Negro Onix'
-        ],
-        availableModels: [
-            'iPhone 15 Pro Max', 'iPhone 15 Pro', 'iPhone 15 Plus', 'iPhone 15',
-            'iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14 Plus', 'iPhone 14'
-        ]
-    },
-   {
-        id: 13,
-        defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
-        title: 'Funda Silicone Case Apple 16',
-        description: 'Para Diferentes modelos de Apple 16',
-        price: '$10.00',
-        colorImages: {
-        'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/49.jpg',
-        'Verde Menta': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/1.jpg',
-        'Apricot': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/2.jpg',
-        'Royal Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
-        'Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/4.jpg',
-        'Lila': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/5.jpg',
-        'Light Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/6.jpg',
-        'Lavander': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/7.jpg',
-        'Dark Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/8.jpg',
-        'White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/9.jpg',
-        'Antique White': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/10.jpg',
-        'Stone': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/11.jpg',
-        'Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/12.jpg',
-        'Orange': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/13.jpg',
-        'Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/14.jpg',
-        'Dark Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/15.jpg',
-        'Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/16.jpg',
-        'Turquesa': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/17.jpg',
-        'Negro': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/18.jpg',
-        'Pink Sand': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/19.jpg',
-        'Navy Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/20.jpg',
-        'Sea Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/21.jpg',
-        'Offe': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/22.jpg',
-        'Pebble': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/23.jpg',
-        'Azure': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/24.jpg',
-        'Carmellia': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/25.jpg',
-        'Mist Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/26.jpg',
-        'Flamingo': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/27.jpg',
-        'Lavander Gray': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/28.jpg',
-        'Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/29.jpg',
-        'Peach': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/30.jpg',
-        'China Red': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/31.jpg',
-        'Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/32.jpg',
-        'Brown': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/33.jpg',
-        'Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/34.jpg',
-        'Dark Olive': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/35.jpg',
-        'Cobalto Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/36.jpg',
-        'Rose Gold': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/37.jpg',
-        'Shiny Pink': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/38.jpg',
-        'Elegant Purple': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/39.jpg',
-        'Shiny Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/40.jpg',
-        'Flash': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/41.jpg',
-        'Maroon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/42.jpg',
-        'Grape': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/43.jpg',
-        'Shiny Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/44.jpg',
-        'Army Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/45.jpg',
-        'Cosmos Blue': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/46.jpg',
-        'Spearmint': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/47.jpg',
-        'Dragon Fruit': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/48.jpg',
-        'Mellow Yellow': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/51.jpg',
-        'Watermelon': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/52.jpg',
-        'Corn Flower': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/53.jpg',
-        'Atrovirens': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/54.jpg',
-        'Pino Green': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/55.jpg',
-        'Bluebery': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/56.jpg',
-        'Plum': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/57.jpg'
-        },
-        availableColors: [
-        'Apricot', 'Royal Blue', 'Yellow', 'Lila', 'Light Pink',
-        'Lavander', 'Dark Blue', 'White', 'Antique White', 'Stone',
-        'Pink', 'Orange', 'Red', 'Dark Gray', 'Blue', 'Turquesa',
-        'Negro', 'Pink Sand', 'Navy Blue', 'Sea Blue', 'Offe',
-        'Pebble', 'Azure', 'Carmellia', 'Mist Blue', 'Flamingo',
-        'Lavander Gray', 'Gold', 'Peach', 'China Red', 'Green',
-        'Brown', 'Purple', 'Dark Olive', 'Cobalto Blue', 'Rose Gold',
-        'Shiny Pink', 'Elegant Purple', 'Shiny Green', 'Flash', 
-        'Maroon', 'Grape', 'Shiny Blue', 'Army Green', 'Cosmos Blue',
-        'Spearmint', 'Dragon Fruit', 'Mellow Yellow', 'Watermelon',
-        'Corn Flower', 'Atrovirens', 'Pino Green', 'Bluebery', 'Plum', 'Papaya', 'Verde Menta'
-
-        ],
-        availableModels: [
-             'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16',
-        ]
-    },
-    {
-        id: 14,
         defaultImage: '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/4.jpg',
-        title: 'Funda Silicone Case Samsung 23, 24 y 25',
-        description: 'Para Diferentes modelos de Samsung',
-        price: '$10.00',
+        title: 'Funda Silicone Case Samsung',
+        description: 'Para modelos de Samsung 23/24/25',
+        price: '$7.000',
         colorImages: {
             'Red': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/1.jpg',
             'Grape': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/2.jpg',
@@ -503,17 +306,17 @@ const products = [
             'Cosmos Blue', 'Green', 'Yellow'
         ],
         availableModels: [
-            'Samsung Galaxy S23+', 'Samsung Galaxy S23','Samsung Galaxy S24+',
-            'Samsung Galaxy S24','Samsung Galaxy S25+', 'Samsung Galaxy S25',
+            'Samsung Galaxy S23+', 'Samsung Galaxy S23', 'Samsung Galaxy S24+',
+            'Samsung Galaxy S24', 'Samsung Galaxy S25+', 'Samsung Galaxy S25',
             'Samsung Galaxy S23 FE', 'Samsung Galaxy S24 FE', 'Samsung Galaxy S25 FE',
         ]
     },
     {
-        id: 15,
+        id: 4,
         defaultImage: '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/1.jpg',
         title: 'Funda Silicone Case Samsung Ultra',
-        description: 'Para Diferentes modelos de Samsung Ultra',
-        price: '$10.00',
+        description: 'Para modelos de Samsung Ultra',
+        price: '$8.000',
         colorImages: {
             'Red': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/1.jpg',
             'Grape': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/2.jpg',
@@ -541,16 +344,203 @@ const products = [
             'Samsung Galaxy S23 Ultra', 'Samsung Galaxy S24 Ultra', 'Samsung Galaxy S25 Ultra',
             'Samsung Galaxy S23 FE Ultra', 'Samsung Galaxy S24 FE Ultra', 'Samsung Galaxy S25 FE Ultra'
         ]
+    }, {
+        id: 5,
+        defaultImage: '/assets/Img/product/BIODEGRADABLE/7.jpg',
+        title: 'Funda Biodegradable',
+        description: 'Para los modelos de Iphone 11/13/14/15',
+        price: '$6.000',
+        colorImages: {
+            'Vermillion': '/assets/Img/product/BIODEGRADABLE/5.jpg',
+            'Rosa Pastel': '/assets/Img/product/BIODEGRADABLE/1.jpg',
+            'Amarillo Citrino': '/assets/Img/product/BIODEGRADABLE/8.jpg',
+            'Verde Oliva': '/assets/Img/product/BIODEGRADABLE/3.jpg',
+            'Verde Menta': '/assets/Img/product/BIODEGRADABLE/2.jpg',
+            'Azul Espacial': '/assets/Img/product/BIODEGRADABLE/4.jpg',
+            'Negro Onix': '/assets/Img/product/BIODEGRADABLE/6.jpg',
+            'Blanco Dirty': '/assets/Img/product/BIODEGRADABLE/7.jpg',
+
+        },
+        availableColors: [
+            'Vermillion', 'Rosa Pastel', 'Amarillo Citrino', 'Verde Oliva', 'Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
+    },
+    {
+        id: 6,
+        image: '/assets/Img/product/POOF/1.jpg',
+        title: 'Funda Poof',
+        description: 'Para los modelos de Iphone',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+            'Blanco Dirty': '/assets/Img/product/POOF/1.jpg',
+            'Papaya': '/assets/Img/product/POOF/3.jpg',
+            'Vermillion': '/assets/Img/product/POOF/2.jpg',
+            'Verde Menta': '/assets/Img/product/POOF/4.jpg',
+            'Diseño Unico': '/assets/Img/product/POOF/E1.jpg'
+
+        },
+        availableColors: [
+            'Blanco Dirty', 'Papaya', 'Vermillion', 'Verde Menta', 'Diseño Unico'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
+    },
+    {
+        id: 7,
+        defaultImage: '/assets/Img/product/WAVE/3.jpg',
+        title: 'Funda Wave',
+        description: 'Para los modelos de Iphone',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+            'Blanco Dirty': '/assets/Img/product/WAVE/1.jpg',
+            'Blanco Perla': '/assets/Img/product/WAVE/6.jpg',
+            'Negro Espacial': '/assets/Img/product/WAVE/3.jpg',
+            'Beige Profundo': '/assets/Img/product/WAVE/2.jpg',
+            'Bronze Yellow': '/assets/Img/product/WAVE/4.jpg',
+            'Dark Sienna': '/assets/Img/product/WAVE/5.jpg',
+            'Medio Purple': '/assets/Img/product/WAVE/7.jpg',
+        },
+        availableColors: [
+            'Blanco Dirty', 'Blanco Perla', 'Negro Espacial', 'Beige Profundo', 'Bronze Yellow', 'Dark Sienna', 'Medio Purple'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
+    },
+    {
+        id: 8,
+        defaultImage: '/assets/Img/product/3en1/3en1.jpg',
+        title: 'Funda 3 en 1',
+        description: 'Para los modelos variados',
+        price:'STOCK AGOTADO',
+        colorImages: {
+        },
+        availableColors: [
+            'Diseño Unico'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
+    },
+    {
+        id: 9,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/SAMSUNG/samsung.jpg',
+        title: 'Funda Transparente Samsung',
+        description: 'Para Diferentes modelos de Samsung',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Samsung Galaxy S23 Ultra', 'Samsung Galaxy S23+', 'Samsung Galaxy S23',
+        ]
+    },
+    {
+        id: 10,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/XIAOMI/xiaomi.jpg',
+        title: 'Funda Transparente Xiaomi',
+        description: 'Para Diferentes modelos de Xiaomi',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Xiaomi 13 Pro', 'Xiaomi 13', 'Xiaomi 13 Lite', 'Xiaomi 12 Pro', 'Xiaomi 12', 'Xiaomi 12 Lite'
+        ]
+    },
+    {
+        id: 11,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/MOTOROLA/motorola.jpg',
+        title: 'Funda Transparente Motorola',
+        description: 'Para Diferentes modelos de Motorola',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Motorola Edge 40 Pro', 'Motorola Edge 40', 'Motorola Edge 40 Neo', 'Motorola Edge 30 Ultra', 'Motorola Edge 30 Fusion', 'Motorola Edge 30 Lite', 'Motorola Edge 20 Pro', 'Motorola Edge 20', 'Motorola Edge 20 Lite'
+        ]
+    },
+    {
+        id: 12,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/HUAWEI/huawei.jpg',
+        title: 'Funda Transparente Huawei',
+        description: 'Para Diferentes modelos de Huawei',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'Huawei P60 Pro', 'Huawei P60', 'Huawei P60 Lite', 'Huawei Mate 50 Pro', 'Huawei Mate 50', 'Huawei Mate 50 Lite'
+        ]
+    },
+    {
+        id: 13,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/MAGSAFE/TM.jpg',
+        title: 'Funda Transparente Iphone MagSafe',
+        description: 'Para modelos de Iphone MagSafe 11/13/14/15',
+        price: '$6.500',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
+    },
+    {
+        id: 14,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/13-14-15-16/apple.jpg',
+        title: 'Funda Transparente Iphone',
+        description: 'Para Diferentes modelos de Apple 11/13/14/15/16',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max', 
+            'iPhone 16 Pro', 'iPhone 16'
+        ]
+    },
+    {
+        id: 15,
+        defaultImage: '/assets/Img/product/ACS/1.jpg',
+        title: 'Funda Anti golpes con soporte',
+        description: 'Para los modelos de Iphone 11/13/14/15',
+        price: '$5.000',
+        colorImages: {
+            'Negro Onix': '/assets/Img/product/ACS/1.jpg',
+        },
+        availableColors: [
+            'Negro Onix'
+        ],
+        availableModels: [
+            'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
     }
-  
 ];
 
 // Al inicio del archivo, después de las configuraciones globales
 const phoneColors = [
     // Colores que sí están siendo utilizados
     { name: 'Azul Espacial', hex: '#1E3956' },
-    { name: 'Vermillion', hex:'#d53f4b' },
-    { name: 'Beige Profundo', hex: '#8d7f6f'},
+    { name: 'Vermillion', hex: '#d53f4b' },
+    { name: 'Beige Profundo', hex: '#8d7f6f' },
     { name: 'Dark Sienna', hex: '#3f0e12' },
     { name: 'Amarillo Citrino', hex: '#dac70c' },
     { name: 'Papaya', hex: '#FF8000' },
@@ -563,7 +553,7 @@ const phoneColors = [
     { name: 'Negro Onix', hex: '#32353a' },
     { name: 'Blanco Dirty', hex: '#e0e2cd' },
     { name: 'Blanco Perla', hex: '#f5f5dc' },
-    
+
     // Colores especiales
     { name: 'Transparente', hex: '' },
     { name: 'Diseño Unico', hex: '' },
@@ -625,6 +615,8 @@ const phoneColors = [
     { name: 'Plum', hex: '#8E4585' }
 ];
 
+
+
 // ================ FUNCIONES DEL MODAL ================
 function openModal(productCard) {
     const modal = document.getElementById('productModal');
@@ -633,22 +625,22 @@ function openModal(productCard) {
     if (modalContent) {
         modalContent.scrollTop = 0;
     }
-    
+
     const modalImg = modal.querySelector('.modal-img');
     const modalTitle = modal.querySelector('.modal-details h2');
     const modalDescription = modal.querySelector('.modal-description');
     const modalPrice = modal.querySelector('.modal-price');
     const checkbox = modal.querySelector('.select-product');
-    
-    
+
+
     // Reset scroll position antes de mostrar el modal
     if (modalContent) {
         modalContent.scrollTop = 0;
     }
-    
+
     // Resetear todas las selecciones primero
     resetModalSelections(modal);
-    
+
     // Obtener datos del producto desde la card
     const img = productCard.querySelector('img');
     const productId = productCard.dataset.productId;
@@ -656,7 +648,7 @@ function openModal(productCard) {
     const title = productCard.querySelector('h3');
     const description = productCard.querySelector('.product-details p:not(.price)');
     const price = productCard.querySelector('.price');
-    
+
     // Actualizar contenido del modal
     modalImg.src = product ? (product.defaultImage || product.image) : img.src;
     modalImg.alt = img.alt;
@@ -670,39 +662,39 @@ function openModal(productCard) {
     // Actualizar checkbox state
     const productTitle = productCard.querySelector('h3').textContent;
     checkbox.checked = selectedProducts.has(productTitle);
-    
+
     // Inicializar los selectores de modelo y color
     initializeProductOptions(modal);
-    
+
     // Mostrar modal con efecto inmediato
     modal.style.display = 'block';
     requestAnimationFrame(() => {
         modal.classList.add('active');
     });
-    
+
     document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
     const modal = document.getElementById('productModal');
     modal.classList.remove('active');
-    
+
     // Limpiar selecciones visuales
     resetModalSelections(modal);
-    
+
     // Restaurar overflow del body
     const mobileMenu = document.getElementById('mobileMenu');
     if (!mobileMenu || !mobileMenu.classList.contains('active')) {
         document.body.style.overflow = '';
     }
-    
+
     setTimeout(() => {
         // Reset scroll position del contenido del modal ANTES de ocultarlo
         const modalContent = modal.querySelector('.modal-content');
         if (modalContent) {
             modalContent.scrollTop = 0;
         }
-        
+
         modal.style.display = 'none';
     }, 300);
 }
@@ -724,7 +716,7 @@ function resetModalSelections(modal) {
         colorSelected.style.backgroundColor = '';
         colorSelected.dataset.color = '';
     }
-    
+
     // Resetear texto del color seleccionado
     const colorPreviewText = modal.querySelector('.modal-color-preview span');
     if (colorPreviewText) {
@@ -759,15 +751,15 @@ function initializeProductOptions(modal) {
 
     // Buscar el producto actual para obtener sus opciones disponibles
     const currentProduct = products.find(p => p.title === productTitle);
-    
+
     // Cargar modelos específicos para este producto
     if (currentProduct && currentProduct.availableModels && modelSelect) {
         // Limpiar opciones existentes
         modelSelect.innerHTML = '';
-        
+
         // Agrupar modelos por marca (opcionalmente)
         const groupedModels = {};
-        
+
         currentProduct.availableModels.forEach(model => {
             const brand = model.split(' ')[0]; // Obtener la marca
             if (!groupedModels[brand]) {
@@ -775,23 +767,23 @@ function initializeProductOptions(modal) {
             }
             groupedModels[brand].push(model);
         });
-        
+
         // Crear optgroups y options
         Object.entries(groupedModels).forEach(([brand, models]) => {
             const optgroup = document.createElement('optgroup');
             optgroup.label = brand;
-            
+
             models.forEach(model => {
                 const option = document.createElement('option');
                 option.value = model.toLowerCase().replace(/\s+/g, '-');
                 option.textContent = model;
                 optgroup.appendChild(option);
             });
-            
+
             modelSelect.appendChild(optgroup);
         });
     }
-    
+
     // El código existente para colores
 
     // Obtén una referencia al span antes de reemplazar el elemento
@@ -805,31 +797,31 @@ function initializeProductOptions(modal) {
     colorPreview.parentNode.replaceChild(newColorPreview, colorPreview);
 
     // 2. Agregar el evento de clic al nuevo elemento
-    newColorPreview.addEventListener('click', function(e) {
+    newColorPreview.addEventListener('click', function (e) {
         e.stopPropagation();
         colorPanel.classList.toggle('active');
     });
-    
+
     // 3. Obtener los colores disponibles del producto actual
     let availableColors = phoneColors; // Por defecto, todos los colores
-    
+
     // Si el producto tiene colores específicos, filtrarlos
     if (currentProduct && currentProduct.availableColors) {
-        availableColors = phoneColors.filter(color => 
+        availableColors = phoneColors.filter(color =>
             currentProduct.availableColors.includes(color.name)
         );
     }
-    
+
     // Vaciar el grid de colores
     if (colorsGrid) {
         colorsGrid.innerHTML = '';
-        
+
         // Agrupar colores por categorías
         const colorCategories = {
             "Neón": [],
             "Básicos": []
         };
-        
+
         // Clasificar colores disponibles en categorías
         availableColors.forEach(color => {
             if (color.name.includes('Neón')) {
@@ -838,13 +830,13 @@ function initializeProductOptions(modal) {
                 colorCategories["Básicos"].push(color);
             }
         });
-        
+
         // Generar HTML para cada categoría que tenga colores
         for (const [category, colors] of Object.entries(colorCategories)) {
             if (colors.length > 0) {
                 const categoryDiv = document.createElement('div');
                 categoryDiv.className = 'color-category';
-                
+
                 categoryDiv.innerHTML = `
                     <h4>${category}</h4>
                     <div class="color-options-row">
@@ -857,32 +849,32 @@ function initializeProductOptions(modal) {
                         `).join('')}
                     </div>
                 `;
-                
+
                 colorsGrid.appendChild(categoryDiv);
             }
         }
-        
+
         // Agregar listeners para los colores
         colorsGrid.querySelectorAll('.color-option').forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', function () {
                 const colorName = this.dataset.color;
                 const colorObject = phoneColors.find(c => c.name === colorName);
-                
+
                 if (colorObject) {
                     // Obtener referencia actualizada al elemento de color seleccionado
                     const updatedColorSelected = modal.querySelector('.modal-color-selected');
-                    
+
                     // Actualizar color seleccionado con estilo importante
                     updatedColorSelected.style.cssText = `background-color: ${colorObject.hex} !important`;
                     updatedColorSelected.dataset.color = colorName;
-                    
+
                     // Usar el nuevo objeto DOM
                     const newSpan = newColorPreview.querySelector('span');
                     if (newSpan) newSpan.textContent = colorName;
 
                     // NUEVO: Actualizar la imagen del producto según el color
                     updateProductImage(modal, colorName);
-                    
+
                     // Cerrar el panel
                     colorPanel.classList.remove('active');
                 }
@@ -892,37 +884,37 @@ function initializeProductOptions(modal) {
 
     // Remover listeners globales anteriores
     document.removeEventListener('click', window.colorClickOutsideHandler);
-    
-   // 3. Configurar un único listener global para cerrar al hacer clic fuera
-   window.colorClickOutsideHandler = function(e) {
-    if (!colorSelector.contains(e.target)) {
-        colorPanel.classList.remove('active');
-    }
-};
 
-document.addEventListener('click', window.colorClickOutsideHandler);
+    // 3. Configurar un único listener global para cerrar al hacer clic fuera
+    window.colorClickOutsideHandler = function (e) {
+        if (!colorSelector.contains(e.target)) {
+            colorPanel.classList.remove('active');
+        }
+    };
+
+    document.addEventListener('click', window.colorClickOutsideHandler);
 
     // Restaurar valores si el producto está seleccionado
     if (selectedProducts.has(productTitle)) {
-    const savedProduct = selectedProducts.get(productTitle);
-    
-    if (modelSelect && savedProduct.model) {
-        // Buscar la opción que coincide con el modelo guardado
-        for (let i = 0; i < modelSelect.options.length; i++) {
-            if (modelSelect.options[i].textContent === savedProduct.model) {
-                modelSelect.selectedIndex = i;
-                break;
+        const savedProduct = selectedProducts.get(productTitle);
+
+        if (modelSelect && savedProduct.model) {
+            // Buscar la opción que coincide con el modelo guardado
+            for (let i = 0; i < modelSelect.options.length; i++) {
+                if (modelSelect.options[i].textContent === savedProduct.model) {
+                    modelSelect.selectedIndex = i;
+                    break;
+                }
             }
         }
-    }
-    
+
         if (colorSelected && savedProduct.color) {
             const savedColor = phoneColors.find(c => c.name === savedProduct.color);
             if (savedColor) {
-            colorSelected.style.backgroundColor = savedColor.hex;
-            colorSelected.dataset.color = savedProduct.color;
-            const newSpan = newColorPreview.querySelector('span');
-            if (newSpan) newSpan.textContent = savedProduct.color;
+                colorSelected.style.backgroundColor = savedColor.hex;
+                colorSelected.dataset.color = savedProduct.color;
+                const newSpan = newColorPreview.querySelector('span');
+                if (newSpan) newSpan.textContent = savedProduct.color;
             }
         }
     }
@@ -946,27 +938,27 @@ function updateProductImage(modal, colorName) {
     const productTitle = modal.dataset.currentProduct;
     const modalImg = modal.querySelector('.modal-img');
     const currentProduct = products.find(p => p.title === productTitle);
-    
+
     // Si el producto no existe, salir
     if (!currentProduct) return;
-    
+
     // Guardar la imagen original solo la primera vez
     if (!modalImg.dataset.originalSrc) {
         modalImg.dataset.originalSrc = currentProduct.defaultImage || currentProduct.image || modalImg.src;
     }
-    
+
     if (currentProduct.colorImages && currentProduct.colorImages[colorName]) {
         // Mostrar indicador de carga
         showLoadingIndicator(modalImg);
-        
+
         // Cargar la nueva imagen
         const newImg = new Image();
-        newImg.onload = function() {
+        newImg.onload = function () {
             // Una vez cargada, actualizar la imagen y quitar el indicador
             modalImg.src = currentProduct.colorImages[colorName];
             hideLoadingIndicator(modalImg);
         };
-        newImg.onerror = function() {
+        newImg.onerror = function () {
             // En caso de error, volver a la imagen original
             if (modalImg.dataset.originalSrc) {
                 modalImg.src = modalImg.dataset.originalSrc;
@@ -988,7 +980,7 @@ function showLoadingIndicator(imgElement) {
         spinner = document.createElement('div');
         spinner.className = 'loading-spinner';
         spinner.innerHTML = '<div class="spinner"></div>';
-        
+
         // Insertar después de la imagen
         imgElement.parentElement.insertBefore(spinner, imgElement.nextSibling);
     }
@@ -1008,13 +1000,13 @@ function hideLoadingIndicator(imgElement) {
 function updateModalMessage(modal, selectedOptions) {
     const productTitle = modal.dataset.currentProduct;
     let message = `Hola! 👋\n\nMe interesa el producto ${productTitle}`;
-    
+
     if (selectedOptions.model || selectedOptions.color) {
         message += '\nDetalles seleccionados:';
         if (selectedOptions.model) message += `\n- Modelo: ${selectedOptions.model}`;
         if (selectedOptions.color) message += `\n- Color: ${selectedOptions.color}`;
     }
-    
+
     message += '\n\n¿Podrías darme más información sobre precio y disponibilidad?\n\nGracias!';
 
     // Actualizar configuración de mensajes
@@ -1031,8 +1023,8 @@ function createProductCard(product) {
 
     // Usar siempre defaultImage y tener una imagen de respaldo
     const imagePath = product.defaultImage || product.image || '/assets/Img/placeholder.jpg';
-    
-   card.innerHTML = `
+
+    card.innerHTML = `
         <img src="${imagePath}" alt="${product.title}">
         <div class="product-details">
             <h3>${product.title}</h3>
@@ -1040,7 +1032,7 @@ function createProductCard(product) {
             <p class="price">${product.price}</p>
         </div>
     `;
-    
+
     return card;
 }
 
@@ -1049,36 +1041,36 @@ function loadInitialProducts() {
     const initialProductsCount = 4;
     let delay = 0;
 
-    for(let i = 0; i < initialProductsCount && i < products.length; i++) {
+    for (let i = 0; i < initialProductsCount && i < products.length; i++) {
         const product = products[i];
         const productCard = createProductCard(product);
-        
+
         productsSection.appendChild(productCard);
-        
+
         // Mostrar el producto con delay
         setTimeout(() => {
             productCard.classList.remove('loading');
             productCard.classList.add('show');
         }, delay);
-        
+
         delay += 200;
     }
-    
+
     currentProductIndex = initialProductsCount;
 }
 
 // ================ FUNCIONES DEL CARRUSEL ================
 function showCarouselItem(index) {
     currentCarouselIndex = index;
-    
+
     const carouselItems = document.querySelectorAll('.carousel-item');
     const carouselButtons = document.querySelectorAll('.carousel-btn');
-    
+
     // Asegurarse de que el índice esté dentro del rango
     if (currentCarouselIndex >= carouselItems.length) {
         currentCarouselIndex = 0;
     }
-    
+
     carouselItems.forEach((item) => {
         item.style.transform = `translateX(-${currentCarouselIndex * 100}%)`;
     });
@@ -1100,7 +1092,7 @@ function resetCarouselInterval() {
 
 function initializeCarousel() {
     const carousel = document.querySelector('.carousel');
-    
+
     // Definir las imágenes para cada slide y sus versiones responsivas
     const slides = [
         {
@@ -1198,7 +1190,7 @@ function initializeCarousel() {
 
 // Eliminar los event listeners anteriores de beforeunload y load
 // y reemplazarlos con este:
-window.onpagehide = function() {
+window.onpagehide = function () {
     window.scrollTo(0, 0);
 };
 
@@ -1222,44 +1214,44 @@ function initializeModalListeners() {
     const closeBtn = modal.querySelector('.close-modal');
     const checkbox = modal.querySelector('.select-product');
     const modalButtons = modal.querySelectorAll('.modal-btn');
-    
+
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
-    
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.style.display === 'block') {
             closeModal();
         }
     });
-    
-    checkbox.addEventListener('change', function() {
+
+    checkbox.addEventListener('change', function () {
         updateSelectedProduct(modal);
     });
-    
+
     initializeModalButtons(modalButtons, modal);
 
     // Agregar listener para "Limpiar todo"
     document.querySelector('.clear-all').addEventListener('click', () => {
         selectedProducts.clear();
         updateSelectedProductsList();
-        
+
         // Actualizar checkbox en modal si está abierto
         const modal = document.getElementById('productModal');
         if (modal && window.getComputedStyle(modal).display !== 'none') {
             const checkbox = modal.querySelector('.select-product');
             if (checkbox) checkbox.checked = false;
-            
+
             // Limpiar selecciones visuales del modal
             resetModalSelections(modal);
         }
-        
+
         // Limpiar selección visual en todas las product cards
         document.querySelectorAll('.product-card').forEach(card => {
             card.classList.remove('selected');
         });
-    
+
         // Actualizar texto de los botones en el modal
         const modalButtons = document.querySelectorAll('.modal-btn');
         updateButtonsText(modalButtons);
@@ -1270,10 +1262,10 @@ function initializeModalListeners() {
         if (selectedProducts.size === 0) {
             return; // No hacer nada si no hay productos seleccionados
         }
-        
+
         const message = WHATSAPP_CONFIG.template(selectedProducts);
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`);
-        
+
         // Opcionalmente, limpiar la selección después de enviar
         // selectedProducts.clear();
         // updateSelectedProductsList();
@@ -1282,7 +1274,7 @@ function initializeModalListeners() {
 
 function initializeModalButtons(modalButtons, modal) {
     modalButtons.forEach((btn, index) => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             if (index === 0) {
                 handleWhatsAppButton();
             } else {
@@ -1295,7 +1287,7 @@ function initializeModalButtons(modalButtons, modal) {
 function updateButtonsText(buttons) {
     const count = selectedProducts.size;
     const suffix = count > 0 ? ` (${count})` : '';
-    
+
     buttons[0].innerHTML = `<i class="fab fa-whatsapp"></i>Consultar por WhatsApp${suffix}`;
     buttons[1].innerHTML = `<i class="far fa-envelope"></i>Consultar por Email${suffix}`;
 }
@@ -1306,23 +1298,23 @@ function handleWhatsAppButton() {
     const modelSelect = modal.querySelector('#modalPhoneModel');
     const colorSelected = modal.querySelector('.modal-color-selected');
     const checkbox = modal.querySelector('.select-product');
-    
+
     // Si hay productos seleccionados, usar esos
     if (selectedProducts.size > 0 && checkbox.checked) {
         const message = WHATSAPP_CONFIG.template(selectedProducts);
         window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`);
         return;
     }
-    
+
     // Si no, crear un mensaje con el producto actual y sus selecciones
     const currentSelection = {
         model: modelSelect?.value || '',
         color: getSelectedColorName(colorSelected) || ''
     };
-    
+
     const tempMap = new Map();
     tempMap.set(currentProduct, currentSelection);
-    
+
     const message = WHATSAPP_CONFIG.template(tempMap);
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`);
 }
@@ -1333,7 +1325,7 @@ function handleEmailButton() {
     const modelSelect = modal.querySelector('#modalPhoneModel');
     const colorSelected = modal.querySelector('.modal-color-selected');
     const checkbox = modal.querySelector('.select-product');
-    
+
     // Si hay productos seleccionados, usar esos
     if (selectedProducts.size > 0 && checkbox.checked) {
         const subject = EMAIL_CONFIG.subject(selectedProducts.size);
@@ -1341,16 +1333,16 @@ function handleEmailButton() {
         window.location.href = `mailto:${EMAIL_CONFIG.address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         return;
     }
-    
+
     // Si no, crear un mensaje con el producto actual y sus selecciones
     const currentSelection = {
         model: modelSelect?.value || '',
         color: getSelectedColorName(colorSelected) || ''
     };
-    
+
     const tempMap = new Map();
     tempMap.set(currentProduct, currentSelection);
-    
+
     const subject = EMAIL_CONFIG.subject(1);
     const body = EMAIL_CONFIG.template(tempMap);
     window.location.href = `mailto:${EMAIL_CONFIG.address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -1397,14 +1389,14 @@ function initializeLoadMoreButton() {
             for (let i = currentProductIndex; i < currentProductIndex + productsToLoad && i < products.length; i++) {
                 const product = products[i];
                 const productCard = createProductCard(product);
-                
+
                 productsSection.appendChild(productCard);
-                
+
                 setTimeout(() => {
                     productCard.classList.remove('loading');
                     productCard.classList.add('show');
                 }, delay);
-                
+
                 delay += 200;
             }
 
@@ -1422,42 +1414,42 @@ function initializeNavigation() {
     // Usar IDs para asegurarnos de que sean únicos
     const menuToggle = document.getElementById('menuToggle');
     const mobileMenu = document.getElementById('mobileMenu');
-    
+
     if (menuToggle && mobileMenu) {
         // Eliminar eventos existentes para prevenir duplicación
         const newMenuToggle = menuToggle.cloneNode(true);
         menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
-        
-         // Añadir evento limpio
-         newMenuToggle.addEventListener('click', function(e) {
+
+        // Añadir evento limpio
+        newMenuToggle.addEventListener('click', function (e) {
             e.stopPropagation();
             console.log('Hamburger clicked');
-            
+
             this.classList.toggle('active');
             mobileMenu.classList.toggle('active');
-            
+
             // Si el menú se está abriendo, resetear la vista de productos
             if (mobileMenu.classList.contains('active')) {
                 resetProductsView();
             }
-            
+
             // Controlar overflow
             document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
-        
+
         // Cerrar menú al hacer click en enlaces - con delegate
-        document.querySelector('.mobile-nav').addEventListener('click', function(e) {
+        document.querySelector('.mobile-nav').addEventListener('click', function (e) {
             if (e.target.classList.contains('nav-item')) {
                 mobileMenu.classList.remove('active');
                 newMenuToggle.classList.remove('active');
                 document.body.style.overflow = '';
             }
         });
-        
+
         // Cerrar al hacer click fuera
-        document.addEventListener('click', function(e) {
-            if (mobileMenu.classList.contains('active') && 
-                !mobileMenu.contains(e.target) && 
+        document.addEventListener('click', function (e) {
+            if (mobileMenu.classList.contains('active') &&
+                !mobileMenu.contains(e.target) &&
                 e.target !== newMenuToggle) {
                 mobileMenu.classList.remove('active');
                 newMenuToggle.classList.remove('active');
@@ -1465,9 +1457,9 @@ function initializeNavigation() {
             }
         });
     } else {
-        console.error('Elementos del menú móvil no encontrados'); 
+        console.error('Elementos del menú móvil no encontrados');
     }
-    
+
     // Resto de la inicialización de navegación
 }
 
@@ -1491,14 +1483,14 @@ function initializeSearchBar() {
         }
 
         loadAllProducts();
-        
+
         const productCards = document.querySelectorAll('.product-card');
         let hasResults = false;
-        
+
         productCards.forEach(card => {
             const title = card.querySelector('h3').textContent.toLowerCase();
             const description = card.querySelector('.product-details p:not(.price)').textContent.toLowerCase();
-            
+
             if (title.includes(searchTerm) || description.includes(searchTerm)) {
                 card.style.display = 'block';
                 card.classList.add('show');
@@ -1508,7 +1500,7 @@ function initializeSearchBar() {
                 card.classList.remove('show');
             }
         });
-        
+
         loadMoreBtn.style.display = 'none';
         showNoResultsMessage(hasResults, productsSection);
     }
@@ -1537,25 +1529,25 @@ function initializeSearchBar() {
                 e.preventDefault();
                 const searchTerm = mobileSearch.value.toLowerCase().trim();
                 handleSearch(searchTerm);
-                
+
                 // Usar getElementById para mantener consistencia
                 const mobileMenu = document.getElementById('mobileMenu');
                 const menuToggle = document.getElementById('menuToggle');
-                
+
                 // Cerrar menú móvil
                 if (mobileMenu && menuToggle) {
                     mobileMenu.classList.remove('active');
                     menuToggle.classList.remove('active');
-                    
+
                     // Forzar el ícono a su estado inicial
                     const menuIcon = menuToggle.querySelector('i');
                     if (menuIcon) {
                         menuIcon.className = 'fas fa-bars';
                     }
-                    
+
                     document.body.style.overflow = '';
                 }
-                
+
                 setTimeout(() => {
                     scrollToProducts();
                     mobileSearch.value = '';
@@ -1570,9 +1562,9 @@ function initializeSearchBar() {
         const headerHeight = document.querySelector('.header').offsetHeight;
         const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 0;
         const offset = headerHeight + navbarHeight + 20;
-        
+
         const targetPosition = productsSection.getBoundingClientRect().top + window.pageYOffset - offset;
-        
+
         window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
@@ -1594,31 +1586,31 @@ function resetProductsView() {
     const productsSection = document.querySelector('.products-section');
     const loadMoreBtn = document.querySelector('.load-more');
     const noResults = document.querySelector('.no-results');
-    
+
     // Eliminar mensaje de no resultados si existe
     if (noResults) {
         noResults.remove();
     }
-    
+
     // Limpiar productos actuales
     productsSection.innerHTML = '';
-    
+
     // Recargar productos iniciales
     currentProductIndex = 4;
     loadInitialProducts();
-    
+
     // Mostrar botón "Ver más" si hay más productos
     loadMoreBtn.style.display = products.length > 4 ? 'block' : 'none';
 }
 
 function loadAllProducts() {
     const productsSection = document.querySelector('.products-section');
-    
+
     // Si ya están todos los productos cargados, no hacer nada
     if (document.querySelectorAll('.product-card').length === products.length) {
         return;
     }
-    
+
     // Cargar todos los productos restantes
     for (let i = currentProductIndex; i < products.length; i++) {
         const product = products[i];
@@ -1635,7 +1627,7 @@ function showNoResultsMessage(hasResults, container) {
     if (existingMessage) {
         existingMessage.remove();
     }
-    
+
     // Mostrar mensaje si no hay resultados
     if (!hasResults) {
         const message = document.createElement('div');
@@ -1687,18 +1679,18 @@ function rgb2hex(rgb) {
 function updateSelectedProductsList() {
     const selectedItems = document.querySelectorAll('.selected-items');
     const selectedCounts = document.querySelectorAll('.selected-count');
-    
+
     selectedCounts.forEach(count => {
         count.textContent = selectedProducts.size;
     });
-    
+
     selectedItems.forEach(container => {
         container.innerHTML = '';
-        
+
         selectedProducts.forEach((details, productName) => {
             const item = document.createElement('div');
             item.className = 'selected-item';
-            
+
             let itemHTML = `<span>${productName}</span>`;
             if (details.model || details.color) {
                 itemHTML += '<div class="selected-item-details">';
@@ -1707,7 +1699,7 @@ function updateSelectedProductsList() {
                 if (details.color) itemHTML += `<small style="display: block;">Color: ${details.color}</small>`;
                 itemHTML += '</div>';
             }
-            
+
             item.innerHTML = `
                 <div class="selected-item-content">
                     ${itemHTML}
@@ -1716,27 +1708,27 @@ function updateSelectedProductsList() {
                     <i class="fas fa-times"></i>
                 </button>
             `;
-            
+
             const removeBtn = item.querySelector('.remove-item');
             if (removeBtn) {
                 removeBtn.addEventListener('click', (e) => {
                     e.preventDefault();
                     e.stopPropagation();
                     selectedProducts.delete(productName);
-                    
+
                     // Actualizar checkbox si el modal está abierto
                     const modal = document.getElementById('productModal');
-                    if (modal.style.display === 'block' && 
+                    if (modal.style.display === 'block' &&
                         modal.dataset.currentProduct === productName) {
                         const checkbox = modal.querySelector('.select-product');
                         if (checkbox) checkbox.checked = false;
                     }
-                    
+
                     updateSelectedProductsList();
                     updateButtonsText(document.querySelectorAll('.modal-btn'));
                 });
             }
-            
+
             container.appendChild(item);
         });
     });
@@ -1746,61 +1738,61 @@ function updateSelectedProductsList() {
 }
 
 // Manejo del carrito móvil
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const mobileCartToggle = document.querySelector('.mobile-menu .mobile-cart-toggle');
     const mobileDropdownContent = document.querySelector('.mobile-menu .mobile-dropdown-content');
-    
+
     if (mobileCartToggle && mobileDropdownContent) {
-        mobileCartToggle.addEventListener('click', function(e) {
+        mobileCartToggle.addEventListener('click', function (e) {
             e.stopPropagation(); // Evitar que se cierre el menú hamburguesa
             mobileDropdownContent.classList.toggle('active');
             mobileCartToggle.classList.toggle('active');
-            
+
             // Actualizar los items del carrito móvil
             updateMobileCart();
         });
-        
+
         // Manejar clics dentro del dropdown para evitar propagación
-        mobileDropdownContent.addEventListener('click', function(e) {
+        mobileDropdownContent.addEventListener('click', function (e) {
             e.stopPropagation();
         });
-        
+
         // Configurar el botón para limpiar selección
         const mobileClear = mobileDropdownContent.querySelector('.clear-all');
         if (mobileClear) {
-        mobileClear.addEventListener('click', function(e) {
-        e.stopPropagation();
-        // Llamar a la función existente de limpieza
-        selectedProducts.clear();
-        updateSelectedProductsList();
-        
-        // Actualizar checkbox en modal si está abierto
-        const modal = document.getElementById('productModal');
-        if (modal && window.getComputedStyle(modal).display !== 'none') {
-            const checkbox = modal.querySelector('.select-product');
-            if (checkbox) checkbox.checked = false;
-            
-            // Limpiar selecciones visuales del modal
-            resetModalSelections(modal);
-        }
-        
-        // Limpiar selección visual en product cards
-        document.querySelectorAll('.product-card').forEach(card => {
-            card.classList.remove('selected');
-        });
-        
-        // Cerrar el dropdown
-        mobileDropdownContent.classList.remove('active');
-        mobileCartToggle.classList.remove('active');
+            mobileClear.addEventListener('click', function (e) {
+                e.stopPropagation();
+                // Llamar a la función existente de limpieza
+                selectedProducts.clear();
+                updateSelectedProductsList();
 
-        updateButtonsText(document.querySelectorAll('.modal-btn'));
-    });
-}
-        
+                // Actualizar checkbox en modal si está abierto
+                const modal = document.getElementById('productModal');
+                if (modal && window.getComputedStyle(modal).display !== 'none') {
+                    const checkbox = modal.querySelector('.select-product');
+                    if (checkbox) checkbox.checked = false;
+
+                    // Limpiar selecciones visuales del modal
+                    resetModalSelections(modal);
+                }
+
+                // Limpiar selección visual en product cards
+                document.querySelectorAll('.product-card').forEach(card => {
+                    card.classList.remove('selected');
+                });
+
+                // Cerrar el dropdown
+                mobileDropdownContent.classList.remove('active');
+                mobileCartToggle.classList.remove('active');
+
+                updateButtonsText(document.querySelectorAll('.modal-btn'));
+            });
+        }
+
         // Configurar el botón para consultar por WhatsApp
         const mobileConsult = mobileDropdownContent.querySelector('.consult-selected');
         if (mobileConsult) {
-            mobileConsult.addEventListener('click', function(e) {
+            mobileConsult.addEventListener('click', function (e) {
                 e.stopPropagation();
                 // Llamar a la función existente para enviar WhatsApp
                 if (selectedProducts.size > 0) {
@@ -1817,35 +1809,35 @@ document.addEventListener('DOMContentLoaded', function() {
 function updateMobileCart() {
     const mobileSelectedItems = document.querySelector('.mobile-menu .selected-items');
     const desktopSelectedItems = document.querySelector('.dropdown-content .selected-items');
-    
+
     if (mobileSelectedItems && desktopSelectedItems) {
         // Sincronizar contenido
         mobileSelectedItems.innerHTML = desktopSelectedItems.innerHTML;
-        
+
         // Volver a añadir listeners a los botones de eliminar
         mobileSelectedItems.querySelectorAll('.remove-item').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 const productName = this.dataset.product;
-                
+
                 // Eliminar producto
                 selectedProducts.delete(productName);
-                
+
                 // Actualizar ambos carritos
                 updateSelectedProductsList();
-                
+
                 // Actualizar checkbox en modal si está abierto
                 const modal = document.getElementById('productModal');
-                if (modal && window.getComputedStyle(modal).display !== 'none' && 
+                if (modal && window.getComputedStyle(modal).display !== 'none' &&
                     modal.dataset.currentProduct === productName) {
                     const checkbox = modal.querySelector('.select-product');
                     if (checkbox) checkbox.checked = false;
-                    
+
                     // Limpiar selecciones visuales del modal
                     resetModalSelections(modal);
                 }
-                
+
                 // Actualizar product cards
                 document.querySelectorAll('.product-card').forEach(card => {
                     const cardTitle = card.querySelector('h3')?.textContent;
@@ -1856,11 +1848,11 @@ function updateMobileCart() {
             });
         });
     }
-    
+
     // Sincronizar contadores
     const mobileCounts = document.querySelectorAll('.mobile-cart .selected-count');
     const desktopCount = document.querySelector('.nav-actions .selected-count');
-    
+
     if (desktopCount && mobileCounts.length) {
         const count = desktopCount.textContent;
         mobileCounts.forEach(counter => {
@@ -1868,3 +1860,25 @@ function updateMobileCart() {
         });
     }
 }
+
+// Detectar capacidades del dispositivo
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+// Ajustar comportamiento según dispositivo
+function initializePerformanceOptimizations() {
+    if (isMobile) {
+        // Reducir efectos visuales en mobile
+        document.body.classList.add('mobile-optimized');
+        
+        // Cargar menos productos inicialmente en mobile
+        const initialProductsCountMobile = 2;
+        // ...etc
+    }
+}
+
+// Llamar a esta función al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    // ...código existente
+    initializePerformanceOptimizations();
+});
+
