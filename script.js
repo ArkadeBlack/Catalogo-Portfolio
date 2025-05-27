@@ -118,7 +118,6 @@ const products = [
         id: 1,
         defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/18 BLACK.jpg',
         title: 'Funda Silicone Case Iphone',
-        description: 'Para modelos de Iphone 11/13/14/15',
         price: '$7.000',
         colorImages: {
             'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 13-14-15/49 PAPAYA.jpg',
@@ -199,7 +198,6 @@ const products = [
         id: 2,
         defaultImage: '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/3.jpg',
         title: 'Funda Silicone Case Iphone 16',
-        description: 'Para modelos de Iphone 16',
         price: '$8.500',
         colorImages: {
             'Papaya': '/assets/Img/product/SILICONE CASE/APPLE/IPHONE 16/49.jpg',
@@ -281,8 +279,7 @@ const products = [
         id: 3,
         defaultImage: '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/4.jpg',
         title: 'Funda Silicone Case Samsung',
-        description: 'Para modelos de Samsung 23/24/25',
-        price: '$7.000',
+        price: 'STOCK AGOTADO',
         colorImages: {
             'Red': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/1.jpg',
             'Grape': '/assets/Img/product/SILICONE CASE/SAMSUNG/S23-24-25/2.jpg',
@@ -315,8 +312,7 @@ const products = [
         id: 4,
         defaultImage: '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/1.jpg',
         title: 'Funda Silicone Case Samsung Ultra',
-        description: 'Para modelos de Samsung Ultra',
-        price: '$8.000',
+        price: 'STOCK AGOTADO',
         colorImages: {
             'Red': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/1.jpg',
             'Grape': '/assets/Img/product/SILICONE CASE/SAMSUNG/S-ULTRA/2.jpg',
@@ -348,7 +344,6 @@ const products = [
         id: 5,
         defaultImage: '/assets/Img/product/BIODEGRADABLE/7.jpg',
         title: 'Funda Biodegradable',
-        description: 'Para los modelos de Iphone 11/13/14/15',
         price: '$6.000',
         colorImages: {
             'Vermillion': '/assets/Img/product/BIODEGRADABLE/5.jpg',
@@ -367,12 +362,33 @@ const products = [
         availableModels: [
             'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
         ]
+    },{
+        id: 5.5,
+        defaultImage: '/assets/Img/product/BIODEGRADABLE/1.jpg',
+        title: 'Funda Biodegradable Iphone 16',
+        price: '$7.500',
+        colorImages: {
+            'Vermillion': '/assets/Img/product/BIODEGRADABLE/5.jpg',
+            'Rosa Pastel': '/assets/Img/product/BIODEGRADABLE/1.jpg',
+            'Amarillo Citrino': '/assets/Img/product/BIODEGRADABLE/8.jpg',
+            'Verde Oliva': '/assets/Img/product/BIODEGRADABLE/3.jpg',
+            'Verde Menta': '/assets/Img/product/BIODEGRADABLE/2.jpg',
+            'Azul Espacial': '/assets/Img/product/BIODEGRADABLE/4.jpg',
+            'Negro Onix': '/assets/Img/product/BIODEGRADABLE/6.jpg',
+            'Blanco Dirty': '/assets/Img/product/BIODEGRADABLE/7.jpg',
+
+        },
+        availableColors: [
+            'Vermillion', 'Rosa Pastel', 'Amarillo Citrino', 'Verde Oliva', 'Verde Menta', 'Azul Espacial', 'Negro Onix', 'Blanco Dirty'
+        ],
+        availableModels: [
+            'iPhone 16 Pro', 'iPhone 16'
+        ]
     },
     {
         id: 6,
         image: '/assets/Img/product/POOF/1.jpg',
         title: 'Funda Poof',
-        description: 'Para los modelos de Iphone',
         price: 'STOCK AGOTADO',
         colorImages: {
             'Blanco Dirty': '/assets/Img/product/POOF/1.jpg',
@@ -393,7 +409,6 @@ const products = [
         id: 7,
         defaultImage: '/assets/Img/product/WAVE/3.jpg',
         title: 'Funda Wave',
-        description: 'Para los modelos de Iphone',
         price: 'STOCK AGOTADO',
         colorImages: {
             'Blanco Dirty': '/assets/Img/product/WAVE/1.jpg',
@@ -415,7 +430,6 @@ const products = [
         id: 8,
         defaultImage: '/assets/Img/product/3en1/3en1.jpg',
         title: 'Funda 3 en 1',
-        description: 'Para los modelos variados',
         price:'STOCK AGOTADO',
         colorImages: {
         },
@@ -430,7 +444,6 @@ const products = [
         id: 9,
         defaultImage: '/assets/Img/product/TRANSPARENTE/SAMSUNG/samsung.jpg',
         title: 'Funda Transparente Samsung',
-        description: 'Para Diferentes modelos de Samsung',
         price: 'STOCK AGOTADO',
         colorImages: {
         },
@@ -445,7 +458,6 @@ const products = [
         id: 10,
         defaultImage: '/assets/Img/product/TRANSPARENTE/XIAOMI/xiaomi.jpg',
         title: 'Funda Transparente Xiaomi',
-        description: 'Para Diferentes modelos de Xiaomi',
         price: 'STOCK AGOTADO',
         colorImages: {
         },
@@ -460,7 +472,6 @@ const products = [
         id: 11,
         defaultImage: '/assets/Img/product/TRANSPARENTE/MOTOROLA/motorola.jpg',
         title: 'Funda Transparente Motorola',
-        description: 'Para Diferentes modelos de Motorola',
         price: 'STOCK AGOTADO',
         colorImages: {
         },
@@ -475,7 +486,6 @@ const products = [
         id: 12,
         defaultImage: '/assets/Img/product/TRANSPARENTE/HUAWEI/huawei.jpg',
         title: 'Funda Transparente Huawei',
-        description: 'Para Diferentes modelos de Huawei',
         price: 'STOCK AGOTADO',
         colorImages: {
         },
@@ -490,8 +500,7 @@ const products = [
         id: 13,
         defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/MAGSAFE/TM.jpg',
         title: 'Funda Transparente Iphone MagSafe',
-        description: 'Para modelos de Iphone MagSafe 11/13/14/15',
-        price: '$6.500',
+        price: 'STOCK AGOTADO',
         colorImages: {
         },
         availableColors: [
@@ -505,8 +514,7 @@ const products = [
         id: 14,
         defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/13-14-15-16/apple.jpg',
         title: 'Funda Transparente Iphone',
-        description: 'Para Diferentes modelos de Apple 11/13/14/15/16',
-        price: 'STOCK AGOTADO',
+        price: '$5.000',
         colorImages: {
         },
         availableColors: [
@@ -514,15 +522,27 @@ const products = [
         ],
         availableModels: [
             'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max', 
+        ]
+    },
+    {
+        id: 14.5,
+        defaultImage: '/assets/Img/product/TRANSPARENTE/APPLE/13-14-15-16/apple.jpg',
+        title: 'Funda Transparente Iphone 16',
+        price: '$6.500',
+        colorImages: {
+        },
+        availableColors: [
+            'Transparente'
+        ],
+        availableModels: [
             'iPhone 16 Pro', 'iPhone 16'
         ]
     },
     {
         id: 15,
         defaultImage: '/assets/Img/product/ACS/1.jpg',
-        title: 'Funda Anti golpes con soporte',
-        description: 'Para los modelos de Iphone 11/13/14/15',
-        price: '$5.000',
+        title: 'Funda Anti golpes con soporte Iphone',
+        price: 'STOCK AGOTADO',
         colorImages: {
             'Negro Onix': '/assets/Img/product/ACS/1.jpg',
         },
@@ -531,6 +551,20 @@ const products = [
         ],
         availableModels: [
             'iPhone 11',  'iPhone 13', 'iPhone 13 Pro Max', 'iPhone 14 Pro Max', 'iPhone 15',  'iPhone 15 Pro Max'
+        ]
+    },{
+        id: 16,
+        defaultImage: '/assets/Img/product/ACS/1.jpg',
+        title: 'Funda Anti golpes con soporte Iphone 16',
+        price: 'STOCK AGOTADO',
+        colorImages: {
+            'Negro Onix': '/assets/Img/product/ACS/1.jpg',
+        },
+        availableColors: [
+            'Negro Onix'
+        ],
+        availableModels: [
+            'iPhone 16 Pro', 'iPhone 16'
         ]
     }
 ];
@@ -628,7 +662,6 @@ function openModal(productCard) {
 
     const modalImg = modal.querySelector('.modal-img');
     const modalTitle = modal.querySelector('.modal-details h2');
-    const modalDescription = modal.querySelector('.modal-description');
     const modalPrice = modal.querySelector('.modal-price');
     const checkbox = modal.querySelector('.select-product');
 
@@ -646,14 +679,12 @@ function openModal(productCard) {
     const productId = productCard.dataset.productId;
     const product = products.find(p => p.id == productId);
     const title = productCard.querySelector('h3');
-    const description = productCard.querySelector('.product-details p:not(.price)');
     const price = productCard.querySelector('.price');
 
     // Actualizar contenido del modal
     modalImg.src = product ? (product.defaultImage || product.image) : img.src;
     modalImg.alt = img.alt;
     modalTitle.textContent = title.textContent;
-    modalDescription.textContent = description.textContent;
     modalPrice.textContent = price.textContent;
 
     // Guardar el ID del producto en el modal
@@ -1028,7 +1059,6 @@ function createProductCard(product) {
         <img src="${imagePath}" alt="${product.title}">
         <div class="product-details">
             <h3>${product.title}</h3>
-            <p>${product.description}</p>
             <p class="price">${product.price}</p>
         </div>
     `;
@@ -1036,18 +1066,29 @@ function createProductCard(product) {
     return card;
 }
 
+// ================ FUNCIONES DE PRODUCTOS ================
+function getSortedProducts() {
+    return products.slice().sort((a, b) => {
+        const agotadoA = a.price.trim().toUpperCase() === 'STOCK AGOTADO';
+        const agotadoB = b.price.trim().toUpperCase() === 'STOCK AGOTADO';
+        if (agotadoA === agotadoB) return 0;
+        return agotadoA ? 1 : -1;
+    });
+}
+
+
 function loadInitialProducts() {
     const productsSection = document.querySelector('.products-section');
     const initialProductsCount = 4;
     let delay = 0;
+    const sortedProducts = getSortedProducts();
 
-    for (let i = 0; i < initialProductsCount && i < products.length; i++) {
-        const product = products[i];
+    for (let i = 0; i < initialProductsCount && i < sortedProducts.length; i++) {
+        const product = sortedProducts[i];
         const productCard = createProductCard(product);
 
         productsSection.appendChild(productCard);
 
-        // Mostrar el producto con delay
         setTimeout(() => {
             productCard.classList.remove('loading');
             productCard.classList.add('show');
@@ -1385,9 +1426,10 @@ function initializeLoadMoreButton() {
             const productsSection = document.querySelector('.products-section');
             const productsToLoad = 4;
             let delay = 0;
+            const sortedProducts = getSortedProducts();
 
-            for (let i = currentProductIndex; i < currentProductIndex + productsToLoad && i < products.length; i++) {
-                const product = products[i];
+            for (let i = currentProductIndex; i < currentProductIndex + productsToLoad && i < sortedProducts.length; i++) {
+                const product = sortedProducts[i];
                 const productCard = createProductCard(product);
 
                 productsSection.appendChild(productCard);
@@ -1403,7 +1445,7 @@ function initializeLoadMoreButton() {
             currentProductIndex += productsToLoad;
 
             // Ocultar el botón si no hay más productos
-            if (currentProductIndex >= products.length) {
+            if (currentProductIndex >= sortedProducts.length) {
                 loadMoreBtn.parentElement.style.display = 'none';
             }
         });
@@ -1477,33 +1519,29 @@ function initializeSearchBar() {
 
     // Función común de búsqueda
     function handleSearch(searchTerm) {
-        if (searchTerm === '') {
-            resetProductsView();
-            return;
-        }
-
-        loadAllProducts();
-
-        const productCards = document.querySelectorAll('.product-card');
-        let hasResults = false;
-
-        productCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            const description = card.querySelector('.product-details p:not(.price)').textContent.toLowerCase();
-
-            if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                card.style.display = 'block';
-                card.classList.add('show');
-                hasResults = true;
-            } else {
-                card.style.display = 'none';
-                card.classList.remove('show');
-            }
-        });
-
-        loadMoreBtn.style.display = 'none';
-        showNoResultsMessage(hasResults, productsSection);
+    if (searchTerm === '') {
+        resetProductsView();
+        return;
     }
+
+    const productsSection = document.querySelector('.products-section');
+    productsSection.innerHTML = '';
+    const sortedProducts = getSortedProducts();
+    let hasResults = false;
+
+    sortedProducts.forEach(product => {
+        if (product.title.toLowerCase().includes(searchTerm)) {
+            const productCard = createProductCard(product);
+            productsSection.appendChild(productCard);
+            productCard.classList.remove('loading');
+            productCard.classList.add('show');
+            hasResults = true;
+        }
+    });
+
+    loadMoreBtn.style.display = 'none';
+    showNoResultsMessage(hasResults, productsSection);
+}
 
     // Desktop search functionality
     if (desktopSearch) {
@@ -1605,15 +1643,15 @@ function resetProductsView() {
 
 function loadAllProducts() {
     const productsSection = document.querySelector('.products-section');
+    const sortedProducts = getSortedProducts();
 
     // Si ya están todos los productos cargados, no hacer nada
-    if (document.querySelectorAll('.product-card').length === products.length) {
+    if (document.querySelectorAll('.product-card').length === sortedProducts.length) {
         return;
     }
 
-    // Cargar todos los productos restantes
-    for (let i = currentProductIndex; i < products.length; i++) {
-        const product = products[i];
+    for (let i = currentProductIndex; i < sortedProducts.length; i++) {
+        const product = sortedProducts[i];
         const productCard = createProductCard(product);
         productsSection.appendChild(productCard);
         productCard.classList.remove('loading');
