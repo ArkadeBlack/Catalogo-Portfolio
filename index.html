@@ -1,348 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wuallua</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sitio Suspendido</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #e74c3c;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    .contacto {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
-    <div class="bg"></div>
-    <div class="bg bg2"></div>
-    <div class="bg bg3"></div>
-    <div class="bg bg4"></div>
-    <!-- Header Section -->
-    <header id="inicio" class="header">
-        <div class="text-shine">Importadores Registrados™</div>
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61575576605455&locale=es_LA" class="social-facebook" target="_blank" rel="noopener">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/walluarg?igsh=b2YzOWsyazJ0bHB1" class="social-instagram" target="_blank" rel="noopener">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:wallua.argentina@gmail.com" class="social-email">
-                <i class="far fa-envelope"></i>
-            </a>
-        </div>
-    </header>
-
-    <!-- Logo Section -->
-    <section id="logo-section" class="logo-section">
-        <div class="header-logo-container">
-            <video class="logo-video" autoplay loop muted playsinline>
-                <source src="./assets/video/LWTN.webm" type="video/webm">
-                <!-- Fallback a imagen -->
-                <img src="./assets/Img/logo.png" alt="Wallua Logo">
-            </video>
-        </div>
-    </section>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar reveal">
-        <button class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
-            <a href="#logo-section" class="nav-item">Inicio</a>
-            <a href="#nuestros-productos" class="nav-item">Productos</a>
-            <a href="#catalogo-mayorista" class="nav-item">Catálogo Mayorista</a>
-            <a href="#informacion" class="nav-item">Información</a>
-        </div>
-        <div class="nav-actions">
-            <div class="selected-products-dropdown">
-                <button class="dropdown-toggle">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="selected-count">0</span>
-                </button>
-                <div class="dropdown-content">
-                    <div class="dropdown-header">Productos seleccionados</div>
-                    <div class="selected-items"></div>
-                    <div class="dropdown-footer">
-                        <button class="clear-all">Limpiar todo</button>
-                        <button class="consult-selected">
-                            <i class="fab fa-whatsapp"></i>
-                            Hacer consulta
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Buscar productos...">
-            </div>
-        </div>
-    </nav>
-
-    <!-- Navbar móvil - agregar después del navbar desktop existente -->
-    <nav class="mobile-navbar">
-        <button id="menuToggle" class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <!-- Código para insertar dentro del menú hamburguesa -->
-        <div id="mobileMenu" class="mobile-menu">
-            <div class="mobile-menu-content">
-                <!-- Menú de navegación móvil -->
-                <div class="mobile-nav">
-                    <a href="#logo-section" class="nav-item">Inicio</a>
-                    <a href="#nuestros-productos" class="nav-item">Productos</a>
-                    <a href="#catalogo-mayorista" class="nav-item">Catálogo Mayorista</a>
-                    <a href="#informacion" class="nav-item">Información</a>
-                </div>
-                
-                <!-- Carrito en menú móvil (dentro del menú) -->
-                <div class="mobile-cart">
-                    <div class="mobile-cart-toggle">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="selected-count">0</span>
-                        <span class="cart-label">Ver carrito</span>
-                    </div>
-                    <div class="mobile-dropdown-content">
-                        <div class="dropdown-header">
-                            Productos seleccionados
-                        </div>
-                        <div class="selected-items">
-                            <!-- Los items se insertarán aquí dinámicamente -->
-                        </div>
-                        <div class="dropdown-footer">
-                            <button class="clear-all">
-                                <i class="fas fa-trash-alt"></i>
-                                Limpiar selección
-                            </button>
-                            <button class="consult-selected">
-                                <i class="fab fa-whatsapp"></i>
-                                Consultar por WhatsApp
-                            </button>
-                        </div>
-                    </div>
-                </div>              
-
-                
-                <!-- Redes sociales al final -->
-                <div class="mobile-social-links">
-                    <a href="https://www.instagram.com/walluarg?igsh=b2YzOWsyazJ0bHB1" target="_blank" rel="noopener">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61575576605455&locale=es_LA" target="_blank" rel="noopener">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    <a href="https://api.whatsapp.com/send?phone=5493812408224" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Carousel -->
-    <div class="carousel reveal">
-        <!-- El contenido se cargará dinámicamente desde JavaScript -->
-        <source media="(max-width: 768px)" srcset="${slide.tablet}">
-    </div>
-
-     <!-- Promo Section -->
-    <section class="promo-section reveal">
-    <!-- Dos videos separados para mejor control -->
-    <video autoplay loop muted playsinline class="promo-banner desktop-tablet-video">
-        <source src="./assets/video/BPW2.mp4" type="video/mp4">
-    </video>
-    
-    <video autoplay loop muted playsinline class="promo-banner mobile-video">
-        <source src="./assets/video/BPW.mp4" type="video/mp4">
-    </video>
-    
-    <!-- Fallback imagen (opcional) -->
-    <img src="./assets/Img/footer-img.png" alt="Promoción" class="promo-banner fallback-img">
-    </section>
-
-    <!-- Products Section -->
-    <section>
-        <div class="big-title-container reveal">
-            <h2 id="nuestros-productos" class="big-title">Nuestros Productos</h2>
-        </div>
-        <div class="products-section reveal">
-            <!-- Los productos se cargarán dinámicamente en JavaScript -->
-        </div>
-    </section>
-
-    <!-- Ver mas Section -->
-    <div class="load-more reveal">
-        <button>Ver Más</button>
-    </div>
-
-    <!-- Product Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-product">
-                <!-- Columna izquierda: Imagen y opciones -->
-                <div class="modal-left-column">
-                    <div class="modal-img-container">
-                        <img src="" alt="" class="modal-img">
-                    </div>
-                    
-                    <!-- Product Options (ahora debajo de la imagen) -->
-                    <div class="modal-options">
-                        <!-- Phone Model Selector -->
-                        <div class="modal-model-select">
-                            <select id="modalPhoneModel">
-                                <!-- Se llenará dinámicamente -->
-                            </select>
-                        </div>
-                        
-                        <!-- Color Selector -->
-                        <div class="modal-color-select">
-                            <div class="modal-color-preview">
-                                <div class="modal-color-selected"></div>
-                                <span>Seleccionar color</span>
-                            </div>
-                            <div class="modal-color-panel">
-                                <div class="modal-colors-grid"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Columna derecha: Información del producto -->
-                <div class="modal-right-column">
-                    <div class="modal-details">
-                        <h2></h2>
-                        <p class="modal-price"></p>
-                        
-                        <!-- Información de envío -->
-                        <div class="modal-shipping-info">
-                            <div class="shipping-option">
-                                <i class="fas fa-truck"></i>
-                                <span>Envíos a todo el país</span>
-                            </div>
-                            <div class="shipping-option">
-                                <i class="fas fa-store"></i>
-                                <span>Retiro en punto de venta</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Botones y checkbox -->
-                        <div class="modal-actions">
-                            <div class="modal-buttons">
-                                <button class="modal-btn whatsapp">
-                                    <i class="fab fa-whatsapp"></i>
-                                    Consultar por WhatsApp
-                                </button>
-                                <button class="modal-btn email">
-                                    <i class="far fa-envelope"></i>
-                                    Consultar por Email
-                                </button>
-                            </div>
-                            <label class="modal-checkbox">
-                                <input type="checkbox" class="select-product">
-                                <span class="checkbox-custom"></span>
-                                <span class="checkbox-label">Agregar al carrito</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Catálogo Mayorista Section -->
-    <section>
-        <div class="big-title-container reveal">
-            <h2 id="catalogo-mayorista" class="big-title">Catálogo Mayorista</h2>
-        </div>
-        <div class="catalog-section reveal reveal-delay-1">
-            <div class="catalog-container">
-                <div class="catalog-content">
-                    <img src="./assets/catalogo.png" class="catalog-image">
-                    <p class="catalog-description">Descarga nuestro catálogo completo con precios especiales para revendedores</p>
-                    <a href="https://wa.me/5493812408224?text=Hola!%20Me%20gustaría%20recibir%20el%20catálogo%20mayorista%20de%20Wallua." class="catalog-button" target="_blank" rel="noopener">
-                        <i class="fab fa-whatsapp"></i>
-                        Solicitar catálogo mayorista
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Information Section -->
-    <section>
-        <div class="big-title-container reveal">
-            <h2 id="informacion" class="big-title">Información</h2>
-        </div>
-        <div class="informacion-section reveal reveal-delay-1">
-            <div class="info-card">
-                <i class="fas fa-credit-card"></i>
-                <div class="info-details">
-                    <h3>Métodos de Pago</h3>
-                    <p>Aceptamos efectivo, transferencias y todas las tarjetas</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-truck"></i>
-                <div class="info-details">
-                    <h3>Envíos</h3>
-                    <p>Envíos a todo el país mediante transportes de confianza</p>
-                </div>
-            </div>
-            <div class="info-card">
-                <i class="fas fa-headset"></i>
-                <div class="info-details">
-                    <h3>Atención Personalizada</h3>
-                    <p>Asesoramiento experto para tu mejor compra y experiencia personal</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Float Buttons -->
-    <div class="float-buttons">
-        <div class="float-container">
-            <button class="float-btn top" aria-label="Volver arriba">
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            <a href="https://wa.me/5493812408224" class="float-btn whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <!-- Logo Section -->
-            <div class="footer-logo">
-                <img src="/assets/Img/footer-img.png" alt="Wallua Logo">
-            </div>
-
-            <!-- Navigation Section -->
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="#logo-section">Inicio</a></li>
-                    <li><a href="#nuestros-productos">Productos</a></li>
-                    <li><a href="#informacion">Información</a></li>
-                    <li class="phone">
-                        <i class="fas fa-phone"></i>
-                        <span>+54 9 3812 40-8224</span>
-                    </li>
-                </ul>
-            </nav>
-
-            <!-- Social Links -->
-            <div class="footer-social-links">
-                <a href="https://www.facebook.com/profile.php?id=61575576605455&locale=es_LA" class="social-facebook" target="_blank" rel="noopener">
-                    <i class="fab fa-facebook-f"></i><span>Facebook</span>
-                </a>
-                <a href="https://www.instagram.com/walluarg?igsh=b2YzOWsyazJ0bHB1" class="social-instagram" target="_blank" rel="noopener">
-                    <i class="fab fa-instagram"></i><span>Instagram</span>
-                </a>
-                <a href="mailto:wallua.argentina@gmail.com" class="social-email">
-                    <i class="far fa-envelope"></i><span>Email</span>
-                </a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>Sitio temporalmente desactivado</h1>
+    <p>Por favor, contactarse para regularizar la situación.</p>
+  </div>
 </body>
 </html>
