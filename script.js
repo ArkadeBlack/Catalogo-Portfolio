@@ -1079,7 +1079,7 @@ function getSortedProducts() {
 
 function loadInitialProducts() {
     const productsSection = document.querySelector('.products-section');
-    const initialProductsCount = 4;
+    const initialProductsCount = 8;
     let delay = 0;
     const sortedProducts = getSortedProducts();
 
